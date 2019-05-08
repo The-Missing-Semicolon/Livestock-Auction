@@ -1,2 +1,2 @@
 # Livestock-Auction
-Software to manage Livestock Auctions for county fairs.
+Software to manage livestock auctions for county fairs.
