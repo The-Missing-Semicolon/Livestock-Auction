@@ -1,0 +1,485 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7ADCA904-18A4-4050-9594-CDF13ADA9266}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Livestock_Auction</RootNamespace>
+    <AssemblyName>Livestock Auction</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Programming\Livestock Auction\Livestock Auction\Published\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <TargetCulture>en</TargetCulture>
+    <ProductName>Livestock Auction</ProductName>
+    <PublisherName>BerkeySoft</PublisherName>
+    <SuiteName>Livestock Auction</SuiteName>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <BootstrapperComponentsLocation>Relative</BootstrapperComponentsLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>6274B5BC40407E98664A26C7DE3722D27C665948</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Livestock Auction_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EPPlus, Version=4.0.5.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.0.5\lib\net20\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="iTextSharp, Version=4.1.6.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca">
+      <HintPath>..\packages\iTextSharp-LGPL.4.1.6\lib\iTextSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.WinForms.10.0.40219.1\lib\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files (x86)\Microsoft SQL Server Compact Edition\v3.5\Desktop\System.Data.SqlServerCe.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CheckoutGrid\ucCheckoutFooter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CheckoutGrid\ucCheckoutFooter.Designer.cs">
+      <DependentUpon>ucCheckoutFooter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckoutGrid\ucCheckoutGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CheckoutGrid\ucCheckoutGrid.Designer.cs">
+      <DependentUpon>ucCheckoutGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckoutGrid\ucCheckoutGridElement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CheckoutGrid\ucCheckoutGridElement.Designer.cs">
+      <DependentUpon>ucCheckoutGridElement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="clsLogger.cs" />
+    <Compile Include="DB\clsAuctionDataCollection.cs" />
+    <Compile Include="DB\clsAuctionOrder.cs" />
+    <Compile Include="DB\clsExhibit.cs" />
+    <Compile Include="DB\clsBuyer.cs" />
+    <Compile Include="clsDB.cs" />
+    <Compile Include="DataEntry\EntryModes.cs" />
+    <Compile Include="DataEntry\ucExhibitorEntry.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DataEntry\ucExhibitorEntry.Designer.cs">
+      <DependentUpon>ucExhibitorEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataEntry\ucMarketItemEntry.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DataEntry\ucMarketItemEntry.Designer.cs">
+      <DependentUpon>ucMarketItemEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DB\clsExhibitor.cs" />
+    <Compile Include="DB\clsMarketItem.cs" />
+    <Compile Include="DB\clsPayments.cs" />
+    <Compile Include="DB\clsPurchase.cs" />
+    <Compile Include="DB\DBTypes.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAuctionOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAuctionOrder.Designer.cs">
+      <DependentUpon>frmAuctionOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBrowseName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBrowseName.Designer.cs">
+      <DependentUpon>frmBrowseName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConnect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConnect.Designer.cs">
+      <DependentUpon>frmConnect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSDFImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSDFImport.Designer.cs">
+      <DependentUpon>frmSDFImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNewPurchase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNewPurchase.Designer.cs">
+      <DependentUpon>frmNewPurchase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmWinFairImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmWinFairImport.Designer.cs">
+      <DependentUpon>frmWinFairImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ParadoxImport.cs" />
+    <Compile Include="Helpers\TransparentControls.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Helpers\ucEditableListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CheckoutGrid\ucCheckoutFooter.resx">
+      <DependentUpon>ucCheckoutFooter.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckoutGrid\ucCheckoutGrid.resx">
+      <DependentUpon>ucCheckoutGrid.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckoutGrid\ucCheckoutGridElement.resx">
+      <DependentUpon>ucCheckoutGridElement.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataEntry\ucExhibitorEntry.resx">
+      <DependentUpon>ucExhibitorEntry.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataEntry\ucMarketItemEntry.resx">
+      <DependentUpon>ucMarketItemEntry.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAuctionOrder.resx">
+      <DependentUpon>frmAuctionOrder.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBrowseName.resx">
+      <DependentUpon>frmBrowseName.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConnect.resx">
+      <DependentUpon>frmConnect.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSDFImport.resx">
+      <DependentUpon>frmSDFImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNewPurchase.resx">
+      <DependentUpon>frmNewPurchase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWinFairImport.resx">
+      <DependentUpon>frmWinFairImport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Forms\frmrptAnimalDestinations.resx">
+      <DependentUpon>frmrptAnimalDestinations.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Forms\frmrptExhibiorReceipts.resx">
+      <DependentUpon>frmrptExhibiorReceipts.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Forms\frmrptWeightSold.resx">
+      <DependentUpon>frmrptWeightSold.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptAnimalDestinations.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptAuctionOrder.rdlc" />
+    <EmbeddedResource Include="Reports\rptBuyerReceipt.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptExhibitorReceipt.rdlc" />
+    <EmbeddedResource Include="Reports\rptWeightSold.rdlc" />
+    <EmbeddedResource Include="ucExhibits.resx">
+      <DependentUpon>ucExhibits.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucBuyer.resx">
+      <DependentUpon>ucBuyer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucBuyerCheckout.resx">
+      <DependentUpon>ucBuyerCheckout.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckoutGrid\ucCheckoutItem.resx">
+      <DependentUpon>ucCheckoutItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucDataEntryGrid.resx">
+      <DependentUpon>ucDataEntryGrid.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucExhibitorCheckout.resx">
+      <DependentUpon>ucExhibitorCheckout.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucExhibitors.resx">
+      <DependentUpon>ucExhibitors.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucMarketItems.resx">
+      <DependentUpon>ucMarketItems.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucRunAuction.resx">
+      <DependentUpon>ucRunAuction.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <EmbeddedResource Include="DB\CityStateZipDataByStateCity.bin" />
+    <EmbeddedResource Include="DB\CityStateZipDataByZip.bin" />
+    <None Include="Livestock Auction_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\clsBuyer.datasource" />
+    <None Include="Properties\DataSources\clsExhibit.datasource" />
+    <None Include="Properties\DataSources\clsExhibitor.datasource" />
+    <None Include="Properties\DataSources\clsPayment.datasource" />
+    <None Include="Properties\DataSources\clsPurchase.datasource" />
+    <None Include="Properties\DataSources\Livestock_Auction.DB.clsBuyer.datasource" />
+    <None Include="Properties\DataSources\Livestock_Auction.DB.clsPayment.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Reports\Forms\frmrptAnimalDestinations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Forms\frmrptAnimalDestinations.Designer.cs">
+      <DependentUpon>frmrptAnimalDestinations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Forms\frmrptExhibiorReceipts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Forms\frmrptExhibiorReceipts.Designer.cs">
+      <DependentUpon>frmrptExhibiorReceipts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Forms\frmrptWeightSold.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Forms\frmrptWeightSold.Designer.cs">
+      <DependentUpon>frmrptWeightSold.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucExhibits.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucExhibits.Designer.cs">
+      <DependentUpon>ucExhibits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucBuyer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucBuyer.Designer.cs">
+      <DependentUpon>ucBuyer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucBuyerCheckout.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucBuyerCheckout.Designer.cs">
+      <DependentUpon>ucBuyerCheckout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckoutGrid\ucCheckoutItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CheckoutGrid\ucCheckoutItem.Designer.cs">
+      <DependentUpon>ucCheckoutItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucDataEntryGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucDataEntryGrid.Designer.cs">
+      <DependentUpon>ucDataEntryGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucExhibitorCheckout.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucExhibitorCheckout.Designer.cs">
+      <DependentUpon>ucExhibitorCheckout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucExhibitors.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucExhibitors.Designer.cs">
+      <DependentUpon>ucExhibitors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucMarketItems.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucMarketItems.Designer.cs">
+      <DependentUpon>ucMarketItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucRunAuction.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucRunAuction.Designer.cs">
+      <DependentUpon>ucRunAuction.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\CopyRecord.png" />
+    <None Include="Icons\CopyRecord_Small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client,KB2468871">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29 and Update for .NET Framework 4 %28KB2468871%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.ReportViewer.11.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft Report Viewer 2012 Runtime</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SqlServer.SQLSysClrTypes.11.0.x64">
+      <Visible>False</Visible>
+      <ProductName>Microsoft® System CLR Types for SQL Server® 2012 %28x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SqlServer.SQLSysClrTypes.11.0.x86">
+      <Visible>False</Visible>
+      <ProductName>Microsoft® System CLR Types for SQL Server® 2012 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    if not exist "$(TargetDir)x86" md "$(TargetDir)x86"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\x86\*.*" "$(TargetDir)x86"
+    if not exist "$(TargetDir)amd64" md "$(TargetDir)amd64"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\amd64\*.*" "$(TargetDir)amd64"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
