@@ -159,8 +159,8 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(234, 64);
             this.label8.TabIndex = 7;
-            this.label8.Text = "Check \"Truested Authentication\" if connecting a local SQL Server instance. Provid" +
-    "e username and password of a SQL Server user for remote connections.";
+            this.label8.Text = "Check \"Trusted Authentication\" if connecting a local SQL Server instance. Provide" +
+    " username and password of a SQL Server user for remote connections.";
             // 
             // label4
             // 
