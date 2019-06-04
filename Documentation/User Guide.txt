@@ -1,0 +1,196 @@
+OVERVIEW
+ * OVERVIEW                                            [Last Updated 2015/08/01]
+
+	This program is designed to assist with the running of the Cecil County
+Fair livestock auction. It generates the auction order, tracks buyer purchases,
+produces receipts for buyers, and tracks where all of the animals are supposed
+to go after the auction.
+
+	It is designed to allow multiple clients to connect to a single database.
+Allowing multiple users to register buyers, track the auction, and assist with
+buyer checkout. Any changes made by one user will be visible by everyone running
+the system with in a few seconds.
+
+ * HARDWARE AND NETWORK REQUIREMENTS                   [Last Updated 2015/08/02]
+ 
+	Client computers running the program must be connected together on a local
+network. All clients must be able to connect to the central database. For
+security, it is recommended that this network be dedicated for the auction and
+isolated from the Internet.
+
+	It is recommended that wired Ethernet connections be used wherever possible,
+though wireless connections can be used when necessary. A typical SOHO wireless
+router is recommended to provide wired and wireless networking as it will
+provide DHCP services on the network, simplifying configuration. Ensure that the
+wireless network is properly secured to prevent anyone any unauthorized used
+from inadvertently or deliberately connecting. A wired Ethernet switch can be
+added if more ports are needed.
+
+	Printers are required to print receipts. Laser printers are recommended for
+their speed. It is recommended that each client that will preform checkout have
+their own printer to avoid confusion. Printers can be connected to the network
+or directly to the client computers.
+
+ * SOFTWARE REQUIREMENTS                               [Last Updated 2015/07/31]
+    
+	To run the Livestock auction client a system must have the following
+software...
+	** Microsoft Windows XP or later
+	** Microsoft .Net Framework 3.5 Client
+	** Microsoft System CLR Types for SQL Server 2012
+	** Microsoft Report Viewer 2012 Runtime
+	
+	To run the Livestock auction database a system must have the following...
+	** Microsoft SQL Server 2012 or later
+ 
+ * INSTALLATION AND SETUP                              [Last Updated 2015/08/02]
+
+	Microsoft SQL Server is used for the database. The "Express" edition is
+sufficient for this application and is available for free download. This
+document assumes that SQL Server has been installed using "Mixed Mode"
+authentication (this option is prompted for during installation). Once SQL
+Server is installed, it must be configured to allow remote connections. Using
+the "Sql Server Configuration Manager", ensure that the TCP/IP protocol is
+enabled (this option is found under "Protocols" under "SQL Server Network
+Configuration". The firewall on the system running SQL Server must also be
+configured to allow incoming connections to SQL Server.
+
+	There is currently no installation script for the program. Simply install
+the prerequisite software listed above and copy the "Livestock Auction.exe"
+application anywhere on the client machine, and run it.
+
+	When the program is first started, it will prompt for database connection
+information. This information includes the address and instance of the SQL
+server database to use, the name of the database, and the user name and
+password to be used to authenticate with the database.
+ 
+ * DATABASE MAINTENENCE
+ 
+	Backing up the database
+	
+	Restoring the database
+	
+USAGE SUMMARY
+ * 
+
+BEFORE THE AUCTION
+ * CREATING THE DATABASE                               [Last Updated 2014/07/27]
+
+    The database, and all of the necessary tables, views, and stored procedures,
+can be created automatically by the program. When connecting to the database,
+specify a valid SQL Server instance, credentials, and the name of the database
+to be created. When the database instance is not found, the program will prompt
+the user as to whether or not they want to create a new database. Selecting
+"Yes" will crate a new database, "No" should be selected if the creation of a
+database was not desired.
+
+    Developer Notes: The behavior of the database creation is handled in
+clsAuctionDataCollection.cs. In this file, an abstract class is defined in a
+Setup namespace, called AuctionDBSetup. This class defines several methods for
+building database objects. Setup classes derived from this class are defined in
+the various database classes (clsBuyer, clsExhibit, etc...). The derived classes
+describe contents of the table to be created, including the table name, and any
+other commands that should be run after building.
+
+ * MANAGING USERS                                      [Last Updated 2014/07/27]
+
+    Users are managed by SQL Server. The auction program it's self has no
+native concept of users. When using a local database "Trusted Authentication"
+can be used when connecting. For practical usage (as all systems will not be
+on the same domain) SQL Server user(s) must be added for other systems to use.
+
+    As of Microsoft SQL Server 2014 users can be added using "Microsoft SQL
+Server Management Studio". After connecting to the SQL Server instance, find the
+"Security" node in the "Object Explorer". Expand the node, and right click on
+the "Logins" node. Select "New Login..." from the context menu. Enter the user
+name in the "Login name" text box. Select the "SQL Server authentication" radio
+option. Enter and confirm the password. Uncheck the "User must change password
+at next login", and optionally "Enforce password policy" and "Enforce password
+expiration". Then go to the "User Mapping" page using the list in the upper
+left. Check the database that the user should have access to, and under the role
+memberships, select "db_datareader", "db_datawriter", and "db_owner". Once
+finished, click "OK".
+ 
+ * IMPORTING BUYER HISTORY                             [Last Updated 2015/06/16]
+ 
+    The buyer history data is used assist buyer registration by facilitating
+auto-complete using data from the previous year. 
+    
+ * ENTERING MARKET VALUES                              [Last Updated 2015/06/17]
+ 
+    From the auction program, go to the "Market" tab. Enter a market ID, or
+unique number (the asterisk button to the left of the text box can be used to
+automatically generate a new unique number), "Animal/Item" name, value, and
+unit. Check the "Allow Advertising" button if buyers are allowed turn the animal
+back to the seller and pay only advertising. Check the "Valid Disposition" if
+the animal requires a valid disposition. For example, if the market value of a
+hog is $0.65/lb the "Animal/Item" would be "Hog", the "Price per Item/Unit"
+would be "0.65", and the units would be lb. Buyers are also able to turn hogs
+back to the seller (at least as of 2014) so the "Allow Advertising" check box
+should be checked, and they require a valid disposition, so that box should be
+checked as well. When all fields are completed, click "Save".
+
+    Market values can be edited by entering the ID of the existing item into the
+"Market ID" field. When ID of an existing item is entered and focus leaves that
+text box, the rest of the boxes will be automatically populated with the
+information from that item. Alternatively an item can be selected from the list
+view above. In either case, make the necessary changes and click the "Save"
+button. As long as the ID is not changed, the changes will overwrite the
+existing record.
+ 
+ * ENTERING WINFAIR EXHIBITORS                         [Last Updated 2015/07/24]
+ 
+    Exhibitors can either be manually entered with the exhibits, or imported
+prior to exhibit entry from a previous years data or from the WinFair Paradox
+database. Manual entry can be done on either the "Exhibitors" screen, where
+exhibitors can be entered alone, or on the "Exhibits" screen where the exhibitor
+information can be entered as part of the exhibit record.
+
+    Exhibitors can be imported from a prior year's SQL Server database. This has
+the advantage of populating "Nick Names" which are not included in the WinFair
+database.
+
+    Exhibitors can be imported from the WinFair Paradox database. This
+accelerates entry of exhibits and ensures that all exhibitors have a unique ID.
+Select the "Import Exhibitors" option under the "File" menu, then browse to find
+the "Exhibito.DB" file from WinFair. The program will then parse, filter the
+records in the table down to just 4-H exhibitors with a first name (which
+filters out the 4-H clubs), and compare the data to the current exhibitors
+records. This process may take a few seconds depending on the size of the file
+being imported. When this process completes, the results will be displayed in a
+preview window. This window displays the ID, name, address, and whether or not
+the record is new or has been changed in comparison to the current auction
+exhibitors data. The status bar displays statistics about the data, including
+total record count, number of additions and number of modifications. Click
+"Import Records" to add the exhibitors to the auction database.
+ 
+    "Nick Names". The WinFair database includes the exhibitor's formal name.
+This does not necessarily match the name as it appears on the form.
+    
+ * IMPORTING OR ENTERING EXHIBITS
+ 
+ * AUCTION ORDER                                       [Last Updated 2015/08/01]
+ 
+	The auction order can be generated after Market Items, Exhibitors, and
+Exhibits have been added to the database. Select "Action Order" under the file
+menu. When the "Edit Auction Order" window is opened for the first time, all of
+the exhibits will be in the bottom "Unsorted Exhibits" pane. Click the
+"Regenerate Auction Order" button to randomly generate an order.
+
+	The order can be changed by dragging and dropping exhibits within the top
+"Current Auction Order" pane to change the order of the auction, or between the
+top and bottom pane to add or remove exhibits from the auction.
+
+	Changes can be undone using the revision list on the right side of the
+screen. Select a revision to view it and click the "Switch to Selected Revision"
+to back out any changes made since that revision.
+
+DURING THE AUCTION
+ * REGISTERING BUYERS
+ * FOLLOWING THE AUCTION
+ * BUYER CHECKOUT
+ * BUYER VIEWER APPLICATION
+
+AFTER THE AUCTION
+ * EXHIBITOR RECEIPTS
+ * REPORTS
