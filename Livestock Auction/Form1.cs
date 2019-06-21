@@ -51,7 +51,10 @@ namespace Livestock_Auction
             try
             {
                 clsDB.Connect(dbConn);
+                this.Text = clsDB.Settings.EventName;
+
                 UpdateStatusBar();
+                
 
                 //After revisions to the status bar, the values are only dependent on purchases and buyers
                 clsDB.Buyers.Updated += new EventHandler<DB.DatabaseUpdatedEventArgs>(Database_Updated);
