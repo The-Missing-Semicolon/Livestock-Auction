@@ -1,218 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition">
-  <DataSources>
-    <DataSource Name="DummyDataSource">
-      <ConnectionProperties>
-        <DataProvider>SQL</DataProvider>
-        <ConnectString />
-      </ConnectionProperties>
-      <rd:DataSourceID>92a56c9c-fb98-46c3-83c4-4e0c02ab6f6a</rd:DataSourceID>
-    </DataSource>
-  </DataSources>
-  <DataSets>
-    <DataSet Name="Livestock_Auction_clsBuyer">
-      <Fields>
-        <Field Name="Address">
-          <DataField>Address</DataField>
-          <rd:TypeName>Livestock_Auction.Address</rd:TypeName>
-        </Field>
-        <Field Name="Billing">
-          <DataField>Billing</DataField>
-          <rd:TypeName>Livestock_Auction.Address</rd:TypeName>
-        </Field>
-        <Field Name="BuyerNumber">
-          <DataField>BuyerNumber</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="CompanyName">
-          <DataField>CompanyName</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Name">
-          <DataField>Name</DataField>
-          <rd:TypeName>Livestock_Auction.Name</rd:TypeName>
-        </Field>
-        <Field Name="PhoneNumber">
-          <DataField>PhoneNumber</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="BillingAddresse">
-          <DataField>BillingAddresse</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="CheckedOut">
-          <DataField>CheckedOut</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-      </Fields>
-      <Query>
-        <DataSourceName>DummyDataSource</DataSourceName>
-        <CommandText />
-        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
-      </Query>
-      <rd:DataSetInfo>
-        <rd:DataSetName>Livestock_Auction</rd:DataSetName>
-        <rd:TableName>clsBuyer</rd:TableName>
-        <rd:ObjectDataSourceType>Livestock_Auction.clsBuyer, Livestock Auction, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
-      </rd:DataSetInfo>
-    </DataSet>
-    <DataSet Name="Livestock_Auction_clsPurchase">
-      <Fields>
-        <Field Name="Name">
-          <DataField>Name</DataField>
-          <rd:TypeName>Livestock_Auction.Name</rd:TypeName>
-        </Field>
-        <Field Name="Buyer">
-          <DataField>Buyer</DataField>
-          <rd:TypeName>Livestock_Auction.clsBuyer</rd:TypeName>
-        </Field>
-        <Field Name="BuyerID">
-          <DataField>BuyerID</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="ConditionOfSale">
-          <DataField>ConditionOfSale</DataField>
-          <rd:TypeName>Livestock_Auction.clsPurchase+enSaleCondition</rd:TypeName>
-        </Field>
-        <Field Name="DestinationOfAnimal">
-          <DataField>DestinationOfAnimal</DataField>
-          <rd:TypeName>Livestock_Auction.clsPurchase+enAnimalDestination</rd:TypeName>
-        </Field>
-        <Field Name="Exhibit">
-          <DataField>Exhibit</DataField>
-          <rd:TypeName>Livestock_Auction.clsExhibit</rd:TypeName>
-        </Field>
-        <Field Name="FinalBid">
-          <DataField>FinalBid</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
-        </Field>
-        <Field Name="HauledBy">
-          <DataField>HauledBy</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="HaulSpecialInstructions">
-          <DataField>HaulSpecialInstructions</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="PurchaseIndex">
-          <DataField>PurchaseIndex</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="BuyerKeepingAnimal">
-          <DataField>BuyerKeepingAnimal</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="TotalBid">
-          <DataField>TotalBid</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
-        </Field>
-        <Field Name="DestinationOfAnimal_String">
-          <DataField>DestinationOfAnimal_String</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="ConditionOfSale_String">
-          <DataField>ConditionOfSale_String</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="ExhibitorKept">
-          <DataField>ExhibitorKept</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-        <Field Name="FairFee">
-          <DataField>FairFee</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
-        </Field>
-        <Field Name="TotalCharged">
-          <DataField>TotalCharged</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
-        </Field>
-        <Field Name="TotalPayOut">
-          <DataField>TotalPayOut</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
-        </Field>
-        <Field Name="DestinationOfAnimal_Valid">
-          <DataField>DestinationOfAnimal_Valid</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-        <Field Name="FinalBid_String">
-          <DataField>FinalBid_String</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Recipient">
-          <DataField>Recipient</DataField>
-          <rd:TypeName>Livestock_Auction.clsExhibitor</rd:TypeName>
-        </Field>
-        <Field Name="RecipientID">
-          <DataField>RecipientID</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="TotalBid_String">
-          <DataField>TotalBid_String</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-      <Query>
-        <DataSourceName>DummyDataSource</DataSourceName>
-        <CommandText />
-        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
-      </Query>
-      <rd:DataSetInfo>
-        <rd:DataSetName>Livestock_Auction</rd:DataSetName>
-        <rd:TableName>clsPurchase</rd:TableName>
-        <rd:ObjectDataSourceType>Livestock_Auction.clsPurchase, Livestock Auction, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
-      </rd:DataSetInfo>
-    </DataSet>
-    <DataSet Name="Livestock_Auction_clsPayment">
-      <Fields>
-        <Field Name="Amount">
-          <DataField>Amount</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
-        </Field>
-        <Field Name="Surcharge">
-          <DataField>Surcharge</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
-        </Field>
-        <Field Name="BuyerNumber">
-          <DataField>BuyerNumber</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="CheckNumber">
-          <DataField>CheckNumber</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Comments">
-          <DataField>Comments</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Index">
-          <DataField>Index</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Method">
-          <DataField>Method</DataField>
-          <rd:TypeName>Livestock_Auction.clsPayment+PaymentMethod</rd:TypeName>
-        </Field>
-        <Field Name="Method_String">
-          <DataField>Method_String</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Fee_String">
-          <DataField>Fee_String</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-      <Query>
-        <DataSourceName>DummyDataSource</DataSourceName>
-        <CommandText />
-        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
-      </Query>
-      <rd:DataSetInfo>
-        <rd:DataSetName>Livestock_Auction</rd:DataSetName>
-        <rd:TableName>clsPayment</rd:TableName>
-        <rd:ObjectDataSourceType>Livestock_Auction.clsPayment, Livestock Auction, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
-      </rd:DataSetInfo>
-    </DataSet>
-  </DataSets>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <Body>
     <ReportItems>
       <Textbox Name="textbox4">
@@ -222,7 +9,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=str(Year(Today)) + " Cecil County Fair Livestock Auction"</Value>
+                <Value>=str(Year(Today)) + " " + First(Fields!EventName.Value, "Livestock_Auction_clsSettings")</Value>
                 <Style>
                   <FontStyle>Italic</FontStyle>
                   <FontFamily>Times New Roman</FontFamily>
@@ -2122,8 +1909,254 @@ Childs, MD 21916</Value>
     <BottomMargin>0.5in</BottomMargin>
     <Style />
   </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DummyDataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:DataSourceID>92a56c9c-fb98-46c3-83c4-4e0c02ab6f6a</rd:DataSourceID>
+    </DataSource>
+    <DataSource Name="Livestock_AuctionDB">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>f8bff316-f05e-41dd-9b60-7d85243d1cca</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="Livestock_Auction_clsBuyer">
+      <Query>
+        <DataSourceName>DummyDataSource</DataSourceName>
+        <CommandText />
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="Address">
+          <DataField>Address</DataField>
+          <rd:TypeName>Livestock_Auction.Address</rd:TypeName>
+        </Field>
+        <Field Name="Billing">
+          <DataField>Billing</DataField>
+          <rd:TypeName>Livestock_Auction.Address</rd:TypeName>
+        </Field>
+        <Field Name="BuyerNumber">
+          <DataField>BuyerNumber</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="CompanyName">
+          <DataField>CompanyName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Name">
+          <DataField>Name</DataField>
+          <rd:TypeName>Livestock_Auction.Name</rd:TypeName>
+        </Field>
+        <Field Name="PhoneNumber">
+          <DataField>PhoneNumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BillingAddresse">
+          <DataField>BillingAddresse</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CheckedOut">
+          <DataField>CheckedOut</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>Livestock_Auction</rd:DataSetName>
+        <rd:TableName>clsBuyer</rd:TableName>
+        <rd:ObjectDataSourceType>Livestock_Auction.clsBuyer, Livestock Auction, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="Livestock_Auction_clsPurchase">
+      <Query>
+        <DataSourceName>DummyDataSource</DataSourceName>
+        <CommandText />
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="Name">
+          <DataField>Name</DataField>
+          <rd:TypeName>Livestock_Auction.Name</rd:TypeName>
+        </Field>
+        <Field Name="Buyer">
+          <DataField>Buyer</DataField>
+          <rd:TypeName>Livestock_Auction.clsBuyer</rd:TypeName>
+        </Field>
+        <Field Name="BuyerID">
+          <DataField>BuyerID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ConditionOfSale">
+          <DataField>ConditionOfSale</DataField>
+          <rd:TypeName>Livestock_Auction.clsPurchase+enSaleCondition</rd:TypeName>
+        </Field>
+        <Field Name="DestinationOfAnimal">
+          <DataField>DestinationOfAnimal</DataField>
+          <rd:TypeName>Livestock_Auction.clsPurchase+enAnimalDestination</rd:TypeName>
+        </Field>
+        <Field Name="Exhibit">
+          <DataField>Exhibit</DataField>
+          <rd:TypeName>Livestock_Auction.clsExhibit</rd:TypeName>
+        </Field>
+        <Field Name="FinalBid">
+          <DataField>FinalBid</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="HauledBy">
+          <DataField>HauledBy</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="HaulSpecialInstructions">
+          <DataField>HaulSpecialInstructions</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PurchaseIndex">
+          <DataField>PurchaseIndex</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="BuyerKeepingAnimal">
+          <DataField>BuyerKeepingAnimal</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TotalBid">
+          <DataField>TotalBid</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="DestinationOfAnimal_String">
+          <DataField>DestinationOfAnimal_String</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ConditionOfSale_String">
+          <DataField>ConditionOfSale_String</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ExhibitorKept">
+          <DataField>ExhibitorKept</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="FairFee">
+          <DataField>FairFee</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="TotalCharged">
+          <DataField>TotalCharged</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="TotalPayOut">
+          <DataField>TotalPayOut</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="DestinationOfAnimal_Valid">
+          <DataField>DestinationOfAnimal_Valid</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="FinalBid_String">
+          <DataField>FinalBid_String</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Recipient">
+          <DataField>Recipient</DataField>
+          <rd:TypeName>Livestock_Auction.clsExhibitor</rd:TypeName>
+        </Field>
+        <Field Name="RecipientID">
+          <DataField>RecipientID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="TotalBid_String">
+          <DataField>TotalBid_String</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>Livestock_Auction</rd:DataSetName>
+        <rd:TableName>clsPurchase</rd:TableName>
+        <rd:ObjectDataSourceType>Livestock_Auction.clsPurchase, Livestock Auction, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="Livestock_Auction_clsPayment">
+      <Query>
+        <DataSourceName>DummyDataSource</DataSourceName>
+        <CommandText />
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="Amount">
+          <DataField>Amount</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="Surcharge">
+          <DataField>Surcharge</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="BuyerNumber">
+          <DataField>BuyerNumber</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="CheckNumber">
+          <DataField>CheckNumber</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Comments">
+          <DataField>Comments</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Index">
+          <DataField>Index</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Method">
+          <DataField>Method</DataField>
+          <rd:TypeName>Livestock_Auction.clsPayment+PaymentMethod</rd:TypeName>
+        </Field>
+        <Field Name="Method_String">
+          <DataField>Method_String</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Fee_String">
+          <DataField>Fee_String</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>Livestock_Auction</rd:DataSetName>
+        <rd:TableName>clsPayment</rd:TableName>
+        <rd:ObjectDataSourceType>Livestock_Auction.clsPayment, Livestock Auction, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="Livestock_Auction_clsSettings">
+      <Query>
+        <DataSourceName>Livestock_AuctionDB</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="CCFee">
+          <DataField>CCFee</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="EventName">
+          <DataField>EventName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FairFee">
+          <DataField>FairFee</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>Livestock_Auction.DB</rd:DataSetName>
+        <rd:TableName>clsSettings</rd:TableName>
+        <rd:ObjectDataSourceType>Livestock_Auction.DB.clsSettings, Livestock Auction, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
   <Language>en-US</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
-  <rd:ReportID>81aa0254-781e-4187-a3c2-930f15784c3b</rd:ReportID>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>81aa0254-781e-4187-a3c2-930f15784c3b</rd:ReportID>
 </Report>

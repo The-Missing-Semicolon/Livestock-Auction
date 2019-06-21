@@ -634,6 +634,7 @@ namespace Livestock_Auction
                 BindingSource BuyerBinding = new BindingSource(this.components);
                 BindingSource PurchaseBinding = new BindingSource(this.components);
                 BindingSource PaymentBinding = new BindingSource(this.components);
+                BindingSource SettingsBinding = new BindingSource(this.components);
 
                 if (m_iBuyerID > 0)
                 {
@@ -648,11 +649,14 @@ namespace Livestock_Auction
                         PaymentBinding.DataSource = null;
                     }
 
+                    SettingsBinding.DataSource = clsDB.Settings;
+
                     rptReceipt.Reset();
                     rptReceipt.LocalReport.ReportEmbeddedResource = "Livestock_Auction.Reports.rptBuyerReceipt.rdlc";
                     rptReceipt.LocalReport.DataSources.Add(new ReportDataSource("Livestock_Auction_clsBuyer", BuyerBinding));
                     rptReceipt.LocalReport.DataSources.Add(new ReportDataSource("Livestock_Auction_clsPurchase", PurchaseBinding));
                     rptReceipt.LocalReport.DataSources.Add(new ReportDataSource("Livestock_Auction_clsPayment", PaymentBinding));
+                    rptReceipt.LocalReport.DataSources.Add(new ReportDataSource("Livestock_Auction_clsSettings", SettingsBinding));
                     rptReceipt.RefreshReport();
                 }
             }
