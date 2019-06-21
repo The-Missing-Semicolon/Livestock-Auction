@@ -239,6 +239,8 @@ namespace Livestock_Auction
         static DB.clsPurchases m_dbPurchases;
         static DB.clsPayments m_dbPayments;
 
+        static DB.clsSettings m_settings = new DB.clsSettings();
+
         static bool m_bConnected = false;
 
         static ManualResetEvent m_mreThreadWait;
@@ -397,6 +399,8 @@ namespace Livestock_Auction
             }
 
             //Create the tables
+            m_settings.CreateSettingsTable(DatabaseConnection);
+
             DB.Setup.AuctionDBSetup.BuildTable(DB.clsExhibitors.Setup, DatabaseConnection);
             DB.Setup.AuctionDBSetup.BuildTable(DB.clsMarketItems.Setup, DatabaseConnection);
             DB.Setup.AuctionDBSetup.BuildTable(DB.clsExhibits.Setup, DatabaseConnection);
@@ -436,6 +440,9 @@ namespace Livestock_Auction
 
         static private void Initalize()
         {
+            //Initialize Settings object (Copies the form of the other loads)
+            try { m_settings.LoadSettingsFromDB(m_dbConn); } catch (SqlException ex) { try { m_settings.SettingsLoadHandler(m_dbConn, ex); } catch (Exception ex2) { m_settings.SettingsBuildHandler(ex2); } try { m_settings.LoadSettingsFromDB(m_dbConn); } catch (Exception ex2) { m_settings.SettingsReloadHandler(ex2); } }    catch (Exception ex) { throw new Exception("Failed to load Market Items", ex); }
+            
             //The general logic here is, try to initalize the auction data collection object, if there is a sql error, then try to handle it, and try again
             try { m_dbMarket = new DB.clsMarketItems(m_dbConn); }           catch (SqlException ex) { try { SqlLoadHandler(DB.clsMarketItems.Setup, ex); }  catch (Exception ex2) { SqlBuildHandler(DB.clsMarketItems.Setup, ex2); }    try { m_dbMarket = new DB.clsMarketItems(m_dbConn); }           catch (Exception ex2) { SqlReloadHandler(DB.clsMarketItems.Setup, ex2); }   }   catch (Exception ex) { throw new Exception("Failed to load Market Items", ex); }
             try { m_dbExhibitors = new DB.clsExhibitors(m_dbConn); }        catch (SqlException ex) { try { SqlLoadHandler(DB.clsExhibitors.Setup, ex); }   catch (Exception ex2) { SqlBuildHandler(DB.clsExhibitors.Setup, ex2); }     try { m_dbExhibitors = new DB.clsExhibitors(m_dbConn); }        catch (Exception ex2) { SqlReloadHandler(DB.clsExhibitors.Setup, ex2); }    }   catch (Exception ex) { throw new Exception("Failed to load Exhibitors", ex); }
@@ -759,6 +766,14 @@ namespace Livestock_Auction
             get
             {
                 return m_dbPayments;
+            }
+        }
+
+        static public DB.clsSettings Settings
+        {
+            get
+            {
+                return m_settings;
             }
         }
     }

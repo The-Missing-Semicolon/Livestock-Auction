@@ -216,7 +216,8 @@ namespace Livestock_Auction.DB
         //  calculated such that the total amount owed by the buyer
         //  gets the fair the full purchase price and the square
         //  their 2.75%.
-        public double CREDIT_CARD_FEE = Math.Round((1 / (1 - 0.0275)) - 1, 5);
+        //public double CREDIT_CARD_FEE = Math.Round((1 / (1 - 0.0275)) - 1, 5);
+        public double CREDIT_CARD_FEE = Math.Round((1 / (1 - clsDB.Settings.CCFee)) - 1, 5);
 
         public enum PaymentMethod
         {

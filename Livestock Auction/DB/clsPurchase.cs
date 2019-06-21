@@ -1023,7 +1023,8 @@ namespace Livestock_Auction.DB
             {
                 if (cExhibit != null)
                 {
-                    return Math.Round(dFinalBid * (double)cExhibit.Weight * 0.05, 2);
+                    //return Math.Round(dFinalBid * (double)cExhibit.Weight * 0.05, 2);
+                    return Math.Round(dFinalBid * (double)cExhibit.Weight * clsDB.Settings.FairFee, 2);
                 }
                 else
                 {

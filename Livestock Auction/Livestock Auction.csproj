@@ -165,6 +165,7 @@
     <Compile Include="DB\clsMarketItem.cs" />
     <Compile Include="DB\clsPayments.cs" />
     <Compile Include="DB\clsPurchase.cs" />
+    <Compile Include="DB\clsSettings.cs" />
     <Compile Include="DB\DBTypes.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -343,6 +344,7 @@
     <None Include="Properties\DataSources\clsPurchase.datasource" />
     <None Include="Properties\DataSources\Livestock_Auction.DB.clsBuyer.datasource" />
     <None Include="Properties\DataSources\Livestock_Auction.DB.clsPayment.datasource" />
+    <None Include="Properties\DataSources\Livestock_Auction.DB.clsSettings.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
