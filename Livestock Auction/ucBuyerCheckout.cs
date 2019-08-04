@@ -636,7 +636,7 @@ namespace Livestock_Auction
                 BindingSource PaymentBinding = new BindingSource(this.components);
                 BindingSource SettingsBinding = new BindingSource(this.components);
 
-                if (m_iBuyerID > 0)
+                if (m_iBuyerID >= 0)
                 {
                     BuyerBinding.DataSource = clsDB.Buyers[m_iBuyerID];
                     PurchaseBinding.DataSource = clsDB.Purchases.GetPurchasesByBuyer(m_iBuyerID);
