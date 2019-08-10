@@ -30,26 +30,36 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.rptAnimalDestinations = new Microsoft.Reporting.WinForms.ReportViewer();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.clsExhibitBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rptAnimalDestinations = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.clsSettingsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.clsExhibitBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clsSettingsBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // clsExhibitBindingSource
+            // 
+            this.clsExhibitBindingSource.DataSource = typeof(Livestock_Auction.DB.clsExhibit);
             // 
             // rptAnimalDestinations
             // 
             this.rptAnimalDestinations.Dock = System.Windows.Forms.DockStyle.Fill;
             reportDataSource1.Name = "Livestock_Auction_clsExhibit";
             reportDataSource1.Value = this.clsExhibitBindingSource;
+            reportDataSource2.Name = "Livestock_Auction_clsSettings";
+            reportDataSource2.Value = this.clsSettingsBindingSource;
             this.rptAnimalDestinations.LocalReport.DataSources.Add(reportDataSource1);
+            this.rptAnimalDestinations.LocalReport.DataSources.Add(reportDataSource2);
             this.rptAnimalDestinations.LocalReport.ReportEmbeddedResource = "Livestock_Auction.Reports.rptAnimalDestinations.rdlc";
             this.rptAnimalDestinations.Location = new System.Drawing.Point(0, 0);
             this.rptAnimalDestinations.Name = "rptAnimalDestinations";
             this.rptAnimalDestinations.Size = new System.Drawing.Size(607, 491);
             this.rptAnimalDestinations.TabIndex = 0;
             // 
-            // clsExhibitBindingSource
+            // clsSettingsBindingSource
             // 
-            this.clsExhibitBindingSource.DataSource = typeof(Livestock_Auction.DB.clsExhibit);
+            this.clsSettingsBindingSource.DataSource = typeof(Livestock_Auction.DB.clsSettings);
             // 
             // frmrptAnimalDestinations
             // 
@@ -61,6 +71,7 @@
             this.Text = "Animal Destinations";
             this.Load += new System.EventHandler(this.frmrptAnimalDestinations_Load);
             ((System.ComponentModel.ISupportInitialize)(this.clsExhibitBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clsSettingsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -69,5 +80,6 @@
 
         private Microsoft.Reporting.WinForms.ReportViewer rptAnimalDestinations;
         private System.Windows.Forms.BindingSource clsExhibitBindingSource;
+        private System.Windows.Forms.BindingSource clsSettingsBindingSource;
     }
 }

@@ -240,6 +240,8 @@ namespace Livestock_Auction.Reports.Forms
             {
                 clsExhibitorBindingSource.DataSource = clsDB.Exhibitors[iReceiptNumber];
                 clsPurchaseBindingSource.DataSource = clsDB.Exhibitors[iReceiptNumber].Purchases;
+                clsSettingsBindingSource.DataSource = clsDB.Settings;
+
                 this.rptExhibitorReceipt.RefreshReport();
             }
             else if (tabMain.SelectedTab == tabPageBuyers)

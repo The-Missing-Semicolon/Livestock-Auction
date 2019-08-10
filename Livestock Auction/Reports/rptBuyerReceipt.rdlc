@@ -9,7 +9,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!FairYear.Value.ToString(), "Livestock_Auction_clsSettings") + " " + First(Fields!EventName.Value, "Livestock_Auction_clsSettings")</Value>
+                <Value>=First(Fields!FairYear.Value.ToString(), "Livestock_Auction_clsSettings") + " " + First(Fields!FairName.Value, "Livestock_Auction_clsSettings") + " " + First(Fields!EventName.Value, "Livestock_Auction_clsSettings")</Value>
                 <Style>
                   <FontStyle>Italic</FontStyle>
                   <FontFamily>Times New Roman</FontFamily>
@@ -1561,7 +1561,7 @@ First(Fields!Billing.Value.City, "Livestock_Auction_clsBuyer") &amp; " " &amp; F
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>="Cecil County Fair" + chr(13) + chr(10)
+                <Value>=First(Fields!FairName.Value, "Livestock_Auction_clsSettings") + chr(13) + chr(10)
 + First(Fields!FairAddress.Value, "Livestock_Auction_clsSettings") + chr(13) + chr(10)
 + First(Fields!FairCity.Value, "Livestock_Auction_clsSettings") + ", " + First(Fields!FairState.Value, "Livestock_Auction_clsSettings")
 + " " + First(Fields!FairZipCode.Value.ToString(), "Livestock_Auction_clsSettings")</Value>
@@ -2140,6 +2140,10 @@ First(Fields!Billing.Value.City, "Livestock_Auction_clsBuyer") &amp; " " &amp; F
           <DataField>CreditCardFee</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
         </Field>
+		<Field Name="FairName">
+		  <DataField>FairName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+		</Field>
         <Field Name="EventName">
           <DataField>EventName</DataField>
           <rd:TypeName>System.String</rd:TypeName>

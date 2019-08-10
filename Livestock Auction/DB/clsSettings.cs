@@ -8,13 +8,15 @@ namespace Livestock_Auction.DB
 {
     public class clsSettings
     {
+        string m_eventName;
+        string m_fairName;
         string m_fairAddress;
         string m_fairCity;
         string m_fairState;
         int m_fairZipcode;
-        int m_fairYear;
         string m_fairPhone;
 
+        int m_fairYear;
         double m_fairPercent;
         double m_ccPercent;
 
@@ -42,13 +44,14 @@ namespace Livestock_Auction.DB
                     tableCreation.ExecuteNonQuery();
 
                     tableCreation.CommandText = @"insert into Settings values 
-                        ('eventName', 'Cecil County Fair Livestock Auction'), 
+                        ('eventName', 'Livestock Auction'), 
+                        ('fairName', 'Cecil County Fair'),
                         ('address', 'PO Box 84'),
                         ('city', 'Childs'),
                         ('state', 'MD'),
                         ('zipcode', '21916'),
                         ('phone', '410-392-3440'),
-                        ('eventYear','" + DateTime.Now.Year.ToString() +  @"'),
+                        ('eventYear','" + DateTime.Now.Year.ToString() + @"'),
                         ('fairFee', '0.05'), 
                         ('ccFee', '0.0275')";
                     Console.WriteLine(tableCreation.CommandText);
@@ -83,7 +86,10 @@ namespace Livestock_Auction.DB
                         switch (reader["sKey"].ToString())
                         {
                             case "eventName":
-                                EventName = reader["sValue"].ToString();
+                                m_eventName = reader["sValue"].ToString();
+                                break;
+                            case "fairName":
+                                m_fairName = reader["sValue"].ToString();
                                 break;
                             case "address":
                                 m_fairAddress = reader["sValue"].ToString();
@@ -178,7 +184,7 @@ namespace Livestock_Auction.DB
                 throw ex;
             }
         }
-    
+
         public void SettingsBuildHandler(Exception ex)
         {
             System.Windows.Forms.MessageBox.Show("Failed to create settings table.", "Failed to create table", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
@@ -189,7 +195,19 @@ namespace Livestock_Auction.DB
             System.Windows.Forms.MessageBox.Show("Failed to load settings.", "Failed to load", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
         }
 
-        public string EventName { get; set; }
+        public string EventName { get => m_eventName; set => m_eventName = value; }
+
+        public string FairName
+        {
+            get
+            {
+                return m_fairName;
+            }
+            set
+            {
+                m_fairName = value;
+            }
+        }
 
         public string FairAddress
         {

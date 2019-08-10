@@ -51,7 +51,7 @@ namespace Livestock_Auction
             try
             {
                 clsDB.Connect(dbConn);
-                this.Text = clsDB.Settings.EventName;
+                this.Text = clsDB.Settings.FairName + ": " + clsDB.Settings.EventName;
 
                 UpdateStatusBar();
                 
@@ -601,6 +601,7 @@ namespace Livestock_Auction
             if(settings.ShowDialog() == DialogResult.OK)
             {
                 clsDB.Settings.WriteSettingsToDB(clsDB.Connection, "eventName", clsDB.Settings.EventName);
+                clsDB.Settings.WriteSettingsToDB(clsDB.Connection, "fairName", clsDB.Settings.FairName);
                 clsDB.Settings.WriteSettingsToDB(clsDB.Connection, "address", clsDB.Settings.FairAddress);
                 clsDB.Settings.WriteSettingsToDB(clsDB.Connection, "city", clsDB.Settings.FairCity);
                 clsDB.Settings.WriteSettingsToDB(clsDB.Connection, "state", clsDB.Settings.FairState);

@@ -19,6 +19,7 @@ namespace Livestock_Auction.Reports.Forms
         private void frmrptAnimalDestinations_Load(object sender, EventArgs e)
         {
             clsExhibitBindingSource.DataSource = clsDB.Exhibits;
+            clsSettingsBindingSource.DataSource = clsDB.Settings;
             this.rptAnimalDestinations.RefreshReport();
         }
     }

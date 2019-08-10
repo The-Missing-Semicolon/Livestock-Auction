@@ -171,8 +171,11 @@
             reportDataSource1.Value = this.clsExhibitorBindingSource;
             reportDataSource2.Name = "Livestock_Auction_clsPurchase";
             reportDataSource2.Value = this.clsPurchaseBindingSource;
+            reportDataSource6.Name = "Livestock_Auction_clsSettings";
+            reportDataSource6.Value = this.clsSettingsBindingSource;
             this.rptExhibitorReceipt.LocalReport.DataSources.Add(reportDataSource1);
             this.rptExhibitorReceipt.LocalReport.DataSources.Add(reportDataSource2);
+            this.rptExhibitorReceipt.LocalReport.DataSources.Add(reportDataSource6);
             this.rptExhibitorReceipt.LocalReport.ReportEmbeddedResource = "Livestock_Auction.Reports.rptExhibitorReceipt.rdlc";
             this.rptExhibitorReceipt.Location = new System.Drawing.Point(3, 3);
             this.rptExhibitorReceipt.Name = "rptMain";

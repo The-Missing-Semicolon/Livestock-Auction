@@ -14,7 +14,8 @@ namespace Livestock_Auction
         public frmSettings()
         {
             InitializeComponent();
-            txtName.Text = clsDB.Settings.EventName;
+            txtEventName.Text = clsDB.Settings.EventName;
+            txtFairName.Text = clsDB.Settings.FairName;
             txtAddress.Text = clsDB.Settings.FairAddress;
             txtCity.Text = clsDB.Settings.FairCity;
             txtState.Text = clsDB.Settings.FairState;
@@ -28,7 +29,8 @@ namespace Livestock_Auction
 
         private void CmdSave_Click(object sender, EventArgs e)
         {
-            if (txtName.TextLength > 0) { clsDB.Settings.EventName = txtName.Text.Trim(); }
+            if (txtEventName.TextLength > 0) { clsDB.Settings.EventName = txtEventName.Text.Trim(); }
+            if (txtFairName.TextLength > 0) { clsDB.Settings.FairName = txtFairName.Text.Trim(); }
             if (txtAddress.TextLength > 0) { clsDB.Settings.FairAddress = txtAddress.Text.Trim(); }
             if (txtCity.TextLength > 0) { clsDB.Settings.FairCity = txtCity.Text.Trim(); }
             if (txtState.TextLength > 0) { clsDB.Settings.FairState = txtState.Text.Trim(); }
