@@ -52,25 +52,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabAuction = new System.Windows.Forms.TabPage();
             this.tsAuction = new System.Windows.Forms.ToolStrip();
-            this.tscmdMoveAuction = new System.Windows.Forms.ToolStripButton();
             this.tabExhibitors = new System.Windows.Forms.TabPage();
             this.tsExhibitor = new System.Windows.Forms.ToolStrip();
-            this.tscmdMoveExhibitors = new System.Windows.Forms.ToolStripButton();
             this.tabAnimals = new System.Windows.Forms.TabPage();
             this.tsAnimals = new System.Windows.Forms.ToolStrip();
-            this.tscmdMoveAnimals = new System.Windows.Forms.ToolStripButton();
             this.tabBuyers = new System.Windows.Forms.TabPage();
             this.toolStrip3 = new System.Windows.Forms.ToolStrip();
-            this.tscmdMoveBuyers = new System.Windows.Forms.ToolStripButton();
             this.tabMarket = new System.Windows.Forms.TabPage();
             this.tsMarket = new System.Windows.Forms.ToolStrip();
-            this.tscmdMoveMarket = new System.Windows.Forms.ToolStripButton();
             this.tabBuyerCheckout = new System.Windows.Forms.TabPage();
             this.tsBuyerCheckout = new System.Windows.Forms.ToolStrip();
-            this.tscmdMoveBuyerCheckout = new System.Windows.Forms.ToolStripButton();
             this.tabSide = new System.Windows.Forms.TabControl();
             this.spcMain = new System.Windows.Forms.SplitContainer();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tsmnuFileMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.mnucmdImportExhibitors = new System.Windows.Forms.ToolStripMenuItem();
@@ -101,6 +94,14 @@
             this.dlgOpenImport = new System.Windows.Forms.OpenFileDialog();
             this.dlgExport = new System.Windows.Forms.SaveFileDialog();
             this.dlgExportExcel = new System.Windows.Forms.SaveFileDialog();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tscmdMoveAuction = new System.Windows.Forms.ToolStripButton();
+            this.tscmdMoveExhibitors = new System.Windows.Forms.ToolStripButton();
+            this.tscmdMoveAnimals = new System.Windows.Forms.ToolStripButton();
+            this.tscmdMoveBuyers = new System.Windows.Forms.ToolStripButton();
+            this.tscmdMoveMarket = new System.Windows.Forms.ToolStripButton();
+            this.tscmdMoveBuyerCheckout = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.tabIntroduction.SuspendLayout();
@@ -398,18 +399,6 @@
             this.tsAuction.TabIndex = 0;
             this.tsAuction.Text = "toolStrip1";
             // 
-            // tscmdMoveAuction
-            // 
-            this.tscmdMoveAuction.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.tscmdMoveAuction.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tscmdMoveAuction.Image = ((System.Drawing.Image)(resources.GetObject("tscmdMoveAuction.Image")));
-            this.tscmdMoveAuction.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tscmdMoveAuction.Name = "tscmdMoveAuction";
-            this.tscmdMoveAuction.Size = new System.Drawing.Size(60, 22);
-            this.tscmdMoveAuction.Text = "Move >>";
-            this.tscmdMoveAuction.ToolTipText = "Move to next tab group";
-            this.tscmdMoveAuction.Click += new System.EventHandler(this.tscmdMoveAuction_Click);
-            // 
             // tabExhibitors
             // 
             this.tabExhibitors.Controls.Add(this.tsExhibitor);
@@ -431,18 +420,6 @@
             this.tsExhibitor.TabIndex = 1;
             this.tsExhibitor.Text = "toolStrip1";
             // 
-            // tscmdMoveExhibitors
-            // 
-            this.tscmdMoveExhibitors.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.tscmdMoveExhibitors.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tscmdMoveExhibitors.Image = ((System.Drawing.Image)(resources.GetObject("tscmdMoveExhibitors.Image")));
-            this.tscmdMoveExhibitors.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tscmdMoveExhibitors.Name = "tscmdMoveExhibitors";
-            this.tscmdMoveExhibitors.Size = new System.Drawing.Size(60, 22);
-            this.tscmdMoveExhibitors.Text = "Move >>";
-            this.tscmdMoveExhibitors.ToolTipText = "Move to next tab group";
-            this.tscmdMoveExhibitors.Click += new System.EventHandler(this.tscmdMoveExhibitors_Click);
-            // 
             // tabAnimals
             // 
             this.tabAnimals.Controls.Add(this.tsAnimals);
@@ -462,18 +439,6 @@
             this.tsAnimals.Size = new System.Drawing.Size(1071, 25);
             this.tsAnimals.TabIndex = 1;
             this.tsAnimals.Text = "toolStrip1";
-            // 
-            // tscmdMoveAnimals
-            // 
-            this.tscmdMoveAnimals.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.tscmdMoveAnimals.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tscmdMoveAnimals.Image = ((System.Drawing.Image)(resources.GetObject("tscmdMoveAnimals.Image")));
-            this.tscmdMoveAnimals.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tscmdMoveAnimals.Name = "tscmdMoveAnimals";
-            this.tscmdMoveAnimals.Size = new System.Drawing.Size(60, 22);
-            this.tscmdMoveAnimals.Text = "Move >>";
-            this.tscmdMoveAnimals.ToolTipText = "Move to next tab group";
-            this.tscmdMoveAnimals.Click += new System.EventHandler(this.tscmdMoveAnimals_Click);
             // 
             // tabBuyers
             // 
@@ -495,18 +460,6 @@
             this.toolStrip3.TabIndex = 1;
             this.toolStrip3.Text = "toolStrip1";
             // 
-            // tscmdMoveBuyers
-            // 
-            this.tscmdMoveBuyers.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.tscmdMoveBuyers.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tscmdMoveBuyers.Image = ((System.Drawing.Image)(resources.GetObject("tscmdMoveBuyers.Image")));
-            this.tscmdMoveBuyers.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tscmdMoveBuyers.Name = "tscmdMoveBuyers";
-            this.tscmdMoveBuyers.Size = new System.Drawing.Size(60, 22);
-            this.tscmdMoveBuyers.Text = "Move >>";
-            this.tscmdMoveBuyers.ToolTipText = "Move to next tab group";
-            this.tscmdMoveBuyers.Click += new System.EventHandler(this.tscmdMoveBuyers_Click);
-            // 
             // tabMarket
             // 
             this.tabMarket.Controls.Add(this.tsMarket);
@@ -527,18 +480,6 @@
             this.tsMarket.TabIndex = 1;
             this.tsMarket.Text = "toolStrip1";
             // 
-            // tscmdMoveMarket
-            // 
-            this.tscmdMoveMarket.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.tscmdMoveMarket.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tscmdMoveMarket.Image = ((System.Drawing.Image)(resources.GetObject("tscmdMoveMarket.Image")));
-            this.tscmdMoveMarket.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tscmdMoveMarket.Name = "tscmdMoveMarket";
-            this.tscmdMoveMarket.Size = new System.Drawing.Size(60, 22);
-            this.tscmdMoveMarket.Text = "Move >>";
-            this.tscmdMoveMarket.ToolTipText = "Move to next tab group";
-            this.tscmdMoveMarket.Click += new System.EventHandler(this.tscmdMoveMarket_Click);
-            // 
             // tabBuyerCheckout
             // 
             this.tabBuyerCheckout.Controls.Add(this.tsBuyerCheckout);
@@ -558,18 +499,6 @@
             this.tsBuyerCheckout.Size = new System.Drawing.Size(1071, 25);
             this.tsBuyerCheckout.TabIndex = 2;
             this.tsBuyerCheckout.Text = "toolStrip1";
-            // 
-            // tscmdMoveBuyerCheckout
-            // 
-            this.tscmdMoveBuyerCheckout.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.tscmdMoveBuyerCheckout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tscmdMoveBuyerCheckout.Image = ((System.Drawing.Image)(resources.GetObject("tscmdMoveBuyerCheckout.Image")));
-            this.tscmdMoveBuyerCheckout.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tscmdMoveBuyerCheckout.Name = "tscmdMoveBuyerCheckout";
-            this.tscmdMoveBuyerCheckout.Size = new System.Drawing.Size(60, 22);
-            this.tscmdMoveBuyerCheckout.Text = "Move >>";
-            this.tscmdMoveBuyerCheckout.ToolTipText = "Move to next tab group";
-            this.tscmdMoveBuyerCheckout.Click += new System.EventHandler(this.tscmdMoveBuyerCheckout_Click);
             // 
             // tabSide
             // 
@@ -597,17 +526,6 @@
             this.spcMain.Size = new System.Drawing.Size(1079, 567);
             this.spcMain.SplitterDistance = 520;
             this.spcMain.TabIndex = 2;
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(56, 22);
-            this.toolStripButton1.Text = "Move >>";
-            this.toolStripButton1.ToolTipText = "Move to next tab group";
             // 
             // menuStrip1
             // 
@@ -705,7 +623,8 @@
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nameOrderToolStripMenuItem});
+            this.nameOrderToolStripMenuItem,
+            this.settingsToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.optionsToolStripMenuItem.Text = "Options";
@@ -716,7 +635,7 @@
             this.tsmnuNameOrderFirstLast,
             this.tsmnuNameOrderLastFirst});
             this.nameOrderToolStripMenuItem.Name = "nameOrderToolStripMenuItem";
-            this.nameOrderToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.nameOrderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.nameOrderToolStripMenuItem.Text = "Name Order";
             // 
             // tsmnuNameOrderFirstLast
@@ -858,6 +777,96 @@
             this.dlgExportExcel.Filter = "Microsoft Excel 2007-2013 XML (*.xlsx)|*.xlsx";
             this.dlgExportExcel.Title = "Export to Excel";
             // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.SettingsToolStripMenuItem_Click);
+            // 
+            // tscmdMoveAuction
+            // 
+            this.tscmdMoveAuction.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tscmdMoveAuction.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tscmdMoveAuction.Image = ((System.Drawing.Image)(resources.GetObject("tscmdMoveAuction.Image")));
+            this.tscmdMoveAuction.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tscmdMoveAuction.Name = "tscmdMoveAuction";
+            this.tscmdMoveAuction.Size = new System.Drawing.Size(60, 22);
+            this.tscmdMoveAuction.Text = "Move >>";
+            this.tscmdMoveAuction.ToolTipText = "Move to next tab group";
+            this.tscmdMoveAuction.Click += new System.EventHandler(this.tscmdMoveAuction_Click);
+            // 
+            // tscmdMoveExhibitors
+            // 
+            this.tscmdMoveExhibitors.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tscmdMoveExhibitors.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tscmdMoveExhibitors.Image = ((System.Drawing.Image)(resources.GetObject("tscmdMoveExhibitors.Image")));
+            this.tscmdMoveExhibitors.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tscmdMoveExhibitors.Name = "tscmdMoveExhibitors";
+            this.tscmdMoveExhibitors.Size = new System.Drawing.Size(60, 22);
+            this.tscmdMoveExhibitors.Text = "Move >>";
+            this.tscmdMoveExhibitors.ToolTipText = "Move to next tab group";
+            this.tscmdMoveExhibitors.Click += new System.EventHandler(this.tscmdMoveExhibitors_Click);
+            // 
+            // tscmdMoveAnimals
+            // 
+            this.tscmdMoveAnimals.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tscmdMoveAnimals.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tscmdMoveAnimals.Image = ((System.Drawing.Image)(resources.GetObject("tscmdMoveAnimals.Image")));
+            this.tscmdMoveAnimals.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tscmdMoveAnimals.Name = "tscmdMoveAnimals";
+            this.tscmdMoveAnimals.Size = new System.Drawing.Size(60, 22);
+            this.tscmdMoveAnimals.Text = "Move >>";
+            this.tscmdMoveAnimals.ToolTipText = "Move to next tab group";
+            this.tscmdMoveAnimals.Click += new System.EventHandler(this.tscmdMoveAnimals_Click);
+            // 
+            // tscmdMoveBuyers
+            // 
+            this.tscmdMoveBuyers.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tscmdMoveBuyers.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tscmdMoveBuyers.Image = ((System.Drawing.Image)(resources.GetObject("tscmdMoveBuyers.Image")));
+            this.tscmdMoveBuyers.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tscmdMoveBuyers.Name = "tscmdMoveBuyers";
+            this.tscmdMoveBuyers.Size = new System.Drawing.Size(60, 22);
+            this.tscmdMoveBuyers.Text = "Move >>";
+            this.tscmdMoveBuyers.ToolTipText = "Move to next tab group";
+            this.tscmdMoveBuyers.Click += new System.EventHandler(this.tscmdMoveBuyers_Click);
+            // 
+            // tscmdMoveMarket
+            // 
+            this.tscmdMoveMarket.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tscmdMoveMarket.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tscmdMoveMarket.Image = ((System.Drawing.Image)(resources.GetObject("tscmdMoveMarket.Image")));
+            this.tscmdMoveMarket.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tscmdMoveMarket.Name = "tscmdMoveMarket";
+            this.tscmdMoveMarket.Size = new System.Drawing.Size(60, 22);
+            this.tscmdMoveMarket.Text = "Move >>";
+            this.tscmdMoveMarket.ToolTipText = "Move to next tab group";
+            this.tscmdMoveMarket.Click += new System.EventHandler(this.tscmdMoveMarket_Click);
+            // 
+            // tscmdMoveBuyerCheckout
+            // 
+            this.tscmdMoveBuyerCheckout.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tscmdMoveBuyerCheckout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tscmdMoveBuyerCheckout.Image = ((System.Drawing.Image)(resources.GetObject("tscmdMoveBuyerCheckout.Image")));
+            this.tscmdMoveBuyerCheckout.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tscmdMoveBuyerCheckout.Name = "tscmdMoveBuyerCheckout";
+            this.tscmdMoveBuyerCheckout.Size = new System.Drawing.Size(60, 22);
+            this.tscmdMoveBuyerCheckout.Text = "Move >>";
+            this.tscmdMoveBuyerCheckout.ToolTipText = "Move to next tab group";
+            this.tscmdMoveBuyerCheckout.Click += new System.EventHandler(this.tscmdMoveBuyerCheckout_Click);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(56, 22);
+            this.toolStripButton1.Text = "Move >>";
+            this.toolStripButton1.ToolTipText = "Move to next tab group";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -984,6 +993,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnucmdImportHistory;
         private System.Windows.Forms.ToolStripMenuItem mnucmdExportToExcel;
         private System.Windows.Forms.SaveFileDialog dlgExportExcel;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
     }
 }
 

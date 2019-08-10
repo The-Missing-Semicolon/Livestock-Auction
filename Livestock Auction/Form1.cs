@@ -594,5 +594,24 @@ namespace Livestock_Auction
                 clsDB.ExportToExcel(dlgExportExcel.FileName);
             }
         }
+
+        private void SettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSettings settings = new frmSettings();
+            if(settings.ShowDialog() == DialogResult.OK)
+            {
+                clsDB.Settings.WriteSettingsToDB(clsDB.Connection, "eventName", clsDB.Settings.EventName);
+                clsDB.Settings.WriteSettingsToDB(clsDB.Connection, "address", clsDB.Settings.FairAddress);
+                clsDB.Settings.WriteSettingsToDB(clsDB.Connection, "city", clsDB.Settings.FairCity);
+                clsDB.Settings.WriteSettingsToDB(clsDB.Connection, "state", clsDB.Settings.FairState);
+                clsDB.Settings.WriteSettingsToDB(clsDB.Connection, "zipcode", clsDB.Settings.FairZipCode.ToString());
+                clsDB.Settings.WriteSettingsToDB(clsDB.Connection, "phone", clsDB.Settings.FairPhone);
+
+                clsDB.Settings.WriteSettingsToDB(clsDB.Connection, "eventYear", clsDB.Settings.FairYear.ToString());
+                clsDB.Settings.WriteSettingsToDB(clsDB.Connection, "fairFee", clsDB.Settings.FairFee.ToString());
+                clsDB.Settings.WriteSettingsToDB(clsDB.Connection, "ccFee", clsDB.Settings.CreditCardFee.ToString());
+            }
+            
+        }
     }
 }

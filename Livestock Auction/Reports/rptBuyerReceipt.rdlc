@@ -9,7 +9,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=str(Year(Today)) + " " + First(Fields!EventName.Value, "Livestock_Auction_clsSettings")</Value>
+                <Value>=First(Fields!FairYear.Value.ToString(), "Livestock_Auction_clsSettings") + " " + First(Fields!EventName.Value, "Livestock_Auction_clsSettings")</Value>
                 <Style>
                   <FontStyle>Italic</FontStyle>
                   <FontFamily>Times New Roman</FontFamily>
@@ -1561,9 +1561,10 @@ First(Fields!Billing.Value.City, "Livestock_Auction_clsBuyer") &amp; " " &amp; F
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Cecil County Fair
-P.O. Box 84
-Childs, MD 21916</Value>
+                <Value>="Cecil County Fair" + chr(13) + chr(10)
++ First(Fields!FairAddress.Value, "Livestock_Auction_clsSettings") + chr(13) + chr(10)
++ First(Fields!FairCity.Value, "Livestock_Auction_clsSettings") + ", " + First(Fields!FairState.Value, "Livestock_Auction_clsSettings")
++ " " + First(Fields!FairZipCode.Value.ToString(), "Livestock_Auction_clsSettings")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -2135,17 +2136,41 @@ Childs, MD 21916</Value>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="CCFee">
-          <DataField>CCFee</DataField>
+        <Field Name="CreditCardFee">
+          <DataField>CreditCardFee</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
         </Field>
         <Field Name="EventName">
           <DataField>EventName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="FairAddress">
+          <DataField>FairAddress</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FairCity">
+          <DataField>FairCity</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="FairFee">
           <DataField>FairFee</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="FairPhone">
+          <DataField>FairPhone</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FairState">
+          <DataField>FairState</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FairYear">
+          <DataField>FairYear</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="FairZipCode">
+          <DataField>FairZipCode</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>

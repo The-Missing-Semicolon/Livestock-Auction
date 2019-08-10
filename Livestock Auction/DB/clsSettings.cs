@@ -8,9 +8,15 @@ namespace Livestock_Auction.DB
 {
     public class clsSettings
     {
-        string s_eventName;
-        double s_fairPercent;
-        double s_ccPercent;
+        string m_fairAddress;
+        string m_fairCity;
+        string m_fairState;
+        int m_fairZipcode;
+        int m_fairYear;
+        string m_fairPhone;
+
+        double m_fairPercent;
+        double m_ccPercent;
 
         public clsSettings()
         {
@@ -37,8 +43,15 @@ namespace Livestock_Auction.DB
 
                     tableCreation.CommandText = @"insert into Settings values 
                         ('eventName', 'Cecil County Fair Livestock Auction'), 
+                        ('address', 'PO Box 84'),
+                        ('city', 'Childs'),
+                        ('state', 'MD'),
+                        ('zipcode', '21916'),
+                        ('phone', '410-392-3440'),
+                        ('eventYear','" + DateTime.Now.Year.ToString() +  @"'),
                         ('fairFee', '0.05'), 
                         ('ccFee', '0.0275')";
+                    Console.WriteLine(tableCreation.CommandText);
                     tableCreation.ExecuteNonQuery();
                 }
                 catch (SqlException ex)
@@ -70,15 +83,34 @@ namespace Livestock_Auction.DB
                         switch (reader["sKey"].ToString())
                         {
                             case "eventName":
-                                s_eventName = reader["sValue"].ToString();
+                                EventName = reader["sValue"].ToString();
                                 break;
+                            case "address":
+                                m_fairAddress = reader["sValue"].ToString();
+                                break;
+                            case "city":
+                                m_fairCity = reader["sValue"].ToString();
+                                break;
+                            case "state":
+                                m_fairState = reader["sValue"].ToString();
+                                break;
+                            case "zipcode":
+                                m_fairZipcode = Convert.ToInt32(reader["sValue"].ToString());
+                                break;
+                            case "phone":
+                                m_fairPhone = reader["sValue"].ToString();
+                                break;
+                            case "eventYear":
+                                m_fairYear = Convert.ToInt32(reader["sValue"].ToString());
+                                break;
+
                             case "fairFee":
-                                //s_fairPercent = (double)(reader["sValue"].ToString());
-                                s_fairPercent = Convert.ToDouble(reader["sValue"]);
+                                m_fairPercent = Convert.ToDouble(reader["sValue"]);
                                 break;
                             case "ccFee":
-                                s_ccPercent = Convert.ToDouble(reader["sValue"]);
+                                m_ccPercent = Convert.ToDouble(reader["sValue"]);
                                 break;
+
                         }
 
                     }
@@ -97,6 +129,30 @@ namespace Livestock_Auction.DB
 
 
             return true;
+        }
+
+        public void WriteSettingsToDB(System.Data.IDbConnection DatabaseConnection, string setting, string value)
+        {
+            System.Data.IDbCommand updateCmd = DatabaseConnection.CreateCommand();
+            updateCmd.CommandText = "UPDATE Settings SET sValue = @val WHERE sKey = @key";
+
+            var param = updateCmd.CreateParameter();
+            param.ParameterName = "@val";
+            param.Value = value;
+            param.DbType = System.Data.DbType.String;
+            param.Size = 255;
+            updateCmd.Parameters.Add(param);
+
+            param = updateCmd.CreateParameter();
+            param.ParameterName = "@key";
+            param.Value = setting;
+            param.DbType = System.Data.DbType.String;
+            param.Size = 255;
+            updateCmd.Parameters.Add(param);
+
+            updateCmd.Prepare();
+            updateCmd.ExecuteNonQuery();
+
         }
 
         public void SettingsLoadHandler(System.Data.IDbConnection DatabaseConnection, SqlException ex)
@@ -133,39 +189,102 @@ namespace Livestock_Auction.DB
             System.Windows.Forms.MessageBox.Show("Failed to load settings.", "Failed to load", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
         }
 
-        public string EventName
+        public string EventName { get; set; }
+
+        public string FairAddress
         {
             get
             {
-                return s_eventName;
+                return m_fairAddress;
             }
             set
             {
-                s_eventName = value;
+                m_fairAddress = value;
             }
         }
+
+        public string FairCity
+        {
+            get
+            {
+                return m_fairCity;
+            }
+            set
+            {
+                m_fairCity = value;
+            }
+        }
+
+        public string FairState
+        {
+            get
+            {
+                return m_fairState;
+            }
+            set
+            {
+                m_fairState = value;
+            }
+        }
+
+        public int FairZipCode
+        {
+            get
+            {
+                return m_fairZipcode;
+            }
+            set
+            {
+                m_fairZipcode = value;
+            }
+        }
+
+        public string FairPhone
+        {
+            get
+            {
+                return m_fairPhone;
+            }
+            set
+            {
+                m_fairPhone = value;
+            }
+        }
+
+        public int FairYear
+        {
+            get
+            {
+                return m_fairYear;
+            }
+            set
+            {
+                m_fairYear = value;
+            }
+        }
+
 
         public double FairFee
         {
             get
             {
-                return s_fairPercent;
+                return m_fairPercent;
             }
             set
             {
-                s_fairPercent = value;
+                m_fairPercent = value;
             }
         }
 
-        public double CCFee
+        public double CreditCardFee
         {
             get
             {
-                return s_ccPercent;
+                return m_ccPercent;
             }
             set
             {
-                s_ccPercent = value;
+                m_ccPercent = value;
             }
         }
 
