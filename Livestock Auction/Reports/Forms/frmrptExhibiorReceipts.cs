@@ -254,6 +254,7 @@ namespace Livestock_Auction.Reports.Forms
                 {
                     clsPaymentBindingSource.DataSource = null;
                 }
+                clsSettingsBindingSource.DataSource = clsDB.Settings;
                 this.rptBuyerReceipt.RefreshReport();
             }
         }
