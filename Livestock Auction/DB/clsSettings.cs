@@ -156,7 +156,7 @@ namespace Livestock_Auction.DB
             param.Size = 255;
             updateCmd.Parameters.Add(param);
 
-            //updateCmd.Prepare();
+            updateCmd.Prepare();
             updateCmd.ExecuteNonQuery();
 
         }
