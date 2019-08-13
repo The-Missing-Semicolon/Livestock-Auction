@@ -550,6 +550,9 @@ namespace Livestock_Auction
                 }
             }
 
+            //Write Settings table
+            m_settings.CreateTableForExport(dbExportConnection);
+
             dbExportConnection.Close();
         }
 
@@ -583,6 +586,9 @@ namespace Livestock_Auction
                 DB.Setup.AuctionDBSetup.CopyData(new DB.Setup.Purchases(), SourceConnection, m_dbConn);
                 DB.Setup.AuctionDBSetup.CopyData(new DB.Setup.Payments(), SourceConnection, m_dbConn);
             }
+
+            //Import Settings Table
+            m_settings.ImportTableFromSQLCE(SourceConnection);
 
             m_PauseMonitorThread.ReleaseMutex();
         }
