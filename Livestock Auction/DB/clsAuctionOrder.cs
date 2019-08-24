@@ -499,6 +499,108 @@ namespace Livestock_Auction.DB
             LoadRevisionHistory();
         }
 
+        public void GenerateAuctionOrderSolanco()
+        {
+            Console.WriteLine("Starting Solanco Order");
+            //Solancos auction order is by market type.  Within each market type champion animals go first, and the rest go by tag number (they use special show tag numbers)
+
+            List<DB.clsExhibit> lstExhibits = clsDB.Exhibits.ToList<DB.clsExhibit>(); //Initalize list, sort by tag number
+            lstExhibits.OrderBy(exhibit => exhibit.TagNumber);  //Sort by tag number
+
+
+
+            //Will need to check if they use grand and reserve
+            Dictionary<int, List<DB.clsExhibit>> dictChamps = new Dictionary<int, List<DB.clsExhibit>>();
+            Dictionary<int, List<DB.clsExhibit>> dictOther = new Dictionary<int, List<DB.clsExhibit>>();
+
+            for (int i = 0; i < clsDB.Market.Count; i++)
+	        {
+                dictChamps[i] = new List<DB.clsExhibit>();
+                dictOther[i] = new List<DB.clsExhibit>();
+            }
+
+
+            foreach (DB.clsExhibit Exhibit in lstExhibits)
+            {
+                if (Exhibit.Include)
+                {
+                    if (Exhibit.ChampionStatus == ChampionState.Grand_Champion)
+                    {
+                        dictChamps[Exhibit.MarketID].Add(Exhibit);
+                    }
+                    else
+                    {
+                        dictOther[Exhibit.MarketID].Add(Exhibit);
+                    }
+                }
+            }
+
+            lstExhibits = new List<DB.clsExhibit>();  //Or set to null like line 417 in clsAuctionOrder.cs
+
+            //Iterate through each market type and add to final list
+            foreach (DB.clsMarketItem mItem in clsDB.Market.ToList<DB.clsMarketItem>())
+            {
+                if (mItem.MarketType != "Additional Items") //Check for empty market classes?
+                {
+                    lstExhibits.AddRange(dictChamps[mItem.MarketID]);
+                    lstExhibits.AddRange(dictOther[mItem.MarketID]);
+                }
+            }
+
+            //Write order to database as in clsAuctionOrder at list 463
+
+            //Write the order to the database
+
+            int iRevisionIndex = 0;
+
+
+
+            using (IDbTransaction dbTrans = m_dbConn.BeginTransaction(IsolationLevel.Serializable))
+
+            {
+
+                //Get the next revision index
+
+                IDbCommand dbCommand = m_dbConn.CreateCommand();
+                dbCommand.Transaction = dbTrans;
+                dbCommand.CommandText = "SELECT COALESCE(MAX(RevisionIndex), 0) + 1 FROM AuctionOrder";
+                iRevisionIndex = (int)dbCommand.ExecuteScalar();
+
+
+                for (int i = 0; i < lstExhibits.Count; i++)
+                {
+                    lock (m_dictAuctionOrder)
+                    {
+                        lock (m_dictCollection)
+                        {
+                            clsAuctionIndex AuctionIndex = new clsAuctionIndex(i, 0, lstExhibits[i].TagNumber, lstExhibits[i].MarketID);
+                            AuctionIndex.RevisionIndex = iRevisionIndex;
+
+                            if (i > 0)
+                            {
+                                AuctionIndex.PrevExhibit = clsAuctionIndex.ComputeID(lstExhibits[i - 1].TagNumber, lstExhibits[i - 1].MarketID);
+                            }
+
+                            if (i < lstExhibits.Count - 1)
+                            {
+                                AuctionIndex.NextExhibit = clsAuctionIndex.ComputeID(lstExhibits[i + 1].TagNumber, lstExhibits[i + 1].MarketID);
+                            }
+
+                            this.Commit(CommitAction.Modify, AuctionIndex, dbTrans);
+                            System.Threading.Thread.Sleep(10); //Quick sleep to ensure each entry gets a unique timestamp
+                        }
+                    }
+                }
+                dbTrans.Commit();
+            }
+
+            Update();
+            LoadRevisionHistory();
+
+        }
+
+
+
         public void RevertToRevision(int TargetRevision)
         {
             SqlCommand dbCommand = new SqlCommand();
