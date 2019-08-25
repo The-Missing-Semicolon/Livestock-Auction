@@ -76,7 +76,7 @@
             this.label2.Location = new System.Drawing.Point(454, 39);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 13);
-            this.label2.TabIndex = 2;
+            this.label2.TabIndex = 16;
             this.label2.Text = "Fair Fee:";
             // 
             // txtFairFee
@@ -84,7 +84,7 @@
             this.txtFairFee.Location = new System.Drawing.Point(506, 36);
             this.txtFairFee.Name = "txtFairFee";
             this.txtFairFee.Size = new System.Drawing.Size(44, 20);
-            this.txtFairFee.TabIndex = 3;
+            this.txtFairFee.TabIndex = 17;
             this.txtFairFee.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label3
@@ -93,7 +93,7 @@
             this.label3.Location = new System.Drawing.Point(419, 67);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 13);
-            this.label3.TabIndex = 4;
+            this.label3.TabIndex = 19;
             this.label3.Text = "Credit Card Fee:";
             // 
             // txtCreditCardFee
@@ -101,7 +101,7 @@
             this.txtCreditCardFee.Location = new System.Drawing.Point(506, 64);
             this.txtCreditCardFee.Name = "txtCreditCardFee";
             this.txtCreditCardFee.Size = new System.Drawing.Size(44, 20);
-            this.txtCreditCardFee.TabIndex = 5;
+            this.txtCreditCardFee.TabIndex = 20;
             this.txtCreditCardFee.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label4
@@ -111,7 +111,7 @@
             this.label4.Location = new System.Drawing.Point(553, 37);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(20, 17);
-            this.label4.TabIndex = 6;
+            this.label4.TabIndex = 18;
             this.label4.Text = "%";
             // 
             // label5
@@ -121,7 +121,7 @@
             this.label5.Location = new System.Drawing.Point(553, 65);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(20, 17);
-            this.label5.TabIndex = 7;
+            this.label5.TabIndex = 21;
             this.label5.Text = "%";
             // 
             // cmdSave
@@ -129,7 +129,7 @@
             this.cmdSave.Location = new System.Drawing.Point(393, 176);
             this.cmdSave.Name = "cmdSave";
             this.cmdSave.Size = new System.Drawing.Size(75, 23);
-            this.cmdSave.TabIndex = 8;
+            this.cmdSave.TabIndex = 22;
             this.cmdSave.Text = "Save";
             this.cmdSave.UseVisualStyleBackColor = true;
             this.cmdSave.Click += new System.EventHandler(this.CmdSave_Click);
@@ -139,7 +139,7 @@
             this.cmdCancel.Location = new System.Drawing.Point(498, 176);
             this.cmdCancel.Name = "cmdCancel";
             this.cmdCancel.Size = new System.Drawing.Size(75, 23);
-            this.cmdCancel.TabIndex = 9;
+            this.cmdCancel.TabIndex = 23;
             this.cmdCancel.Text = "Cancel";
             this.cmdCancel.UseVisualStyleBackColor = true;
             this.cmdCancel.Click += new System.EventHandler(this.CmdCancel_Click);
@@ -149,7 +149,7 @@
             this.txtAddress.Location = new System.Drawing.Point(112, 62);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(278, 20);
-            this.txtAddress.TabIndex = 11;
+            this.txtAddress.TabIndex = 5;
             // 
             // label6
             // 
@@ -157,7 +157,7 @@
             this.label6.Location = new System.Drawing.Point(17, 65);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(84, 13);
-            this.label6.TabIndex = 10;
+            this.label6.TabIndex = 4;
             this.label6.Text = "Mailing Address:";
             // 
             // txtCity
@@ -165,7 +165,7 @@
             this.txtCity.Location = new System.Drawing.Point(112, 88);
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(278, 20);
-            this.txtCity.TabIndex = 13;
+            this.txtCity.TabIndex = 7;
             // 
             // label7
             // 
@@ -173,7 +173,7 @@
             this.label7.Location = new System.Drawing.Point(74, 91);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(27, 13);
-            this.label7.TabIndex = 12;
+            this.label7.TabIndex = 6;
             this.label7.Text = "City:";
             // 
             // txtState
@@ -181,7 +181,7 @@
             this.txtState.Location = new System.Drawing.Point(112, 114);
             this.txtState.Name = "txtState";
             this.txtState.Size = new System.Drawing.Size(39, 20);
-            this.txtState.TabIndex = 15;
+            this.txtState.TabIndex = 9;
             // 
             // label8
             // 
@@ -189,7 +189,7 @@
             this.label8.Location = new System.Drawing.Point(66, 117);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(35, 13);
-            this.label8.TabIndex = 14;
+            this.label8.TabIndex = 8;
             this.label8.Text = "State:";
             // 
             // txtZipcode
@@ -197,7 +197,7 @@
             this.txtZipcode.Location = new System.Drawing.Point(255, 114);
             this.txtZipcode.Name = "txtZipcode";
             this.txtZipcode.Size = new System.Drawing.Size(62, 20);
-            this.txtZipcode.TabIndex = 17;
+            this.txtZipcode.TabIndex = 11;
             // 
             // label9
             // 
@@ -205,7 +205,7 @@
             this.label9.Location = new System.Drawing.Point(199, 117);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(50, 13);
-            this.label9.TabIndex = 16;
+            this.label9.TabIndex = 10;
             this.label9.Text = "ZipCode:";
             // 
             // txtYear
@@ -213,7 +213,7 @@
             this.txtYear.Location = new System.Drawing.Point(506, 10);
             this.txtYear.Name = "txtYear";
             this.txtYear.Size = new System.Drawing.Size(62, 20);
-            this.txtYear.TabIndex = 19;
+            this.txtYear.TabIndex = 15;
             // 
             // label10
             // 
@@ -221,7 +221,7 @@
             this.label10.Location = new System.Drawing.Point(450, 13);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(52, 13);
-            this.label10.TabIndex = 18;
+            this.label10.TabIndex = 14;
             this.label10.Text = "Fair Year:";
             // 
             // txtPhone
@@ -229,7 +229,7 @@
             this.txtPhone.Location = new System.Drawing.Point(112, 140);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(205, 20);
-            this.txtPhone.TabIndex = 21;
+            this.txtPhone.TabIndex = 13;
             // 
             // label11
             // 
@@ -237,7 +237,7 @@
             this.label11.Location = new System.Drawing.Point(60, 143);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(41, 13);
-            this.label11.TabIndex = 20;
+            this.label11.TabIndex = 12;
             this.label11.Text = "Phone:";
             // 
             // txtFairName
@@ -245,7 +245,7 @@
             this.txtFairName.Location = new System.Drawing.Point(112, 36);
             this.txtFairName.Name = "txtFairName";
             this.txtFairName.Size = new System.Drawing.Size(278, 20);
-            this.txtFairName.TabIndex = 23;
+            this.txtFairName.TabIndex = 3;
             // 
             // label12
             // 
@@ -253,7 +253,7 @@
             this.label12.Location = new System.Drawing.Point(43, 39);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(58, 13);
-            this.label12.TabIndex = 22;
+            this.label12.TabIndex = 2;
             this.label12.Text = "Fair Name:";
             // 
             // frmSettings
