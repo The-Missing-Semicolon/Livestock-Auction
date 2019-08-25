@@ -97,6 +97,7 @@ namespace Livestock_Auction.DataEntry
             txtMarketUnits.Text = "";
             chkAllowAdvertising.Checked = false;
             chkValidDisposition.Checked = false;
+            chkSellByPound.Checked = true;
             lblMarketWarning.Visible = false;
         }
 
@@ -136,7 +137,7 @@ namespace Livestock_Auction.DataEntry
                 double dMarketValue = 0;
                 if ((txtMarketID.Text.Trim().Length == 0 || int.TryParse(txtMarketID.Text, out iMarketID)) && double.TryParse(txtMarketValue.Text, out dMarketValue) && txtMarketItem.Text.Trim().Length > 0)
                 {
-                    return new DB.clsMarketItem(iMarketID, txtMarketItem.Text.Trim(), dMarketValue, txtMarketUnits.Text.Trim(), chkAllowAdvertising.Checked, chkValidDisposition.Checked);
+                    return new DB.clsMarketItem(iMarketID, txtMarketItem.Text.Trim(), dMarketValue, txtMarketUnits.Text.Trim(), chkAllowAdvertising.Checked, chkValidDisposition.Checked, chkSellByPound.Checked);
                 }
                 else
                 {
@@ -153,6 +154,7 @@ namespace Livestock_Auction.DataEntry
                     txtMarketUnits.Text = value.MarketUnits;
                     chkAllowAdvertising.Checked = value.AllowAdvertising;
                     chkValidDisposition.Checked = value.ValidDisposition;
+                    chkSellByPound.Checked = value.SellByPound;
                 }
                 else
                 {

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.chkValidDisposition = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.chkAllowAdvertising = new System.Windows.Forms.CheckBox();
             this.txtMarketUnits = new System.Windows.Forms.TextBox();
@@ -40,13 +42,15 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtMarketValue = new System.Windows.Forms.TextBox();
             this.txtMarketItem = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.chkValidDisposition = new System.Windows.Forms.CheckBox();
+            this.chkSellByPound = new System.Windows.Forms.CheckBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.chkSellByPound);
             this.groupBox2.Controls.Add(this.chkValidDisposition);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label2);
@@ -67,6 +71,25 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Market Item";
+            // 
+            // chkValidDisposition
+            // 
+            this.chkValidDisposition.AutoSize = true;
+            this.chkValidDisposition.Location = new System.Drawing.Point(351, 34);
+            this.chkValidDisposition.Name = "chkValidDisposition";
+            this.chkValidDisposition.Size = new System.Drawing.Size(49, 17);
+            this.chkValidDisposition.TabIndex = 13;
+            this.chkValidDisposition.Text = "Valid";
+            this.chkValidDisposition.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(348, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(58, 13);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Disposition";
             // 
             // label2
             // 
@@ -105,13 +128,13 @@
             // 
             // lblMarketWarning
             // 
+            this.lblMarketWarning.AutoSize = true;
             this.lblMarketWarning.ForeColor = System.Drawing.Color.Red;
-            this.lblMarketWarning.Location = new System.Drawing.Point(418, 15);
+            this.lblMarketWarning.Location = new System.Drawing.Point(333, 0);
             this.lblMarketWarning.Name = "lblMarketWarning";
-            this.lblMarketWarning.Size = new System.Drawing.Size(55, 49);
-            this.lblMarketWarning.TabIndex = 14;
+            this.lblMarketWarning.Size = new System.Drawing.Size(127, 13);
+            this.lblMarketWarning.TabIndex = 16;
             this.lblMarketWarning.Text = "Market item will be added";
-            this.lblMarketWarning.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblMarketWarning.Visible = false;
             // 
             // txtMarketID
@@ -164,27 +187,27 @@
             this.txtMarketItem.Name = "txtMarketItem";
             this.txtMarketItem.Size = new System.Drawing.Size(90, 20);
             this.txtMarketItem.TabIndex = 5;
-            this.txtMarketItem.Leave += new System.EventHandler(this.txtMarketItem_Leave);
             this.txtMarketItem.Enter += new System.EventHandler(this.txtMarketItem_Enter);
+            this.txtMarketItem.Leave += new System.EventHandler(this.txtMarketItem_Leave);
             // 
-            // label3
+            // chkSellByPound
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(354, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 13);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Disposition";
+            this.chkSellByPound.AutoSize = true;
+            this.chkSellByPound.Location = new System.Drawing.Point(407, 34);
+            this.chkSellByPound.Name = "chkSellByPound";
+            this.chkSellByPound.Size = new System.Drawing.Size(57, 17);
+            this.chkSellByPound.TabIndex = 15;
+            this.chkSellByPound.Text = "Pound";
+            this.chkSellByPound.UseVisualStyleBackColor = true;
             // 
-            // chkValidDisposition
+            // label6
             // 
-            this.chkValidDisposition.AutoSize = true;
-            this.chkValidDisposition.Location = new System.Drawing.Point(357, 34);
-            this.chkValidDisposition.Name = "chkValidDisposition";
-            this.chkValidDisposition.Size = new System.Drawing.Size(49, 17);
-            this.chkValidDisposition.TabIndex = 13;
-            this.chkValidDisposition.Text = "Valid";
-            this.chkValidDisposition.UseVisualStyleBackColor = true;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(404, 16);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(39, 13);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Sell By";
             // 
             // ucMarketItemEntry
             // 
@@ -217,5 +240,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox chkValidDisposition;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.CheckBox chkSellByPound;
     }
 }

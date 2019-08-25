@@ -48,6 +48,8 @@
             this.chkAllowAdvertising = new System.Windows.Forms.CheckBox();
             this.chkValidDisposition = new System.Windows.Forms.CheckBox();
             this.cmdClear = new System.Windows.Forms.Button();
+            this.chkSellByPound = new System.Windows.Forms.CheckBox();
+            this.colSelBy = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // colItem
@@ -70,12 +72,14 @@
             this.colPrice,
             this.colUnits,
             this.colAdvertising,
-            this.colDisposition});
+            this.colDisposition,
+            this.colSelBy});
             this.lsvMarket.FullRowSelect = true;
+            this.lsvMarket.HideSelection = false;
             this.lsvMarket.Location = new System.Drawing.Point(0, 0);
             this.lsvMarket.Name = "lsvMarket";
             this.lsvMarket.Size = new System.Drawing.Size(695, 302);
-            this.lsvMarket.TabIndex = 14;
+            this.lsvMarket.TabIndex = 15;
             this.lsvMarket.UseCompatibleStateImageBehavior = false;
             this.lsvMarket.View = System.Windows.Forms.View.Details;
             this.lsvMarket.SelectedIndexChanged += new System.EventHandler(this.lsvMarket_SelectedIndexChanged);
@@ -103,7 +107,7 @@
             this.cmdSave.Location = new System.Drawing.Point(582, 306);
             this.cmdSave.Name = "cmdSave";
             this.cmdSave.Size = new System.Drawing.Size(113, 23);
-            this.cmdSave.TabIndex = 11;
+            this.cmdSave.TabIndex = 12;
             this.cmdSave.Text = "Save";
             this.cmdSave.UseVisualStyleBackColor = true;
             this.cmdSave.Click += new System.EventHandler(this.cmdSave_Click);
@@ -145,7 +149,7 @@
             this.cmdRemove.Location = new System.Drawing.Point(582, 364);
             this.cmdRemove.Name = "cmdRemove";
             this.cmdRemove.Size = new System.Drawing.Size(113, 23);
-            this.cmdRemove.TabIndex = 13;
+            this.cmdRemove.TabIndex = 14;
             this.cmdRemove.Text = "Remove Selected";
             this.cmdRemove.UseVisualStyleBackColor = true;
             this.cmdRemove.Click += new System.EventHandler(this.cmdRemove_Click);
@@ -197,7 +201,7 @@
             // chkValidDisposition
             // 
             this.chkValidDisposition.AutoSize = true;
-            this.chkValidDisposition.Location = new System.Drawing.Point(413, 324);
+            this.chkValidDisposition.Location = new System.Drawing.Point(413, 325);
             this.chkValidDisposition.Name = "chkValidDisposition";
             this.chkValidDisposition.Size = new System.Drawing.Size(103, 17);
             this.chkValidDisposition.TabIndex = 10;
@@ -209,15 +213,30 @@
             this.cmdClear.Location = new System.Drawing.Point(582, 335);
             this.cmdClear.Name = "cmdClear";
             this.cmdClear.Size = new System.Drawing.Size(113, 23);
-            this.cmdClear.TabIndex = 12;
+            this.cmdClear.TabIndex = 13;
             this.cmdClear.Text = "Clear";
             this.cmdClear.UseVisualStyleBackColor = true;
             this.cmdClear.Click += new System.EventHandler(this.cmdClear_Click);
+            // 
+            // chkSellByPound
+            // 
+            this.chkSellByPound.AutoSize = true;
+            this.chkSellByPound.Location = new System.Drawing.Point(413, 347);
+            this.chkSellByPound.Name = "chkSellByPound";
+            this.chkSellByPound.Size = new System.Drawing.Size(92, 17);
+            this.chkSellByPound.TabIndex = 11;
+            this.chkSellByPound.Text = "Sell By Pound";
+            this.chkSellByPound.UseVisualStyleBackColor = true;
+            // 
+            // colSelBy
+            // 
+            this.colSelBy.Text = "Sell By";
             // 
             // ucMarketItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.chkSellByPound);
             this.Controls.Add(this.cmdClear);
             this.Controls.Add(this.chkValidDisposition);
             this.Controls.Add(this.chkAllowAdvertising);
@@ -261,6 +280,7 @@
         private System.Windows.Forms.CheckBox chkValidDisposition;
         private System.Windows.Forms.ColumnHeader colDisposition;
         private System.Windows.Forms.Button cmdClear;
-
+        private System.Windows.Forms.CheckBox chkSellByPound;
+        private System.Windows.Forms.ColumnHeader colSelBy;
     }
 }

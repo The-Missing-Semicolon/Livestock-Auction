@@ -93,13 +93,14 @@ namespace Livestock_Auction.DB
         string m_sMarketUnits;
         bool m_bAllowAdvertising;
         bool m_bValidDisposition;
+        bool m_bSellByPound;
 
         public clsMarketItem()
         {
 
         }
 
-        public clsMarketItem(int ID, string Type, double Value, string Units, bool AllowAdvertising, bool ValidDisposition)
+        public clsMarketItem(int ID, string Type, double Value, string Units, bool AllowAdvertising, bool ValidDisposition, bool SellByPound)
         {
             m_iMarketID = ID;
             m_sMarketType = Type;
@@ -107,6 +108,7 @@ namespace Livestock_Auction.DB
             m_sMarketUnits = Units;
             m_bAllowAdvertising = AllowAdvertising;
             m_bValidDisposition = ValidDisposition;
+            m_bSellByPound = SellByPound;
         }
 
         public override void Load(IDataReader dbReader)
@@ -117,6 +119,7 @@ namespace Livestock_Auction.DB
             m_sMarketUnits = dbReader["MarketUnits"].ToString();
             m_bAllowAdvertising = (bool)dbReader["AllowAdvertising"];
             m_bValidDisposition = (bool)dbReader["ValidDisposition"];
+            m_bSellByPound = (bool)dbReader["SellByPound"];
         }
 
         protected override void DBCommit(DB.CommitAction Action, IDbConnection DatabaseConnection, IDbTransaction Transaction)
@@ -147,7 +150,7 @@ namespace Livestock_Auction.DB
 
             IDbCommand dbCommit = DatabaseConnection.CreateCommand();
             dbCommit.Transaction = Transaction;
-            dbCommit.CommandText = "INSERT INTO Market (CommitAction, ID, MarketItem, MarketPrice, MarketUnits, AllowAdvertising, ValidDisposition) VALUES (@CommitAction, @MarketID, @MarketType, @MarketValue, @MarketUnits, @AllowAdvertising, @ValidDisposition)";
+            dbCommit.CommandText = "INSERT INTO Market (CommitAction, ID, MarketItem, MarketPrice, MarketUnits, AllowAdvertising, ValidDisposition, SellByPound) VALUES (@CommitAction, @MarketID, @MarketType, @MarketValue, @MarketUnits, @AllowAdvertising, @ValidDisposition, @SellByPound)";
             
             IDbDataParameter param = dbCommit.CreateParameter();
             param.ParameterName = "@CommitAction";
@@ -184,6 +187,11 @@ namespace Livestock_Auction.DB
             param.Value = this.ValidDisposition;
             dbCommit.Parameters.Add(param);
 
+            param = dbCommit.CreateParameter();
+            param.ParameterName = "@SellByPound";
+            param.Value = this.SellByPound;
+            dbCommit.Parameters.Add(param);
+            
             dbCommit.ExecuteNonQuery();
         }
 
@@ -327,6 +335,18 @@ namespace Livestock_Auction.DB
                 m_bValidDisposition = value;
             }
         }
+
+        public bool SellByPound
+        {
+            get
+            {
+                return m_bSellByPound;
+            }
+            set
+            {
+                m_bSellByPound = value;
+            }
+        }
     }
 
     namespace Setup
@@ -343,17 +363,16 @@ namespace Livestock_Auction.DB
                     new SQLColumn("MarketPrice", "money", "0", false),
                     new SQLColumn("MarketUnits", "nvarchar(20)", "", false),
                     new SQLColumn("AllowAdvertising", "bit", "0", false),
-                    new SQLColumn("ValidDisposition", "bit", "0", false)
+                    new SQLColumn("ValidDisposition", "bit", "0", false),
+                    new SQLColumn("SellByPound", "bit", "0", false),
                 };
             }
 
             //Use the post setup steps to insert the additional payment record
             public override void SQLPostSetupSteps(IDbConnection DatabaseConnection)
             {
-                clsMarketItem AddPayment = new clsMarketItem(0, "Additional Payment", 0, "", false, false);
-                //clsMarketItem UnknownExhibit = new clsMarketItem(1, "Unknown Exhibit", 0, "", false, false);
+                clsMarketItem AddPayment = new clsMarketItem(0, "Additional Payment", 0, "", false, false, false);
                 AddPayment.Commit(DatabaseConnection);
-                //UnknownExhibit.Commit(DatabaseConnection);
             }
         }
     }
