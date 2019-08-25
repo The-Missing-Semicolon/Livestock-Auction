@@ -566,7 +566,7 @@ First(Fields!PhoneNumber.Value, "Livestock_Auction_clsBuyer")</Value>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=IIF(Fields!Exhibit.Value.MarketItem.AllowAdvertising, FormatCurrency(Fields!Exhibit.Value.MarketItem.MarketValue, 2), "N/A")</Value>
+                              <Value>=Fields!Exhibit.Value.MarketItem.MarketValue_String</Value>
                               <Style>
                                 <FontFamily>Arial Narrow</FontFamily>
                               </Style>
@@ -597,7 +597,7 @@ First(Fields!PhoneNumber.Value, "Livestock_Auction_clsBuyer")</Value>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=FormatCurrency(Fields!FinalBid.Value, 2) + IIF(Len(Fields!Exhibit.Value.MarketItem.MarketUnits) &gt; 0, " /" + Fields!Exhibit.Value.MarketItem.MarketUnits, "")</Value>
+                              <Value>=Fields!FinalBid_String.Value</Value>
                               <Style>
                                 <FontFamily>Arial Narrow</FontFamily>
                               </Style>
@@ -2140,10 +2140,10 @@ First(Fields!Billing.Value.City, "Livestock_Auction_clsBuyer") &amp; " " &amp; F
           <DataField>CreditCardFee</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
         </Field>
-		<Field Name="FairName">
-		  <DataField>FairName</DataField>
+        <Field Name="FairName">
+          <DataField>FairName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
-		</Field>
+        </Field>
         <Field Name="EventName">
           <DataField>EventName</DataField>
           <rd:TypeName>System.String</rd:TypeName>

@@ -59,7 +59,7 @@
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 178F));
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 72F));
-            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 270F));
+            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 271F));
             this.tlpMain.Controls.Add(this.lblBidTotal, 4, 0);
             this.tlpMain.Controls.Add(this.lblItemTag, 1, 1);
             this.tlpMain.Controls.Add(this.lblRecipientName, 0, 0);
@@ -78,11 +78,11 @@
             this.tlpMain.RowCount = 2;
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            this.tlpMain.Size = new System.Drawing.Size(968, 47);
+            this.tlpMain.Size = new System.Drawing.Size(969, 47);
             this.tlpMain.TabIndex = 0;
+            this.tlpMain.MouseEnter += new System.EventHandler(this.MouseEnter_Highlight);
             this.tlpMain.MouseLeave += new System.EventHandler(this.MouseLeave_Highlight);
             this.tlpMain.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MouseUp_Select);
-            this.tlpMain.MouseEnter += new System.EventHandler(this.MouseEnter_Highlight);
             // 
             // lblBidTotal
             // 
@@ -191,14 +191,14 @@
             this.cmbDisposition.Location = new System.Drawing.Point(697, 1);
             this.cmbDisposition.Margin = new System.Windows.Forms.Padding(0);
             this.cmbDisposition.Name = "cmbDisposition";
-            this.cmbDisposition.Size = new System.Drawing.Size(270, 21);
+            this.cmbDisposition.Size = new System.Drawing.Size(271, 21);
             this.cmbDisposition.TabIndex = 10;
             this.cmbDisposition.Text = "Hauled by Buyer";
-            this.cmbDisposition.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MouseUp_Select);
             this.cmbDisposition.SelectedIndexChanged += new System.EventHandler(this.cmbDisposition_SelectedIndexChanged);
+            this.cmbDisposition.TextUpdate += new System.EventHandler(this.cmbDisposition_TextUpdate);
             this.cmbDisposition.MouseEnter += new System.EventHandler(this.MouseEnter_Highlight);
             this.cmbDisposition.MouseLeave += new System.EventHandler(this.MouseLeave_Highlight);
-            this.cmbDisposition.TextUpdate += new System.EventHandler(this.cmbDisposition_TextUpdate);
+            this.cmbDisposition.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MouseUp_Select);
             // 
             // txtDispositionSpecify
             // 
@@ -208,12 +208,12 @@
             this.txtDispositionSpecify.Location = new System.Drawing.Point(697, 24);
             this.txtDispositionSpecify.Margin = new System.Windows.Forms.Padding(0);
             this.txtDispositionSpecify.Name = "txtDispositionSpecify";
-            this.txtDispositionSpecify.Size = new System.Drawing.Size(270, 20);
+            this.txtDispositionSpecify.Size = new System.Drawing.Size(271, 20);
             this.txtDispositionSpecify.TabIndex = 11;
             this.txtDispositionSpecify.TextChanged += new System.EventHandler(this.txtDispositionSpecify_TextChanged);
+            this.txtDispositionSpecify.MouseEnter += new System.EventHandler(this.MouseEnter_Highlight);
             this.txtDispositionSpecify.MouseLeave += new System.EventHandler(this.MouseLeave_Highlight);
             this.txtDispositionSpecify.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MouseUp_Select);
-            this.txtDispositionSpecify.MouseEnter += new System.EventHandler(this.MouseEnter_Highlight);
             // 
             // panTakeTurnBack
             // 
@@ -236,9 +236,9 @@
             this.radSaleFullPrice.TabStop = true;
             this.radSaleFullPrice.Text = "Full Price";
             this.radSaleFullPrice.UseVisualStyleBackColor = true;
-            this.radSaleFullPrice.MouseLeave += new System.EventHandler(this.MouseLeave_Highlight);
-            this.radSaleFullPrice.MouseEnter += new System.EventHandler(this.MouseEnter_Highlight);
             this.radSaleFullPrice.CheckedChanged += new System.EventHandler(this.radSaleFullPrice_CheckedChanged);
+            this.radSaleFullPrice.MouseEnter += new System.EventHandler(this.MouseEnter_Highlight);
+            this.radSaleFullPrice.MouseLeave += new System.EventHandler(this.MouseLeave_Highlight);
             this.radSaleFullPrice.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MouseUp_Select);
             // 
             // radSaleAdvertising
@@ -251,9 +251,9 @@
             this.radSaleAdvertising.TabStop = true;
             this.radSaleAdvertising.Text = "Advertising";
             this.radSaleAdvertising.UseVisualStyleBackColor = true;
-            this.radSaleAdvertising.MouseLeave += new System.EventHandler(this.MouseLeave_Highlight);
-            this.radSaleAdvertising.MouseEnter += new System.EventHandler(this.MouseEnter_Highlight);
             this.radSaleAdvertising.CheckedChanged += new System.EventHandler(this.radSaleAdvertising_CheckedChanged);
+            this.radSaleAdvertising.MouseEnter += new System.EventHandler(this.MouseEnter_Highlight);
+            this.radSaleAdvertising.MouseLeave += new System.EventHandler(this.MouseLeave_Highlight);
             this.radSaleAdvertising.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MouseUp_Select);
             // 
             // ucCheckoutItem
@@ -266,7 +266,7 @@
             this.Controls.Add(this.tlpMain);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "ucCheckoutItem";
-            this.Size = new System.Drawing.Size(968, 47);
+            this.Size = new System.Drawing.Size(969, 47);
             this.tlpMain.ResumeLayout(false);
             this.tlpMain.PerformLayout();
             this.panTakeTurnBack.ResumeLayout(false);

@@ -887,7 +887,7 @@ namespace Livestock_Auction.DB
         {
             get
             {
-                if (Exhibit.MarketItem.MarketUnits.Trim().Length > 0)
+                if (Exhibit.MarketItem.MarketUnits.Trim().Length <= 0 || !Exhibit.MarketItem.SellByPound)
                 {
                     return FinalBid.ToString("$#,##0.00");
                 }
@@ -1023,8 +1023,7 @@ namespace Livestock_Auction.DB
             {
                 if (cExhibit != null)
                 {
-                    //return Math.Round(dFinalBid * (double)cExhibit.Weight * 0.05, 2);
-                    return Math.Round(dFinalBid * (double)cExhibit.Weight * clsDB.Settings.FairFee, 2);
+                    return Math.Round(TotalBid * clsDB.Settings.FairFee, 2);
                 }
                 else
                 {
@@ -1039,7 +1038,7 @@ namespace Livestock_Auction.DB
             {
                 if (cExhibit != null)
                 {
-                    return dFinalBid * cExhibit.Weight;
+                    return dFinalBid * (cExhibit.MarketItem.SellByPound ? cExhibit.Weight : 1);
                 }
                 else
                 {
@@ -1062,7 +1061,7 @@ namespace Livestock_Auction.DB
             {
                 if (cExhibit != null)
                 {
-                    return ((dFinalBid - (eSaleCondition == enSaleCondition.PayAdvertising ? cExhibit.MarketItem.MarketValue : 0)) * cExhibit.Weight);
+                    return TotalBid - ((eSaleCondition == enSaleCondition.PayAdvertising ? cExhibit.MarketItem.MarketValue : 0) * cExhibit.Weight);
                 }
                 else
                 {
@@ -1077,19 +1076,20 @@ namespace Livestock_Auction.DB
             {
                 if (cExhibit != null)
                 {
-                    if (!ExhibitorKept)
-                    {
-                        return (dFinalBid * cExhibit.Weight) - FairFee;
-                    }
-                    else
-                    {
-                        return (dFinalBid - cExhibit.MarketItem.MarketValue) * cExhibit.Weight - FairFee;
-                    }
+                    return TotalBid - ((ExhibitorKept ? cExhibit.MarketItem.MarketValue : 0) * cExhibit.Weight) - FairFee;
                 }
                 else
                 {
                     return 0;
                 }
+            }
+        }
+
+        public string TotalPayOut_String
+        {
+            get
+            {
+                return TotalPayOut.ToString("$#,##0.00");
             }
         }
     }

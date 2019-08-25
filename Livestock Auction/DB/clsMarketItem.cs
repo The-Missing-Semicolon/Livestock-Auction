@@ -312,6 +312,21 @@ namespace Livestock_Auction.DB
             }
         }
 
+        public string MarketValue_String
+        {
+            get
+            {
+                if (m_bAllowAdvertising)
+                {
+                    return m_fMarketValue.ToString(String.Format("$#,##0.00/{0}", m_sMarketUnits));
+                }
+                else
+                {
+                    return "N/A";
+                }
+            }
+        }
+
         public bool AllowAdvertising
         {
             get

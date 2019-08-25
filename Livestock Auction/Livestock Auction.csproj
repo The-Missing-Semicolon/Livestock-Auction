@@ -298,7 +298,9 @@
     <EmbeddedResource Include="Reports\rptBuyerReceipt.rdlc">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\rptExhibitorReceipt.rdlc" />
+    <EmbeddedResource Include="Reports\rptExhibitorReceipt.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptWeightSold.rdlc" />
     <EmbeddedResource Include="ucExhibits.resx">
       <DependentUpon>ucExhibits.cs</DependentUpon>
@@ -353,6 +355,7 @@
     <None Include="Properties\DataSources\clsPurchase.datasource" />
     <None Include="Properties\DataSources\Livestock_Auction.DB.clsBuyer.datasource" />
     <None Include="Properties\DataSources\Livestock_Auction.DB.clsPayment.datasource" />
+    <None Include="Properties\DataSources\Livestock_Auction.DB.clsPurchase.datasource" />
     <None Include="Properties\DataSources\Livestock_Auction.DB.clsSettings.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
