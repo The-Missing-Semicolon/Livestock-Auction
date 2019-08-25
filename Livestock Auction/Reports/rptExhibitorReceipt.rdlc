@@ -78,10 +78,10 @@
               <Width>0.75in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.75in</Width>
+              <Width>0.98958in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.75in</Width>
+              <Width>1.0625in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1in</Width>
@@ -90,10 +90,7 @@
               <Width>0.75in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.75in</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>0.75in</Width>
+              <Width>0.94792in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -156,10 +153,9 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <ColSpan>9</ColSpan>
+                    <ColSpan>8</ColSpan>
                   </CellContents>
                 </TablixCell>
-                <TablixCell />
                 <TablixCell />
                 <TablixCell />
                 <TablixCell />
@@ -223,10 +219,9 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <ColSpan>9</ColSpan>
+                    <ColSpan>8</ColSpan>
                   </CellContents>
                 </TablixCell>
-                <TablixCell />
                 <TablixCell />
                 <TablixCell />
                 <TablixCell />
@@ -290,10 +285,9 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <ColSpan>9</ColSpan>
+                    <ColSpan>8</ColSpan>
                   </CellContents>
                 </TablixCell>
-                <TablixCell />
                 <TablixCell />
                 <TablixCell />
                 <TablixCell />
@@ -369,10 +363,9 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <ColSpan>9</ColSpan>
+                    <ColSpan>8</ColSpan>
                   </CellContents>
                 </TablixCell>
-                <TablixCell />
                 <TablixCell />
                 <TablixCell />
                 <TablixCell />
@@ -531,7 +524,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Market Value</Value>
+                              <Value>Bid</Value>
                               <Style>
                                 <FontFamily>Arial Narrow</FontFamily>
                                 <FontWeight>Bold</FontWeight>
@@ -566,7 +559,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Bid</Value>
+                              <Value>Market Value</Value>
                               <Style>
                                 <FontFamily>Arial Narrow</FontFamily>
                                 <FontWeight>Bold</FontWeight>
@@ -600,7 +593,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Exhibitor Keeping Animal</Value>
+                              <Value>Exhibitor Keeping</Value>
                               <Style>
                                 <FontFamily>Arial Narrow</FontFamily>
                                 <FontWeight>Bold</FontWeight>
@@ -614,41 +607,6 @@
                       </Paragraphs>
                       <rd:DefaultName>textbox38</rd:DefaultName>
                       <ZIndex>42</ZIndex>
-                      <Style>
-                        <BottomBorder>
-                          <Style>Solid</Style>
-                        </BottomBorder>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="textbox54">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>Total Bid</Value>
-                              <Style>
-                                <FontFamily>Arial Narrow</FontFamily>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>textbox54</rd:DefaultName>
-                      <ZIndex>41</ZIndex>
                       <Style>
                         <BottomBorder>
                           <Style>Solid</Style>
@@ -869,7 +827,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Exhibit.Value.MarketItem.MarketValue_String</Value>
+                              <Value>=Fields!FinalBid_String.Value</Value>
                               <Style>
                                 <FontFamily>Arial Narrow</FontFamily>
                               </Style>
@@ -889,7 +847,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -901,7 +858,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!FinalBid_String.Value</Value>
+                              <Value>=Fields!Exhibit.Value.MarketValue_String</Value>
                               <Style>
                                 <FontFamily>Arial Narrow</FontFamily>
                               </Style>
@@ -945,37 +902,6 @@
                       </Paragraphs>
                       <rd:DefaultName>ExhibitorKept</rd:DefaultName>
                       <ZIndex>3</ZIndex>
-                      <Style>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="TotalBid_1">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=FormatCurrency(Fields!TotalBid.Value, 2)</Value>
-                              <Style>
-                                <FontFamily>Arial Narrow</FontFamily>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>TotalBid_1</rd:DefaultName>
-                      <ZIndex>2</ZIndex>
                       <Style>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -1250,40 +1176,9 @@
                       <rd:DefaultName>textbox22</rd:DefaultName>
                       <ZIndex>13</ZIndex>
                       <Style>
-                        <BottomBorder>
+                        <Border>
                           <Style>None</Style>
-                        </BottomBorder>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="textbox27">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style>
-                                <FontFamily>Arial Narrow</FontFamily>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Right</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <ZIndex>12</ZIndex>
-                      <Style>
+                        </Border>
                         <TopBorder>
                           <Style>Solid</Style>
                         </TopBorder>
@@ -1587,38 +1482,6 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="textbox39">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style>
-                                <FontFamily>Arial Narrow</FontFamily>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Right</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>textbox39</rd:DefaultName>
-                      <ZIndex>22</ZIndex>
-                      <Style>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
                     <Textbox Name="textbox41">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -1894,40 +1757,6 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="textbox58">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>Total:</Value>
-                              <Style>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Right</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>textbox58</rd:DefaultName>
-                      <ZIndex>31</ZIndex>
-                      <Style>
-                        <TopBorder>
-                          <Style>Solid</Style>
-                        </TopBorder>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
                     <Textbox Name="textbox66">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -1966,7 +1795,6 @@
         </TablixBody>
         <TablixColumnHierarchy>
           <TablixMembers>
-            <TablixMember />
             <TablixMember />
             <TablixMember />
             <TablixMember />

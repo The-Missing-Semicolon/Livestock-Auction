@@ -566,7 +566,7 @@ First(Fields!PhoneNumber.Value, "Livestock_Auction_clsBuyer")</Value>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Exhibit.Value.MarketItem.MarketValue_String</Value>
+                              <Value>=Fields!Exhibit.Value.MarketValue_String</Value>
                               <Style>
                                 <FontFamily>Arial Narrow</FontFamily>
                               </Style>

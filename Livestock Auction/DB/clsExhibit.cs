@@ -1341,6 +1341,21 @@ namespace Livestock_Auction.DB
             }
         }
 
+        public string MarketValue_String
+        {
+            get
+            {
+                if (m_MarketItem.AllowAdvertising)
+                {
+                    return (m_MarketItem.MarketValue * m_iWeight).ToString("$#,##0.00") + " @ " + m_MarketItem.MarketValue_String;
+                }
+                else
+                {
+                    return "N/A";
+                }
+            }
+        }
+
         public double GrossValue
         {
             get

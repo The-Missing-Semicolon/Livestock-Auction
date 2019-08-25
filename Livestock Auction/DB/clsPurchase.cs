@@ -893,7 +893,7 @@ namespace Livestock_Auction.DB
                 }
                 else
                 {
-                    return FinalBid.ToString(String.Format("$#,##0.00/{0}", Exhibit.MarketItem.MarketUnits));
+                    return (FinalBid * Exhibit.Weight).ToString("$#,##0.00") + " @ " + FinalBid.ToString(String.Format("$#,##0.00/{0}", Exhibit.MarketItem.MarketUnits));
                 }
                 
             }
