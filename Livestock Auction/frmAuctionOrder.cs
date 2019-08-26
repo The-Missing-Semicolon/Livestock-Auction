@@ -23,6 +23,7 @@ namespace Livestock_Auction
 
         private void frmAuctionOrder_Load(object sender, EventArgs e)
         {
+            tsCmbOrderType.SelectedIndex = 0;
             m_iSelectedRevision = clsDB.Auction.LatestRevision;
 
             m_lstSelectedOrder = clsDB.Auction.LoadRevision(m_iSelectedRevision);
@@ -52,7 +53,17 @@ namespace Livestock_Auction
 
         private void tscmdGenerateOrder_Click(object sender, EventArgs e)
         {
-            clsDB.Auction.GenerateAuctionOrder();
+            switch(tsCmbOrderType.Text)
+            {
+                case "Cecil County Fair":
+                    clsDB.Auction.GenerateAuctionOrder();
+                    break;
+                case "Solanco Fair":
+                    clsDB.Auction.GenerateAuctionOrderSolanco();
+                    break;
+            }
+
+            
             m_iSelectedRevision = clsDB.Auction.LatestRevision;
             m_lstSelectedOrder = clsDB.Auction.LoadRevision(m_iSelectedRevision);
             m_lstSelectedUnsorted = clsDB.Auction.LoadUnsortedExhibits(m_iSelectedRevision);

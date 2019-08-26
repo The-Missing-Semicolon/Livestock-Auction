@@ -195,6 +195,65 @@ namespace Livestock_Auction.DB
             System.Windows.Forms.MessageBox.Show("Failed to load settings.", "Failed to load", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
         }
 
+        public bool CreateTableForExport(System.Data.IDbConnection DatabaseConnection)
+        {
+            try
+            {
+                System.Data.IDbCommand tableCreation = DatabaseConnection.CreateCommand();
+                tableCreation.CommandText = @"CREATE TABLE [Settings]( 
+                        [sKey] [nvarchar](256) NOT NULL,
+                        [sValue][nvarchar](256) NOT NULL
+                    )";
+                tableCreation.ExecuteNonQuery();
+                Console.WriteLine("Settings Table Created!");
+
+                tableCreation.CommandText = @"insert into Settings values ('eventName', '" + m_eventName + @"')"; tableCreation.ExecuteNonQuery();
+
+                tableCreation.CommandText = @"insert into Settings values ('fairName', '" + m_fairName + @"')"; tableCreation.ExecuteNonQuery();
+                tableCreation.CommandText = @"insert into Settings values ('address', '" + m_fairAddress + @"')"; tableCreation.ExecuteNonQuery();
+                tableCreation.CommandText = @"insert into Settings values ('city', '" + m_fairCity + @"')"; tableCreation.ExecuteNonQuery();
+                tableCreation.CommandText = @"insert into Settings values ('state', '" + m_fairState + @"')"; tableCreation.ExecuteNonQuery();
+                tableCreation.CommandText = @"insert into Settings values ('zipcode', '" + m_fairZipcode.ToString() + @"')"; tableCreation.ExecuteNonQuery();
+                tableCreation.CommandText = @"insert into Settings values ('phone', '" + m_fairPhone + @"')"; tableCreation.ExecuteNonQuery();
+                tableCreation.CommandText = @"insert into Settings values ('eventYear','" + m_fairYear.ToString() + @"')"; tableCreation.ExecuteNonQuery();
+                tableCreation.CommandText = @"insert into Settings values ('fairFee', '" + m_fairPercent.ToString() + @"')"; tableCreation.ExecuteNonQuery();
+                tableCreation.CommandText = @"insert into Settings values ('ccFee', '" + m_ccPercent.ToString() + @"')"; tableCreation.ExecuteNonQuery();
+               
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                //TODO: Log Exception
+                Console.WriteLine("SQLException: " + ex.Message);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                //TODO: Log Exception
+                Console.WriteLine("General Exception: " + ex.Message);
+                return false;
+            }
+        }
+
+        public bool ImportTableFromSQLCE(System.Data.IDbConnection DatabaseConnection)
+        {
+            LoadSettingsFromDB(DatabaseConnection);
+            Console.WriteLine("Settings Loaded!");
+
+            WriteSettingsToDB(clsDB.Connection, "eventName", m_eventName);
+            WriteSettingsToDB(clsDB.Connection, "fairName", m_fairName);
+            WriteSettingsToDB(clsDB.Connection, "address", m_fairAddress);
+            WriteSettingsToDB(clsDB.Connection, "city", m_fairCity);
+            WriteSettingsToDB(clsDB.Connection, "state", m_fairState);
+            WriteSettingsToDB(clsDB.Connection, "zipcode", m_fairZipcode.ToString());
+            WriteSettingsToDB(clsDB.Connection, "phone", m_fairPhone);
+
+            WriteSettingsToDB(clsDB.Connection, "eventYear", m_fairYear.ToString());
+            WriteSettingsToDB(clsDB.Connection, "fairFee", m_fairPercent.ToString());
+            WriteSettingsToDB(clsDB.Connection, "ccFee", m_ccPercent.ToString());
+            return true;
+        }
+
         public string EventName { get => m_eventName; set => m_eventName = value; }
 
         public string FairName

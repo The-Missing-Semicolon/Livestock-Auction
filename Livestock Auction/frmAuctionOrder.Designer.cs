@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAuctionOrder));
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.clsAuctionIndexBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabpgEdit = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -69,7 +68,8 @@
             this.tscmdRevert = new System.Windows.Forms.ToolStripButton();
             this.panMain = new System.Windows.Forms.Panel();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            ((System.ComponentModel.ISupportInitialize)(this.clsAuctionIndexBindingSource)).BeginInit();
+            this.tsCmbOrderType = new System.Windows.Forms.ToolStripComboBox();
+            this.clsAuctionIndexBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabMain.SuspendLayout();
             this.tabpgEdit.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -82,11 +82,8 @@
             this.panHistory.SuspendLayout();
             this.tsHistory.SuspendLayout();
             this.panMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.clsAuctionIndexBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // clsAuctionIndexBindingSource
-            // 
-            this.clsAuctionIndexBindingSource.DataSource = typeof(Livestock_Auction.DB.clsAuctionIndex);
             // 
             // tabMain
             // 
@@ -96,7 +93,7 @@
             this.tabMain.Location = new System.Drawing.Point(0, 0);
             this.tabMain.Name = "tabMain";
             this.tabMain.SelectedIndex = 0;
-            this.tabMain.Size = new System.Drawing.Size(594, 811);
+            this.tabMain.Size = new System.Drawing.Size(594, 749);
             this.tabMain.TabIndex = 0;
             this.tabMain.SelectedIndexChanged += new System.EventHandler(this.tabMain_SelectedIndexChanged);
             // 
@@ -107,7 +104,7 @@
             this.tabpgEdit.Location = new System.Drawing.Point(4, 22);
             this.tabpgEdit.Name = "tabpgEdit";
             this.tabpgEdit.Padding = new System.Windows.Forms.Padding(3);
-            this.tabpgEdit.Size = new System.Drawing.Size(586, 785);
+            this.tabpgEdit.Size = new System.Drawing.Size(586, 723);
             this.tabpgEdit.TabIndex = 0;
             this.tabpgEdit.Text = "Edit";
             this.tabpgEdit.UseVisualStyleBackColor = true;
@@ -126,8 +123,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox2);
-            this.splitContainer1.Size = new System.Drawing.Size(580, 754);
-            this.splitContainer1.SplitterDistance = 377;
+            this.splitContainer1.Size = new System.Drawing.Size(580, 692);
+            this.splitContainer1.SplitterDistance = 346;
             this.splitContainer1.TabIndex = 2;
             // 
             // groupBox1
@@ -136,7 +133,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(580, 377);
+            this.groupBox1.Size = new System.Drawing.Size(580, 346);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Current Auction Order";
@@ -155,9 +152,10 @@
             this.colExhibitWeight});
             this.lsvOrder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lsvOrder.FullRowSelect = true;
+            this.lsvOrder.HideSelection = false;
             this.lsvOrder.Location = new System.Drawing.Point(3, 16);
             this.lsvOrder.Name = "lsvOrder";
-            this.lsvOrder.Size = new System.Drawing.Size(574, 358);
+            this.lsvOrder.Size = new System.Drawing.Size(574, 327);
             this.lsvOrder.TabIndex = 0;
             this.lsvOrder.UseCompatibleStateImageBehavior = false;
             this.lsvOrder.View = System.Windows.Forms.View.Details;
@@ -213,7 +211,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(580, 373);
+            this.groupBox2.Size = new System.Drawing.Size(580, 342);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Unsorted Exhibits";
@@ -231,10 +229,11 @@
             this.columnHeader7});
             this.lsvUnsorted.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lsvUnsorted.FullRowSelect = true;
+            this.lsvUnsorted.HideSelection = false;
             this.lsvUnsorted.Location = new System.Drawing.Point(3, 16);
             this.lsvUnsorted.MultiSelect = false;
             this.lsvUnsorted.Name = "lsvUnsorted";
-            this.lsvUnsorted.Size = new System.Drawing.Size(574, 326);
+            this.lsvUnsorted.Size = new System.Drawing.Size(574, 295);
             this.lsvUnsorted.TabIndex = 1;
             this.lsvUnsorted.UseCompatibleStateImageBehavior = false;
             this.lsvUnsorted.View = System.Windows.Forms.View.Details;
@@ -281,7 +280,7 @@
             // label1
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Location = new System.Drawing.Point(3, 342);
+            this.label1.Location = new System.Drawing.Point(3, 311);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(574, 28);
             this.label1.TabIndex = 2;
@@ -292,7 +291,8 @@
             // tsEdit
             // 
             this.tsEdit.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tscmdGenerateOrder});
+            this.tscmdGenerateOrder,
+            this.tsCmbOrderType});
             this.tsEdit.Location = new System.Drawing.Point(3, 3);
             this.tsEdit.Name = "tsEdit";
             this.tsEdit.Size = new System.Drawing.Size(580, 25);
@@ -314,7 +314,7 @@
             this.tabpgReport.Location = new System.Drawing.Point(4, 22);
             this.tabpgReport.Name = "tabpgReport";
             this.tabpgReport.Padding = new System.Windows.Forms.Padding(3);
-            this.tabpgReport.Size = new System.Drawing.Size(586, 785);
+            this.tabpgReport.Size = new System.Drawing.Size(586, 723);
             this.tabpgReport.TabIndex = 1;
             this.tabpgReport.Text = "Report";
             this.tabpgReport.UseVisualStyleBackColor = true;
@@ -328,7 +328,7 @@
             this.rptAuctionOrder.LocalReport.ReportEmbeddedResource = "Livestock_Auction.Reports.rptAuctionOrder.rdlc";
             this.rptAuctionOrder.Location = new System.Drawing.Point(3, 3);
             this.rptAuctionOrder.Name = "rptAuctionOrder";
-            this.rptAuctionOrder.Size = new System.Drawing.Size(580, 779);
+            this.rptAuctionOrder.Size = new System.Drawing.Size(580, 717);
             this.rptAuctionOrder.TabIndex = 0;
             // 
             // lsvHistory
@@ -344,7 +344,7 @@
             this.lsvHistory.Location = new System.Drawing.Point(0, 25);
             this.lsvHistory.MultiSelect = false;
             this.lsvHistory.Name = "lsvHistory";
-            this.lsvHistory.Size = new System.Drawing.Size(387, 786);
+            this.lsvHistory.Size = new System.Drawing.Size(387, 724);
             this.lsvHistory.TabIndex = 1;
             this.lsvHistory.UseCompatibleStateImageBehavior = false;
             this.lsvHistory.View = System.Windows.Forms.View.Details;
@@ -376,7 +376,7 @@
             this.panHistory.Dock = System.Windows.Forms.DockStyle.Right;
             this.panHistory.Location = new System.Drawing.Point(597, 0);
             this.panHistory.Name = "panHistory";
-            this.panHistory.Size = new System.Drawing.Size(387, 811);
+            this.panHistory.Size = new System.Drawing.Size(387, 749);
             this.panHistory.TabIndex = 2;
             // 
             // tsHistory
@@ -407,7 +407,7 @@
             this.panMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panMain.Location = new System.Drawing.Point(0, 0);
             this.panMain.Name = "panMain";
-            this.panMain.Size = new System.Drawing.Size(984, 811);
+            this.panMain.Size = new System.Drawing.Size(984, 749);
             this.panMain.TabIndex = 3;
             // 
             // splitter1
@@ -415,20 +415,33 @@
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Right;
             this.splitter1.Location = new System.Drawing.Point(594, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 811);
+            this.splitter1.Size = new System.Drawing.Size(3, 749);
             this.splitter1.TabIndex = 3;
             this.splitter1.TabStop = false;
+            // 
+            // tsCmbOrderType
+            // 
+            this.tsCmbOrderType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tsCmbOrderType.Items.AddRange(new object[] {
+            "Cecil County Fair",
+            "Solanco Fair"});
+            this.tsCmbOrderType.MaxDropDownItems = 2;
+            this.tsCmbOrderType.Name = "tsCmbOrderType";
+            this.tsCmbOrderType.Size = new System.Drawing.Size(121, 25);
+            // 
+            // clsAuctionIndexBindingSource
+            // 
+            this.clsAuctionIndexBindingSource.DataSource = typeof(Livestock_Auction.DB.clsAuctionIndex);
             // 
             // frmAuctionOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 811);
+            this.ClientSize = new System.Drawing.Size(984, 749);
             this.Controls.Add(this.panMain);
             this.Name = "frmAuctionOrder";
             this.Text = "Edit Auction Order";
             this.Load += new System.EventHandler(this.frmAuctionOrder_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.clsAuctionIndexBindingSource)).EndInit();
             this.tabMain.ResumeLayout(false);
             this.tabpgEdit.ResumeLayout(false);
             this.tabpgEdit.PerformLayout();
@@ -445,6 +458,7 @@
             this.tsHistory.ResumeLayout(false);
             this.tsHistory.PerformLayout();
             this.panMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.clsAuctionIndexBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -489,5 +503,6 @@
         private System.Windows.Forms.ColumnHeader colReverted;
         private System.Windows.Forms.ColumnHeader colExhibitRateOfGain;
         private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ToolStripComboBox tsCmbOrderType;
     }
 }
