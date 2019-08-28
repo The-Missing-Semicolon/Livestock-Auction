@@ -1,30 +1,30 @@
 OVERVIEW
- * OVERVIEW                                            [Last Updated 2015/08/01]
+ * OVERVIEW                                            [Last Updated 2019/08/25]
 
-	This program is designed to assist with the running of the Cecil County
-Fair livestock auction. It generates the auction order, tracks buyer purchases,
-produces receipts for buyers, and tracks where all of the animals are supposed
-to go after the auction.
+	This program is designed to assist with the running livestock auctions for 
+county fairs. It generates the auction order, tracks buyer purchases, produces
+receipts for buyers, and tracks where all of the animals are supposed to go
+after the auction.
 
 	It is designed to allow multiple clients to connect to a single database.
-Allowing multiple users to register buyers, track the auction, and assist with
-buyer checkout. Any changes made by one user will be visible by everyone running
-the system with in a few seconds.
+This allows multiple users to register buyers, track the auction, and assist
+with buyer checkout. Any changes made by one user will be visible by everyone
+running the system with in a few seconds.
 
- * HARDWARE AND NETWORK REQUIREMENTS                   [Last Updated 2015/08/02]
+ * HARDWARE AND NETWORK REQUIREMENTS                   [Last Updated 2019/08/25]
  
 	Client computers running the program must be connected together on a local
 network. All clients must be able to connect to the central database. For
 security, it is recommended that this network be dedicated for the auction and
 isolated from the Internet.
 
-	It is recommended that wired Ethernet connections be used wherever possible,
-though wireless connections can be used when necessary. A typical SOHO wireless
-router is recommended to provide wired and wireless networking as it will
-provide DHCP services on the network, simplifying configuration. Ensure that the
-wireless network is properly secured to prevent anyone any unauthorized used
-from inadvertently or deliberately connecting. A wired Ethernet switch can be
-added if more ports are needed.
+	For reliability, it is recommended that wired Ethernet connections be used
+wherever possible, though wireless connections can be used when necessary. A
+typical SOHO wireless router is recommended to provide wired and wireless
+networking as it will provide DHCP services on the network, simplifying
+configuration. Ensure that the wireless network is properly secured to prevent
+anyone any unauthorized used from inadvertently or deliberately connecting. A
+wired Ethernet switch can be added if more ports are needed.
 
 	Printers are required to print receipts. Laser printers are recommended for
 their speed. It is recommended that each client that will preform checkout have
@@ -116,19 +116,23 @@ finished, click "OK".
     The buyer history data is used assist buyer registration by facilitating
 auto-complete using data from the previous year. 
     
- * ENTERING MARKET VALUES                              [Last Updated 2015/06/17]
+ * ENTERING MARKET VALUES                              [Last Updated 2019/08/25]
  
     From the auction program, go to the "Market" tab. Enter a market ID, or
 unique number (the asterisk button to the left of the text box can be used to
 automatically generate a new unique number), "Animal/Item" name, value, and
 unit. Check the "Allow Advertising" button if buyers are allowed turn the animal
 back to the seller and pay only advertising. Check the "Valid Disposition" if
-the animal requires a valid disposition. For example, if the market value of a
-hog is $0.65/lb the "Animal/Item" would be "Hog", the "Price per Item/Unit"
-would be "0.65", and the units would be lb. Buyers are also able to turn hogs
-back to the seller (at least as of 2014) so the "Allow Advertising" check box
-should be checked, and they require a valid disposition, so that box should be
-checked as well. When all fields are completed, click "Save".
+the animal requires a valid disposition. Check the "Sell By Pound" checkbox if
+the animal is sold by the pound, otherwise leave it unchecked.
+
+    For example, if the market value of a hog is $0.65/lb the "Animal/Item"
+would be "Hog", the "Price per Item/Unit" would be "0.65", and the units would
+be lb. Buyers are able to turn hogs back to the seller so the "Allow
+Advertising" check box should be checked, and they require a valid disposition,
+so that box should be checked as well. Hogs are also sold by the pound, so check
+the "Sell By Pound" checkbox as well. When all fields are completed, click
+"Save".
 
     Market values can be edited by entering the ID of the existing item into the
 "Market ID" field. When ID of an existing item is entered and focus leaves that

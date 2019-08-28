@@ -49,6 +49,7 @@ namespace Livestock_Auction.DataEntry
                         txtMarketUnits.Text = MarketItem.MarketUnits;
                         chkAllowAdvertising.Checked = MarketItem.AllowAdvertising;
                         chkValidDisposition.Checked = MarketItem.ValidDisposition;
+                        chkSellByPound.Checked = MarketItem.SellByPound;
                         lblMarketWarning.Visible = false;
 
                         bFound = true;
@@ -97,7 +98,7 @@ namespace Livestock_Auction.DataEntry
             txtMarketUnits.Text = "";
             chkAllowAdvertising.Checked = false;
             chkValidDisposition.Checked = false;
-            chkSellByPound.Checked = true;
+            chkSellByPound.Checked = false;
             lblMarketWarning.Visible = false;
         }
 

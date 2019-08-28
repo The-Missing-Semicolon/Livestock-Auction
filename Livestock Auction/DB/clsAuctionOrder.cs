@@ -1152,7 +1152,7 @@ namespace Livestock_Auction.DB
             }
             base.SubItems[(int)AuctionIndexColumns.BuyerNum].Text = this.BuyerNumber;
             base.SubItems[(int)AuctionIndexColumns.BuyerName].Text = this.BuyerName;
-            base.SubItems[(int)AuctionIndexColumns.WinningBid].Text = this.WinningBid > 0 ? this.WinningBid.ToString("$#.00/" + this.Exhibit.MarketItem.MarketUnits) : "";
+            base.SubItems[(int)AuctionIndexColumns.WinningBid].Text = this.WinningBid > 0 ? this.WinningBid.ToString(this.Exhibit.MarketItem.SellByPound ? "$#.00/" + this.Exhibit.MarketItem.MarketUnits : "$#.00") : "";
             base.SubItems[(int)AuctionIndexColumns.CheckedOut].Text = this.CheckedOut;
         }
 
