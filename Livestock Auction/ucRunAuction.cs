@@ -504,7 +504,15 @@ namespace Livestock_Auction
                     sBid = sBid.Replace("/" + m_dbAuctionEntry.Exhibit.MarketItem.MarketUnits, "");
                     if (double.TryParse(sBid, out fBid))
                     {
-                        this.SubItems[(int)ucRunAuction.PurchaseEntryColumns.Total_Bid].Value = (fBid * m_dbAuctionEntry.Exhibit.Weight).ToString("$0.00");
+                        if(m_dbAuctionEntry.Exhibit.MarketItem.SellByPound)
+                        {
+                            this.SubItems[(int)ucRunAuction.PurchaseEntryColumns.Total_Bid].Value = (fBid * m_dbAuctionEntry.Exhibit.Weight).ToString("$0.00");
+                        } else
+                        {
+                            this.SubItems[(int)ucRunAuction.PurchaseEntryColumns.Total_Bid].Value = (fBid).ToString("$0.00");
+                        }
+
+                        
                     }
                     else
                     {
