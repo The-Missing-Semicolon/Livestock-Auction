@@ -511,11 +511,13 @@ namespace Livestock_Auction.DB
 
             //Will need to check if they use grand and reserve
             Dictionary<int, List<DB.clsExhibit>> dictChamps = new Dictionary<int, List<DB.clsExhibit>>();
+            Dictionary<int, List<DB.clsExhibit>> dictResChamps = new Dictionary<int, List<DB.clsExhibit>>();
             Dictionary<int, List<DB.clsExhibit>> dictOther = new Dictionary<int, List<DB.clsExhibit>>();
 
             for (int i = 0; i < clsDB.Market.Count; i++)
 	        {
                 dictChamps[i] = new List<DB.clsExhibit>();
+                dictResChamps[i] = new List<DB.clsExhibit>();
                 dictOther[i] = new List<DB.clsExhibit>();
             }
 
@@ -527,6 +529,10 @@ namespace Livestock_Auction.DB
                     if (Exhibit.ChampionStatus == ChampionState.Grand_Champion)
                     {
                         dictChamps[Exhibit.MarketID].Add(Exhibit);
+                    }
+                    else if (Exhibit.ChampionStatus == ChampionState.Reserve_Champion)
+                    {
+                        dictResChamps[Exhibit.MarketID].Add(Exhibit);
                     }
                     else
                     {
@@ -543,6 +549,7 @@ namespace Livestock_Auction.DB
                 if (mItem.MarketType != "Additional Items") //Check for empty market classes?
                 {
                     lstExhibits.AddRange(dictChamps[mItem.MarketID]);
+                    lstExhibits.AddRange(dictResChamps[mItem.MarketID]);
                     lstExhibits.AddRange(dictOther[mItem.MarketID]);
                 }
             }
