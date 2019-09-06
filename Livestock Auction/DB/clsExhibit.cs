@@ -223,55 +223,55 @@ namespace Livestock_Auction.DB
             }
         }
 
-        public void ExportGalvinellToWorkbook(OfficeOpenXml.ExcelPackage outputPackage)
+        public void ExportFairToWorkbook(OfficeOpenXml.ExcelPackage outputPackage)
         {
-            OfficeOpenXml.ExcelWorksheet sheetGalvinell = outputPackage.Workbook.Worksheets.Add("Galvinell");
+            OfficeOpenXml.ExcelWorksheet sheetFair = outputPackage.Workbook.Worksheets.Add("Fair");
 
             //Setup the headers
-            sheetGalvinell.Row(1).Style.Font.Bold = true;
+            sheetFair.Row(1).Style.Font.Bold = true;
 
-            sheetGalvinell.Cells["A1"].Value = "Tag Number";
-            sheetGalvinell.Cells["B1"].Value = "Market Item";
-            sheetGalvinell.Cells["C1"].Value = "Weight";
-            sheetGalvinell.Cells["D1"].Value = "Buyer";
-            sheetGalvinell.Cells["E1"].Value = "Phone Number";
+            sheetFair.Cells["A1"].Value = "Tag Number";
+            sheetFair.Cells["B1"].Value = "Market Item";
+            sheetFair.Cells["C1"].Value = "Weight";
+            sheetFair.Cells["D1"].Value = "Buyer";
+            sheetFair.Cells["E1"].Value = "Phone Number";
 
             int iCurRow = 2;
             foreach (clsExhibit Exhibit in this)
             {
-                if (Exhibit.Destination == clsExhibit.AnimalDestination.Galvinell)
+                if (Exhibit.Destination == clsExhibit.AnimalDestination.Fair)
                 {
-                    sheetGalvinell.SetValue(iCurRow, 1, Exhibit.TagNumber);
-                    sheetGalvinell.SetValue(iCurRow, 2, Exhibit.MarketItem.MarketType);
-                    sheetGalvinell.SetValue(iCurRow, 3, Exhibit.Weight);
-                    sheetGalvinell.Cells[string.Format("C{0}", iCurRow)].Style.Numberformat.Format = "#### " + Exhibit.MarketItem.MarketUnits;
+                    sheetFair.SetValue(iCurRow, 1, Exhibit.TagNumber);
+                    sheetFair.SetValue(iCurRow, 2, Exhibit.MarketItem.MarketType);
+                    sheetFair.SetValue(iCurRow, 3, Exhibit.Weight);
+                    sheetFair.Cells[string.Format("C{0}", iCurRow)].Style.Numberformat.Format = "#### " + Exhibit.MarketItem.MarketUnits;
 
                     if (Exhibit.Purchases != null && Exhibit.Purchases.Count > 0)
                     {
                         clsBuyer Buyer = Exhibit.Purchases[0].Buyer;
                         if (Buyer.CompanyName.Length > 0 && Buyer.Name.ToString().Trim().Length > 0)
                         {
-                            sheetGalvinell.SetValue(iCurRow, 4, Buyer.Name.ToString() + " from " + Buyer.CompanyName);
+                            sheetFair.SetValue(iCurRow, 4, Buyer.Name.ToString() + " from " + Buyer.CompanyName);
                         }
                         else if (Buyer.CompanyName.Length > 0)
                         {
-                            sheetGalvinell.SetValue(iCurRow, 4, Buyer.CompanyName);
+                            sheetFair.SetValue(iCurRow, 4, Buyer.CompanyName);
                         }
                         else if (Buyer.Name.ToString().Trim().Length > 0)
                         {
-                            sheetGalvinell.SetValue(iCurRow, 4, Buyer.Name.ToString());
+                            sheetFair.SetValue(iCurRow, 4, Buyer.Name.ToString());
                         }
-                        sheetGalvinell.SetValue(iCurRow, 5, Buyer.PhoneNumber.ToString());
+                        sheetFair.SetValue(iCurRow, 5, Buyer.PhoneNumber.ToString());
                     }
                     iCurRow++;
                 }
             }
 
-            sheetGalvinell.Column(1).AutoFit();
-            sheetGalvinell.Column(2).AutoFit();
-            sheetGalvinell.Column(3).AutoFit();
-            sheetGalvinell.Column(4).AutoFit();
-            sheetGalvinell.Column(5).AutoFit();
+            sheetFair.Column(1).AutoFit();
+            sheetFair.Column(2).AutoFit();
+            sheetFair.Column(3).AutoFit();
+            sheetFair.Column(4).AutoFit();
+            sheetFair.Column(5).AutoFit();
         }
 
         public void ExportNewHollandToWorkbook(OfficeOpenXml.ExcelPackage outputPackage)
@@ -580,9 +580,10 @@ namespace Livestock_Auction.DB
             Not_Sold = 0,
             HauledByBuyer = 1,
             KeptBySeller = 2,
-            Galvinell = 3,
+            Fair = 3,
             New_Holland = 4,
-            Buyer_SpecialInstructions = 5
+            Buyer_SpecialInstructions = 5,
+            HauledBySeller = 6
         }
 
         private int m_iTagNumber;
@@ -841,17 +842,17 @@ namespace Livestock_Auction.DB
                         {
                             SubItems[(int)ExhibitColumns.Disposition].Font = new System.Drawing.Font(this.Font, System.Drawing.FontStyle.Regular);
                             SubItems[(int)ExhibitColumns.Disposition].ForeColor = this.ForeColor;
-                            if (this.Purchases.First().Value.DestinationOfAnimal == clsPurchase.enAnimalDestination.SelfHauled)
+                            if (this.Purchases.First().Value.DestinationOfAnimal == clsPurchase.enAnimalDestination.Buyer)
                             {
                                 SubItems[(int)ExhibitColumns.Disposition].Text = "Hauled by Buyer";
                             }
-                            else if (this.Purchases.First().Value.DestinationOfAnimal == clsPurchase.enAnimalDestination.HauledBy)
+                            else if (this.Purchases.First().Value.DestinationOfAnimal == clsPurchase.enAnimalDestination.Seller)
                             {
-                                SubItems[(int)ExhibitColumns.Disposition].Text = "Hauled by Other";
+                                SubItems[(int)ExhibitColumns.Disposition].Text = "Hauled by Seller";
                             }
-                            else if (this.Purchases.First().Value.DestinationOfAnimal == clsPurchase.enAnimalDestination.Galvinell)
+                            else if (this.Purchases.First().Value.DestinationOfAnimal == clsPurchase.enAnimalDestination.Fair)
                             {
-                                SubItems[(int)ExhibitColumns.Disposition].Text = "Galvinell";
+                                SubItems[(int)ExhibitColumns.Disposition].Text = "Hauled by Fair";
                             }
                             else if (this.Purchases.First().Value.DestinationOfAnimal == clsPurchase.enAnimalDestination.SpecialInstructions)
                             {
@@ -1246,13 +1247,17 @@ namespace Livestock_Auction.DB
                     {
                         return AnimalDestination.Seller_Unknown;
                     }
-                    else if (bBuyerKeeping && eBuyerDestination == clsPurchase.enAnimalDestination.Galvinell)
+                    else if (bBuyerKeeping && eBuyerDestination == clsPurchase.enAnimalDestination.Fair)
                     {
-                        return AnimalDestination.Galvinell;
+                        return AnimalDestination.Fair;
                     }
                     else if (bBuyerKeeping && eBuyerDestination == clsPurchase.enAnimalDestination.SpecialInstructions)
                     {
                         return AnimalDestination.Buyer_SpecialInstructions;
+                    }
+                    else if (bBuyerKeeping && eBuyerDestination == clsPurchase.enAnimalDestination.Seller)
+                    {
+                        return AnimalDestination.HauledBySeller;
                     }
                     else if (bBuyerKeeping && eBuyerDestination != clsPurchase.enAnimalDestination.NotSet)
                     {
@@ -1286,9 +1291,9 @@ namespace Livestock_Auction.DB
                 {
                     return "New Holland";
                 }
-                else if (Destination == AnimalDestination.Galvinell)
+                else if (Destination == AnimalDestination.Fair)
                 {
-                    return "Galvinell";
+                    return "Hauled by Fair";
                 }
                 else if (Destination == AnimalDestination.Buyer_SpecialInstructions)
                 {
@@ -1301,6 +1306,10 @@ namespace Livestock_Auction.DB
                 else if (Destination == AnimalDestination.Seller_Unknown)
                 {
                     return "Seller, unspecified";
+                }
+                else if(Destination == AnimalDestination.HauledBySeller)
+                {
+                    return "Hauled by Seller";
                 }
                 else
                 {

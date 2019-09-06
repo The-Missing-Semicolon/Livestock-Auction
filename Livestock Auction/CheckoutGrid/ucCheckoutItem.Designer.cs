@@ -59,7 +59,7 @@
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 178F));
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 72F));
-            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 271F));
+            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 272F));
             this.tlpMain.Controls.Add(this.lblBidTotal, 4, 0);
             this.tlpMain.Controls.Add(this.lblItemTag, 1, 1);
             this.tlpMain.Controls.Add(this.lblRecipientName, 0, 0);
@@ -78,7 +78,7 @@
             this.tlpMain.RowCount = 2;
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            this.tlpMain.Size = new System.Drawing.Size(969, 47);
+            this.tlpMain.Size = new System.Drawing.Size(970, 47);
             this.tlpMain.TabIndex = 0;
             this.tlpMain.MouseEnter += new System.EventHandler(this.MouseEnter_Highlight);
             this.tlpMain.MouseLeave += new System.EventHandler(this.MouseLeave_Highlight);
@@ -185,13 +185,13 @@
             this.cmbDisposition.Items.AddRange(new object[] {
             "(not set)",
             "Hauled by Buyer",
-            "Hauled by Other",
-            "Galvinell",
+            "Hauled by Seller",
+            "Hauled by Fair",
             "Other Instructions"});
             this.cmbDisposition.Location = new System.Drawing.Point(697, 1);
             this.cmbDisposition.Margin = new System.Windows.Forms.Padding(0);
             this.cmbDisposition.Name = "cmbDisposition";
-            this.cmbDisposition.Size = new System.Drawing.Size(271, 21);
+            this.cmbDisposition.Size = new System.Drawing.Size(272, 21);
             this.cmbDisposition.TabIndex = 10;
             this.cmbDisposition.Text = "Hauled by Buyer";
             this.cmbDisposition.SelectedIndexChanged += new System.EventHandler(this.cmbDisposition_SelectedIndexChanged);
@@ -208,7 +208,7 @@
             this.txtDispositionSpecify.Location = new System.Drawing.Point(697, 24);
             this.txtDispositionSpecify.Margin = new System.Windows.Forms.Padding(0);
             this.txtDispositionSpecify.Name = "txtDispositionSpecify";
-            this.txtDispositionSpecify.Size = new System.Drawing.Size(271, 20);
+            this.txtDispositionSpecify.Size = new System.Drawing.Size(272, 20);
             this.txtDispositionSpecify.TabIndex = 11;
             this.txtDispositionSpecify.TextChanged += new System.EventHandler(this.txtDispositionSpecify_TextChanged);
             this.txtDispositionSpecify.MouseEnter += new System.EventHandler(this.MouseEnter_Highlight);
@@ -266,7 +266,7 @@
             this.Controls.Add(this.tlpMain);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "ucCheckoutItem";
-            this.Size = new System.Drawing.Size(969, 47);
+            this.Size = new System.Drawing.Size(970, 47);
             this.tlpMain.ResumeLayout(false);
             this.tlpMain.PerformLayout();
             this.panTakeTurnBack.ResumeLayout(false);

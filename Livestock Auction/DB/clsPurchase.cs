@@ -353,16 +353,16 @@ namespace Livestock_Auction.DB
 
                 if (Purchase.ConditionOfSale == clsPurchase.enSaleCondition.PayFullPrice)
                 {
-                    if (Purchase.DestinationOfAnimal == clsPurchase.enAnimalDestination.Galvinell)
+                    if (Purchase.DestinationOfAnimal == clsPurchase.enAnimalDestination.Fair)
                     {
-                        sheetPurchases.SetValue(iCurRow, 12, "Galvinell");
+                        sheetPurchases.SetValue(iCurRow, 12, "Fair");
                     }
-                    else if (Purchase.DestinationOfAnimal == clsPurchase.enAnimalDestination.HauledBy)
+                    else if (Purchase.DestinationOfAnimal == clsPurchase.enAnimalDestination.Seller)
                     {
-                        sheetPurchases.SetValue(iCurRow, 12, "Hauled By Other");
+                        sheetPurchases.SetValue(iCurRow, 12, "Hauled By Seller");
                         sheetPurchases.SetValue(iCurRow, 13, Purchase.HauledBy);
                     }
-                    else if (Purchase.DestinationOfAnimal == clsPurchase.enAnimalDestination.SelfHauled)
+                    else if (Purchase.DestinationOfAnimal == clsPurchase.enAnimalDestination.Buyer)
                     {
                         sheetPurchases.SetValue(iCurRow, 12, "Hauled By Buyer");
                     }
@@ -524,9 +524,9 @@ namespace Livestock_Auction.DB
         public enum enAnimalDestination
         {
             NotSet = 0,
-            SelfHauled = 1,
-            HauledBy = 2,
-            Galvinell = 3,
+            Buyer = 1,
+            Seller = 2,
+            Fair = 3,
             SpecialInstructions = 4
         }
 
@@ -917,17 +917,18 @@ namespace Livestock_Auction.DB
             {
                 if (eDestination != enAnimalDestination.NotSet)
                 {
-                    if (eDestination == enAnimalDestination.SelfHauled)
+                    if (eDestination == enAnimalDestination.Buyer)
                     {
                         return "Buyer Self Haul";
                     }
-                    else if (eDestination == enAnimalDestination.HauledBy)
+                    else if (eDestination == enAnimalDestination.Seller)
                     {
-                        return "Hauled by " + ((sHauledBy.Trim().Length > 0) ? sHauledBy : "(unspecified)");
+                        //return "Hauled by " + ((sHauledBy.Trim().Length > 0) ? sHauledBy : "(unspecified)");
+                        return "Hauled by Seller";
                     }
-                    else if (eDestination == enAnimalDestination.Galvinell)
+                    else if (eDestination == enAnimalDestination.Fair)
                     {
-                        return "Buyer requests Fair to deliver animal to Galvinell Meat Company";
+                        return "Buyer requests Fair to deliver animal to destination";
                     }
                     else
                     {
@@ -953,11 +954,7 @@ namespace Livestock_Auction.DB
                 {
                     if (eDestination != enAnimalDestination.NotSet)
                     {
-                        if (eDestination == enAnimalDestination.HauledBy)
-                        {
-                            return (sHauledBy.Trim().Length > 0);
-                        }
-                        else if (eDestination == enAnimalDestination.SpecialInstructions)
+                        if (eDestination == enAnimalDestination.SpecialInstructions)
                         {
                             return (sHaulSpecialInstructions.Trim().Length > 0);
                         }

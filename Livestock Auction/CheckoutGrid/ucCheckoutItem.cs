@@ -222,19 +222,20 @@ namespace Livestock_Auction
                 cmbDisposition.SelectedIndex = (int)(Purchase.DestinationOfAnimal);
 
                 //Fill in the specify field
-                if (Purchase.DestinationOfAnimal == DB.clsPurchase.enAnimalDestination.HauledBy)
-                {
-                    txtDispositionSpecify.Enabled = true;
-                    txtDispositionSpecify.Text = CurrentPurchase.HauledBy;
-                }
-                else if (Purchase.DestinationOfAnimal == DB.clsPurchase.enAnimalDestination.SpecialInstructions)
+                //if (Purchase.DestinationOfAnimal == DB.clsPurchase.enAnimalDestination.Seller)
+                //{
+                //    txtDispositionSpecify.Enabled = true;
+                //    txtDispositionSpecify.Text = CurrentPurchase.HauledBy;
+                //}
+                if (Purchase.DestinationOfAnimal == DB.clsPurchase.enAnimalDestination.SpecialInstructions)
                 {
                     txtDispositionSpecify.Enabled = true;
                     txtDispositionSpecify.Text = CurrentPurchase.HaulSpecialInstructions;
                 }
                 else
                 {
-                    txtDispositionSpecify.Enabled = false;
+                    txtDispositionSpecify.Enabled = true;
+                    txtDispositionSpecify.Text = CurrentPurchase.HauledBy;
                 }
             }
             else
@@ -301,7 +302,7 @@ namespace Livestock_Auction
                     CurrentPurchase.ConditionOfSale = DB.clsPurchase.enSaleCondition.PayFullPrice;
                 }
                 cmbDisposition.Enabled = CurrentPurchase.Exhibit.MarketItem.ValidDisposition;
-                txtDispositionSpecify.Enabled = CurrentPurchase.Exhibit.MarketItem.ValidDisposition && (Disposition == DB.clsPurchase.enAnimalDestination.HauledBy || Disposition == DB.clsPurchase.enAnimalDestination.SpecialInstructions);
+                txtDispositionSpecify.Enabled = CurrentPurchase.Exhibit.MarketItem.ValidDisposition && (Disposition == DB.clsPurchase.enAnimalDestination.Seller || Disposition == DB.clsPurchase.enAnimalDestination.SpecialInstructions);
             }
             else
             {
@@ -334,18 +335,24 @@ namespace Livestock_Auction
             //Set the drop down box
             if (cmbDisposition.Text == "Hauled by Buyer")
             {
-                if (CurrentPurchase.DestinationOfAnimal != DB.clsPurchase.enAnimalDestination.SelfHauled)
+                if (CurrentPurchase.DestinationOfAnimal != DB.clsPurchase.enAnimalDestination.Buyer)
                 {
-                    CurrentPurchase.DestinationOfAnimal = DB.clsPurchase.enAnimalDestination.SelfHauled;
+                    CurrentPurchase.DestinationOfAnimal = DB.clsPurchase.enAnimalDestination.Buyer;
                     bChanged = true;
                 }
-                txtDispositionSpecify.Enabled = false;
-            }
-            else if (cmbDisposition.Text == "Hauled by Other")
-            {
-                if (CurrentPurchase.DestinationOfAnimal != DB.clsPurchase.enAnimalDestination.HauledBy)
+                //txtDispositionSpecify.Enabled = CurrentPurchase.Exhibit.MarketItem.ValidDisposition;
+                txtDispositionSpecify.Enabled = CurrentPurchase.Exhibit.MarketItem.ValidDisposition;
+                if (Textbox_Changed && CurrentPurchase.HauledBy.Trim() != txtDispositionSpecify.Text.Trim())
                 {
-                    CurrentPurchase.DestinationOfAnimal = DB.clsPurchase.enAnimalDestination.HauledBy;
+                    CurrentPurchase.HauledBy = txtDispositionSpecify.Text;
+                    bChanged = true;
+                }
+            }
+            else if (cmbDisposition.Text == "Hauled by Seller")
+            {
+                if (CurrentPurchase.DestinationOfAnimal != DB.clsPurchase.enAnimalDestination.Seller)
+                {
+                    CurrentPurchase.DestinationOfAnimal = DB.clsPurchase.enAnimalDestination.Seller;
                     bChanged = true;
                 }
                 txtDispositionSpecify.Enabled = CurrentPurchase.Exhibit.MarketItem.ValidDisposition;
@@ -355,11 +362,11 @@ namespace Livestock_Auction
                     bChanged = true;
                 }
             }
-            else if (cmbDisposition.Text == "Galvinell")
+            else if (cmbDisposition.Text == "Hauled by Fair")
             {
-                if (CurrentPurchase.DestinationOfAnimal != DB.clsPurchase.enAnimalDestination.Galvinell)
+                if (CurrentPurchase.DestinationOfAnimal != DB.clsPurchase.enAnimalDestination.Fair)
                 {
-                    CurrentPurchase.DestinationOfAnimal = DB.clsPurchase.enAnimalDestination.Galvinell;
+                    CurrentPurchase.DestinationOfAnimal = DB.clsPurchase.enAnimalDestination.Fair;
                     bChanged = true;
                 }
                 txtDispositionSpecify.Enabled = false;
@@ -445,15 +452,15 @@ namespace Livestock_Auction
                 //TODO: These texts should be loaded from a central list that maps to the enumeration.
                 if (cmbDisposition.Text == "Hauled by Buyer")
                 {
-                    return DB.clsPurchase.enAnimalDestination.SelfHauled;
+                    return DB.clsPurchase.enAnimalDestination.Buyer;
                 }
-                else if (cmbDisposition.Text == "Hauled by Other")
+                else if (cmbDisposition.Text == "Hauled by Seller")
                 {
-                    return DB.clsPurchase.enAnimalDestination.HauledBy;
+                    return DB.clsPurchase.enAnimalDestination.Seller;
                 }
-                else if (cmbDisposition.Text == "Galvinell")
+                else if (cmbDisposition.Text == "Hauled by Fair")
                 {
-                    return DB.clsPurchase.enAnimalDestination.Galvinell;
+                    return DB.clsPurchase.enAnimalDestination.Fair;
                 }
                 else if (cmbDisposition.Text == "Other Instructions")
                 {
@@ -466,19 +473,19 @@ namespace Livestock_Auction
             }
             set
             {
-                if (value == DB.clsPurchase.enAnimalDestination.SelfHauled)
+                if (value == DB.clsPurchase.enAnimalDestination.Buyer)
                 {
                     cmbDisposition.Text = "Hauled by Buyer";
                     txtDispositionSpecify.Enabled = false;
                 }
-                else if (value == DB.clsPurchase.enAnimalDestination.HauledBy)
+                else if (value == DB.clsPurchase.enAnimalDestination.Seller)
                 {
-                    cmbDisposition.Text = "Hauled by Other";
+                    cmbDisposition.Text = "Hauled by Seller";
                     txtDispositionSpecify.Enabled = CurrentPurchase.Exhibit.MarketItem.ValidDisposition && (SaleCondition == DB.clsPurchase.enSaleCondition.PayFullPrice);
                 }
-                else if (value == DB.clsPurchase.enAnimalDestination.Galvinell)
+                else if (value == DB.clsPurchase.enAnimalDestination.Fair)
                 {
-                    cmbDisposition.Text = "Galvinell";
+                    cmbDisposition.Text = "Hauled by Fair";
                     txtDispositionSpecify.Enabled = false;
                 }
                 else if (value == DB.clsPurchase.enAnimalDestination.SpecialInstructions)

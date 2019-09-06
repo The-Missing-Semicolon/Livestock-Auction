@@ -311,17 +311,17 @@ namespace Livestock_Auction.CheckoutGrid
                 {
                     cmbcolSetDisposition.Text = "(not set)";
                 }
-                else if (ciSelectedItem.Disposition == DB.clsPurchase.enAnimalDestination.SelfHauled)
+                else if (ciSelectedItem.Disposition == DB.clsPurchase.enAnimalDestination.Buyer)
                 {
                     cmbcolSetDisposition.Text = "Hauled by Buyer";
                 }
-                else if (ciSelectedItem.Disposition == DB.clsPurchase.enAnimalDestination.HauledBy)
+                else if (ciSelectedItem.Disposition == DB.clsPurchase.enAnimalDestination.Seller)
                 {
-                    cmbcolSetDisposition.Text = "Hauled by Other";
+                    cmbcolSetDisposition.Text = "Hauled by Seller";
                 }
-                else if (ciSelectedItem.Disposition == DB.clsPurchase.enAnimalDestination.Galvinell)
+                else if (ciSelectedItem.Disposition == DB.clsPurchase.enAnimalDestination.Fair)
                 {
-                    cmbcolSetDisposition.Text = "Galvinell";
+                    cmbcolSetDisposition.Text = "Hauled by Fair";
                 }
                 else if (ciSelectedItem.Disposition == DB.clsPurchase.enAnimalDestination.SpecialInstructions)
                 {
@@ -380,9 +380,9 @@ namespace Livestock_Auction.CheckoutGrid
 
                 //Update the disposition dropdown
                 if ((ciSelectedItem.Disposition == DB.clsPurchase.enAnimalDestination.NotSet && cmbcolSetDisposition.Text != "(not set)") ||
-                    (ciSelectedItem.Disposition == DB.clsPurchase.enAnimalDestination.SelfHauled && cmbcolSetDisposition.Text != "Hauled by Buyer") ||
-                    (ciSelectedItem.Disposition == DB.clsPurchase.enAnimalDestination.HauledBy && cmbcolSetDisposition.Text != "Hauled by Other") ||
-                    (ciSelectedItem.Disposition == DB.clsPurchase.enAnimalDestination.Galvinell && cmbcolSetDisposition.Text != "Galvinell") ||
+                    (ciSelectedItem.Disposition == DB.clsPurchase.enAnimalDestination.Buyer && cmbcolSetDisposition.Text != "Hauled by Buyer") ||
+                    (ciSelectedItem.Disposition == DB.clsPurchase.enAnimalDestination.Seller && cmbcolSetDisposition.Text != "Hauled by Seller") ||
+                    (ciSelectedItem.Disposition == DB.clsPurchase.enAnimalDestination.Fair && cmbcolSetDisposition.Text != "Hauled by Fair") ||
                     (ciSelectedItem.Disposition == DB.clsPurchase.enAnimalDestination.SpecialInstructions && cmbcolSetDisposition.Text != "Other Instructions"))
                 {
                     //Unsubscribe from the event handlers
@@ -392,17 +392,17 @@ namespace Livestock_Auction.CheckoutGrid
                     {
                         cmbcolSetDisposition.Text = "(not set)";
                     }
-                    else if (ciSelectedItem.Disposition == DB.clsPurchase.enAnimalDestination.SelfHauled)
+                    else if (ciSelectedItem.Disposition == DB.clsPurchase.enAnimalDestination.Buyer)
                     {
                         cmbcolSetDisposition.Text = "Hauled by Buyer";
                     }
-                    else if (ciSelectedItem.Disposition == DB.clsPurchase.enAnimalDestination.HauledBy)
+                    else if (ciSelectedItem.Disposition == DB.clsPurchase.enAnimalDestination.Seller)
                     {
-                        cmbcolSetDisposition.Text = "Hauled by Other";
+                        cmbcolSetDisposition.Text = "Hauled by Seller";
                     }
-                    else if (ciSelectedItem.Disposition == DB.clsPurchase.enAnimalDestination.Galvinell)
+                    else if (ciSelectedItem.Disposition == DB.clsPurchase.enAnimalDestination.Fair)
                     {
-                        cmbcolSetDisposition.Text = "Galvinell";
+                        cmbcolSetDisposition.Text = "Hauled by Fair";
                     }
                     else if (ciSelectedItem.Disposition == DB.clsPurchase.enAnimalDestination.SpecialInstructions)
                     {
@@ -532,19 +532,19 @@ namespace Livestock_Auction.CheckoutGrid
             //Determine the selected value
             if (cmbcolSetDisposition.Text == "Hauled by Buyer")
             {
-                CurrentDisposition = DB.clsPurchase.enAnimalDestination.SelfHauled;
+                CurrentDisposition = DB.clsPurchase.enAnimalDestination.Buyer;
             }
-            else if (cmbcolSetDisposition.Text == "Hauled by Other")
+            else if (cmbcolSetDisposition.Text == "Hauled by Seller")
             {
-                CurrentDisposition = DB.clsPurchase.enAnimalDestination.HauledBy;
-                if (ciSelectedItem != null)
-                {
-                    sDispositionDetails = ciSelectedItem.DispositionDetails;
-                }
+                CurrentDisposition = DB.clsPurchase.enAnimalDestination.Seller;
+                //if (ciSelectedItem != null)
+                //{
+                //    sDispositionDetails = ciSelectedItem.DispositionDetails;
+                //}
             }
-            else if (cmbcolSetDisposition.Text == "Galvinell")
+            else if (cmbcolSetDisposition.Text == "Hauled by Fair")
             {
-                CurrentDisposition = DB.clsPurchase.enAnimalDestination.Galvinell;
+                CurrentDisposition = DB.clsPurchase.enAnimalDestination.Fair;
             }
             else if (cmbcolSetDisposition.Text == "Other Instructions")
             {

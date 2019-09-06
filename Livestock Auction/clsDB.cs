@@ -615,13 +615,13 @@ namespace Livestock_Auction
 
             clsDB.Buyers.ExportToWorkbook(outfile);
             clsDB.Purchases.ExportToWorkbook(outfile);
-            clsDB.Exhibits.ExportGalvinellToWorkbook(outfile);
+            clsDB.Exhibits.ExportFairToWorkbook(outfile);
             clsDB.Exhibits.ExportNewHollandToWorkbook(outfile);
-            
+
             FileStream outstream = new FileStream(sFileName, FileMode.Create);
             outfile.SaveAs(outstream);
             outstream.Close();
-
+           
             System.Windows.Forms.MessageBox.Show("Export Complete", "Export");
         }
 

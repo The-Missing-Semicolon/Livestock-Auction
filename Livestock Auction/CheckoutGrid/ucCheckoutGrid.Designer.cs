@@ -225,8 +225,8 @@
             this.cmbcolSetDisposition.Items.AddRange(new object[] {
             "(not set)",
             "Hauled by Buyer",
-            "Hauled by Other",
-            "Galvinell",
+            "Hauled by Seller",
+            "Hauled by Fair",
             "Other Instructions"});
             this.cmbcolSetDisposition.Location = new System.Drawing.Point(0, 20);
             this.cmbcolSetDisposition.Margin = new System.Windows.Forms.Padding(0);
