@@ -304,6 +304,7 @@ namespace Livestock_Auction
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
+            Console.WriteLine("Exiting");
             clsDB.Disconnect();
             Application.Exit();
         }
@@ -613,6 +614,11 @@ namespace Livestock_Auction
                 clsDB.Settings.WriteSettingsToDB(clsDB.Connection, "ccFee", clsDB.Settings.CreditCardFee.ToString());
             }
             
+        }
+
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

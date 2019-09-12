@@ -209,6 +209,12 @@ namespace Livestock_Auction
                                 dbConn.Close();
                             }
                         }
+                        else
+                        {
+                            dbConn.Close();
+                            cmdConnect.Enabled = true;
+                            return;
+                        }
                     }
                 }
                 else
