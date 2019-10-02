@@ -29,13 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucBuyerCheckout));
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.clsBuyerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.clsPurchaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.clsPaymentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucBuyerCheckout));
             this.label1 = new System.Windows.Forms.Label();
             this.txtBuyerNumber = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -47,9 +44,6 @@
             this.lblNameFirst = new System.Windows.Forms.Label();
             this.txtNameFirst = new System.Windows.Forms.TextBox();
             this.tsPurchases = new System.Windows.Forms.ToolStrip();
-            this.tscmdAddPurchase = new System.Windows.Forms.ToolStripButton();
-            this.tscmdEditPurchase = new System.Windows.Forms.ToolStripButton();
-            this.tscmdDeletePurchase = new System.Windows.Forms.ToolStripButton();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabPurchases = new System.Windows.Forms.TabPage();
             this.CheckoutGrid = new Livestock_Auction.CheckoutGrid.ucCheckoutGrid();
@@ -87,9 +81,12 @@
             this.cmdCopyAddr = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.clsBuyerBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clsPurchaseBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clsPaymentBindingSource)).BeginInit();
+            this.tscmdEditPurchase = new System.Windows.Forms.ToolStripButton();
+            this.tscmdAddPurchase = new System.Windows.Forms.ToolStripButton();
+            this.tscmdDeletePurchase = new System.Windows.Forms.ToolStripButton();
+            this.clsBuyerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clsPurchaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clsPaymentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             this.tsPurchases.SuspendLayout();
             this.tabMain.SuspendLayout();
@@ -98,19 +95,10 @@
             this.panel1.SuspendLayout();
             this.grbAddPayment.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.clsBuyerBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clsPurchaseBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clsPaymentBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // clsBuyerBindingSource
-            // 
-            this.clsBuyerBindingSource.DataSource = typeof(Livestock_Auction.DB.clsBuyer);
-            // 
-            // clsPurchaseBindingSource
-            // 
-            this.clsPurchaseBindingSource.DataSource = typeof(Livestock_Auction.DB.clsPurchase);
-            // 
-            // clsPaymentBindingSource
-            // 
-            this.clsPaymentBindingSource.DataSource = typeof(Livestock_Auction.DB.clsPayment);
             // 
             // label1
             // 
@@ -223,35 +211,6 @@
             this.tsPurchases.Size = new System.Drawing.Size(912, 25);
             this.tsPurchases.TabIndex = 59;
             this.tsPurchases.Text = "toolStrip1";
-            // 
-            // tscmdAddPurchase
-            // 
-            this.tscmdAddPurchase.Image = ((System.Drawing.Image)(resources.GetObject("tscmdAddPurchase.Image")));
-            this.tscmdAddPurchase.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tscmdAddPurchase.Name = "tscmdAddPurchase";
-            this.tscmdAddPurchase.Size = new System.Drawing.Size(100, 22);
-            this.tscmdAddPurchase.Text = "Add Purchase";
-            this.tscmdAddPurchase.Click += new System.EventHandler(this.tscmdAddPurchase_Click);
-            // 
-            // tscmdEditPurchase
-            // 
-            this.tscmdEditPurchase.Enabled = false;
-            this.tscmdEditPurchase.Image = ((System.Drawing.Image)(resources.GetObject("tscmdEditPurchase.Image")));
-            this.tscmdEditPurchase.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tscmdEditPurchase.Name = "tscmdEditPurchase";
-            this.tscmdEditPurchase.Size = new System.Drawing.Size(98, 22);
-            this.tscmdEditPurchase.Text = "Edit Purchase";
-            this.tscmdEditPurchase.Click += new System.EventHandler(this.tscmdEditPurchase_Click);
-            // 
-            // tscmdDeletePurchase
-            // 
-            this.tscmdDeletePurchase.Enabled = false;
-            this.tscmdDeletePurchase.Image = ((System.Drawing.Image)(resources.GetObject("tscmdDeletePurchase.Image")));
-            this.tscmdDeletePurchase.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tscmdDeletePurchase.Name = "tscmdDeletePurchase";
-            this.tscmdDeletePurchase.Size = new System.Drawing.Size(111, 22);
-            this.tscmdDeletePurchase.Text = "Delete Purchase";
-            this.tscmdDeletePurchase.Click += new System.EventHandler(this.tscmdDeletePurchase_Click);
             // 
             // tabMain
             // 
@@ -725,6 +684,47 @@
             this.label7.TabIndex = 49;
             this.label7.Text = "State:";
             // 
+            // tscmdEditPurchase
+            // 
+            this.tscmdEditPurchase.Enabled = false;
+            this.tscmdEditPurchase.Image = global::Livestock_Auction.Properties.Resources.edit;
+            this.tscmdEditPurchase.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tscmdEditPurchase.Name = "tscmdEditPurchase";
+            this.tscmdEditPurchase.Size = new System.Drawing.Size(98, 22);
+            this.tscmdEditPurchase.Text = "Edit Purchase";
+            this.tscmdEditPurchase.Click += new System.EventHandler(this.tscmdEditPurchase_Click);
+            // 
+            // tscmdAddPurchase
+            // 
+            this.tscmdAddPurchase.Image = ((System.Drawing.Image)(resources.GetObject("tscmdAddPurchase.Image")));
+            this.tscmdAddPurchase.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tscmdAddPurchase.Name = "tscmdAddPurchase";
+            this.tscmdAddPurchase.Size = new System.Drawing.Size(100, 22);
+            this.tscmdAddPurchase.Text = "Add Purchase";
+            this.tscmdAddPurchase.Click += new System.EventHandler(this.tscmdAddPurchase_Click);
+            // 
+            // tscmdDeletePurchase
+            // 
+            this.tscmdDeletePurchase.Enabled = false;
+            this.tscmdDeletePurchase.Image = global::Livestock_Auction.Properties.Resources.exclude;
+            this.tscmdDeletePurchase.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tscmdDeletePurchase.Name = "tscmdDeletePurchase";
+            this.tscmdDeletePurchase.Size = new System.Drawing.Size(111, 22);
+            this.tscmdDeletePurchase.Text = "Delete Purchase";
+            this.tscmdDeletePurchase.Click += new System.EventHandler(this.tscmdDeletePurchase_Click);
+            // 
+            // clsBuyerBindingSource
+            // 
+            this.clsBuyerBindingSource.DataSource = typeof(Livestock_Auction.DB.clsBuyer);
+            // 
+            // clsPurchaseBindingSource
+            // 
+            this.clsPurchaseBindingSource.DataSource = typeof(Livestock_Auction.DB.clsPurchase);
+            // 
+            // clsPaymentBindingSource
+            // 
+            this.clsPaymentBindingSource.DataSource = typeof(Livestock_Auction.DB.clsPayment);
+            // 
             // ucBuyerCheckout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -734,9 +734,6 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "ucBuyerCheckout";
             this.Size = new System.Drawing.Size(926, 629);
-            ((System.ComponentModel.ISupportInitialize)(this.clsBuyerBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clsPurchaseBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clsPaymentBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tsPurchases.ResumeLayout(false);
@@ -751,6 +748,9 @@
             this.grbAddPayment.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.clsBuyerBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clsPurchaseBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clsPaymentBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

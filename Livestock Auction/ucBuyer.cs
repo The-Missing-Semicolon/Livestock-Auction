@@ -55,10 +55,12 @@ namespace Livestock_Auction
                 tscmdToggleCheckout.Enabled = true;
                 if (SelectedBuyer.CheckedOut)
                 {
+                    tscmdToggleCheckout.Image = global::Livestock_Auction.Properties.Resources.uncheck;
                     tscmdToggleCheckout.Text = "Unmark Checked Out";
                 }
                 else
                 {
+                    tscmdToggleCheckout.Image = global::Livestock_Auction.Properties.Resources.check;
                     tscmdToggleCheckout.Text = "Mark Checked Out";
                 }
             }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNewPurchase));
             this.grbExhibit = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.chkRateOfGain = new System.Windows.Forms.CheckBox();
@@ -334,6 +335,7 @@
             this.Controls.Add(this.grbExhibit);
             this.Controls.Add(this.MarketItemEntry);
             this.Controls.Add(this.ExhibitorEntry);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmNewPurchase";
             this.Text = "Add New Purchase";
             this.Load += new System.EventHandler(this.frmNewPurchase_Load);

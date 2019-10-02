@@ -90,6 +90,9 @@
     <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\cow.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EPPlus, Version=4.0.5.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
       <HintPath>..\packages\EPPlus.4.0.5\lib\net20\EPPlus.dll</HintPath>
@@ -276,8 +279,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\Forms\frmrptAnimalDestinations.resx">
       <DependentUpon>frmrptAnimalDestinations.cs</DependentUpon>
@@ -338,11 +341,6 @@
       <DependentUpon>ucRunAuction.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="app.config" />
     <EmbeddedResource Include="DB\CityStateZipDataByStateCity.bin" />
     <EmbeddedResource Include="DB\CityStateZipDataByZip.bin" />
@@ -361,6 +359,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -480,7 +483,24 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\cow.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\import.png" />
+    <None Include="Resources\generate.png" />
+    <None Include="Resources\uncheck.png" />
+    <None Include="Resources\add.png" />
+    <Content Include="Resources\arrow_left2.png" />
+    <None Include="Resources\saveall.png" />
+    <None Include="Resources\save.png" />
+    <None Include="Resources\goto2.png" />
+    <None Include="Resources\arrow_right2.png" />
+    <None Include="Resources\exclude.png" />
+    <None Include="Resources\edit.png" />
+    <None Include="Resources\check.png" />
+    <Content Include="Resources\filter.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

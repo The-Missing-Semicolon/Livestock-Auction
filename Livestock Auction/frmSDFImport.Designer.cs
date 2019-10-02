@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSDFImport));
             this.chkHistBuyerHistory = new System.Windows.Forms.CheckBox();
             this.chkHistExhibitors = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,8 +45,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.chkHistAll = new System.Windows.Forms.CheckBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.chkImportHistory = new System.Windows.Forms.CheckBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.chkImportCurrent = new System.Windows.Forms.CheckBox();
             this.chkCurAll = new System.Windows.Forms.CheckBox();
@@ -235,6 +236,17 @@
             this.label9.TabIndex = 5;
             this.label9.Text = "Import data from the previous years auction to accelerate data entry";
             // 
+            // chkImportHistory
+            // 
+            this.chkImportHistory.AutoSize = true;
+            this.chkImportHistory.Location = new System.Drawing.Point(0, 0);
+            this.chkImportHistory.Name = "chkImportHistory";
+            this.chkImportHistory.Size = new System.Drawing.Size(127, 17);
+            this.chkImportHistory.TabIndex = 0;
+            this.chkImportHistory.Text = "Import Historical Data";
+            this.chkImportHistory.UseVisualStyleBackColor = true;
+            this.chkImportHistory.CheckedChanged += new System.EventHandler(this.chkImportHistory_CheckedChanged);
+            // 
             // label6
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -247,17 +259,6 @@
             this.label6.TabIndex = 6;
             this.label6.Text = "Import current data that was entered externally from the database, or restore dat" +
     "a from a backup.";
-            // 
-            // chkImportHistory
-            // 
-            this.chkImportHistory.AutoSize = true;
-            this.chkImportHistory.Location = new System.Drawing.Point(0, 0);
-            this.chkImportHistory.Name = "chkImportHistory";
-            this.chkImportHistory.Size = new System.Drawing.Size(127, 17);
-            this.chkImportHistory.TabIndex = 0;
-            this.chkImportHistory.Text = "Import Historical Data";
-            this.chkImportHistory.UseVisualStyleBackColor = true;
-            this.chkImportHistory.CheckedChanged += new System.EventHandler(this.chkImportHistory_CheckedChanged);
             // 
             // groupBox3
             // 
@@ -366,6 +367,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmSDFImport";
             this.Text = "Import File";
             this.groupBox1.ResumeLayout(false);

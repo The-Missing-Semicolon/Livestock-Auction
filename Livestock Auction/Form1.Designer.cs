@@ -708,7 +708,7 @@
             this.tsmnuNameOrderFirstLast,
             this.tsmnuNameOrderLastFirst});
             this.nameOrderToolStripMenuItem.Name = "nameOrderToolStripMenuItem";
-            this.nameOrderToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.nameOrderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.nameOrderToolStripMenuItem.Text = "Name Order";
             // 
             // tsmnuNameOrderFirstLast
@@ -732,7 +732,7 @@
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.SettingsToolStripMenuItem_Click);
             // 
@@ -876,6 +876,7 @@
             this.Controls.Add(this.spcMain);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.statusStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMain";
             this.Text = "Livestock Auction";

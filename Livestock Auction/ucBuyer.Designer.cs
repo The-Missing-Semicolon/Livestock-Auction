@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucBuyer));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tscmdToggleCheckout = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -105,7 +104,7 @@
             // tscmdToggleCheckout
             // 
             this.tscmdToggleCheckout.Enabled = false;
-            this.tscmdToggleCheckout.Image = ((System.Drawing.Image)(resources.GetObject("tscmdToggleCheckout.Image")));
+            this.tscmdToggleCheckout.Image = global::Livestock_Auction.Properties.Resources.check;
             this.tscmdToggleCheckout.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tscmdToggleCheckout.Name = "tscmdToggleCheckout";
             this.tscmdToggleCheckout.Size = new System.Drawing.Size(126, 22);
@@ -167,7 +166,7 @@
             // 
             // tscmdFilterHasPurchases
             // 
-            this.tscmdFilterHasPurchases.Image = ((System.Drawing.Image)(resources.GetObject("tscmdFilterHasPurchases.Image")));
+            this.tscmdFilterHasPurchases.Image = global::Livestock_Auction.Properties.Resources.filter;
             this.tscmdFilterHasPurchases.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tscmdFilterHasPurchases.Name = "tscmdFilterHasPurchases";
             this.tscmdFilterHasPurchases.Size = new System.Drawing.Size(80, 22);
@@ -178,7 +177,7 @@
             // 
             // tscmdFilterCheckedOut
             // 
-            this.tscmdFilterCheckedOut.Image = ((System.Drawing.Image)(resources.GetObject("tscmdFilterCheckedOut.Image")));
+            this.tscmdFilterCheckedOut.Image = global::Livestock_Auction.Properties.Resources.filter;
             this.tscmdFilterCheckedOut.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tscmdFilterCheckedOut.Name = "tscmdFilterCheckedOut";
             this.tscmdFilterCheckedOut.Size = new System.Drawing.Size(96, 22);

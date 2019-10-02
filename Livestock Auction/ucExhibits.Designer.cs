@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucExhibits));
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtWeight = new System.Windows.Forms.TextBox();
@@ -59,7 +58,6 @@
             this.radTakeBackYes = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.tscmdToggleInclude = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.tstxtFilterTagNumber = new System.Windows.Forms.ToolStripTextBox();
@@ -69,9 +67,10 @@
             this.tstxtFilterItem = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.tstxtFilterChampion = new System.Windows.Forms.ToolStripTextBox();
-            this.tscmdFilterIncluded = new System.Windows.Forms.ToolStripButton();
             this.MarketItemEntry = new Livestock_Auction.DataEntry.ucMarketItemEntry();
             this.ExhibitorEntry = new Livestock_Auction.DataEntry.ucExhibitorEntry();
+            this.tscmdToggleInclude = new System.Windows.Forms.ToolStripButton();
+            this.tscmdFilterIncluded = new System.Windows.Forms.ToolStripButton();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -199,6 +198,7 @@
             this.colPurchases,
             this.colDisposition});
             this.lsvItems.FullRowSelect = true;
+            this.lsvItems.HideSelection = false;
             this.lsvItems.Location = new System.Drawing.Point(0, 28);
             this.lsvItems.Name = "lsvItems";
             this.lsvItems.Size = new System.Drawing.Size(953, 261);
@@ -359,16 +359,6 @@
             this.toolStrip1.TabIndex = 19;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // tscmdToggleInclude
-            // 
-            this.tscmdToggleInclude.Enabled = false;
-            this.tscmdToggleInclude.Image = ((System.Drawing.Image)(resources.GetObject("tscmdToggleInclude.Image")));
-            this.tscmdToggleInclude.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tscmdToggleInclude.Name = "tscmdToggleInclude";
-            this.tscmdToggleInclude.Size = new System.Drawing.Size(105, 22);
-            this.tscmdToggleInclude.Text = "Exclude Exhibit";
-            this.tscmdToggleInclude.Click += new System.EventHandler(this.tscmdToggleInclude_Click);
-            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
@@ -377,7 +367,7 @@
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(40, 22);
+            this.toolStripLabel1.Size = new System.Drawing.Size(38, 22);
             this.toolStripLabel1.Text = "Tag #:";
             // 
             // tstxtFilterTagNumber
@@ -389,7 +379,7 @@
             // toolStripLabel2
             // 
             this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(56, 22);
+            this.toolStripLabel2.Size = new System.Drawing.Size(57, 22);
             this.toolStripLabel2.Text = "Exhibitor:";
             // 
             // tstxtFilterExhibitor
@@ -422,16 +412,6 @@
             this.tstxtFilterChampion.Size = new System.Drawing.Size(100, 25);
             this.tstxtFilterChampion.TextChanged += new System.EventHandler(this.Filter_Changed);
             // 
-            // tscmdFilterIncluded
-            // 
-            this.tscmdFilterIncluded.CheckOnClick = true;
-            this.tscmdFilterIncluded.Image = ((System.Drawing.Image)(resources.GetObject("tscmdFilterIncluded.Image")));
-            this.tscmdFilterIncluded.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tscmdFilterIncluded.Name = "tscmdFilterIncluded";
-            this.tscmdFilterIncluded.Size = new System.Drawing.Size(84, 22);
-            this.tscmdFilterIncluded.Text = "Is Included";
-            this.tscmdFilterIncluded.Click += new System.EventHandler(this.Filter_Changed);
-            // 
             // MarketItemEntry
             // 
             this.MarketItemEntry.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -452,6 +432,26 @@
             this.ExhibitorEntry.Size = new System.Drawing.Size(473, 62);
             this.ExhibitorEntry.TabIndex = 1;
             this.ExhibitorEntry.Leave += new System.EventHandler(this.ExhibitorEntry_Leave);
+            // 
+            // tscmdToggleInclude
+            // 
+            this.tscmdToggleInclude.Enabled = false;
+            this.tscmdToggleInclude.Image = global::Livestock_Auction.Properties.Resources.exclude;
+            this.tscmdToggleInclude.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tscmdToggleInclude.Name = "tscmdToggleInclude";
+            this.tscmdToggleInclude.Size = new System.Drawing.Size(107, 22);
+            this.tscmdToggleInclude.Text = "Exclude Exhibit";
+            this.tscmdToggleInclude.Click += new System.EventHandler(this.tscmdToggleInclude_Click);
+            // 
+            // tscmdFilterIncluded
+            // 
+            this.tscmdFilterIncluded.CheckOnClick = true;
+            this.tscmdFilterIncluded.Image = global::Livestock_Auction.Properties.Resources.filter;
+            this.tscmdFilterIncluded.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tscmdFilterIncluded.Name = "tscmdFilterIncluded";
+            this.tscmdFilterIncluded.Size = new System.Drawing.Size(84, 22);
+            this.tscmdFilterIncluded.Text = "Is Included";
+            this.tscmdFilterIncluded.Click += new System.EventHandler(this.Filter_Changed);
             // 
             // ucExhibits
             // 

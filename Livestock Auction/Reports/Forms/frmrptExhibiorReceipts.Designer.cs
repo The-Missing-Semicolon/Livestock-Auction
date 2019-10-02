@@ -38,6 +38,7 @@
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource6 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.clsExhibitorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clsPurchaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clsSettingsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clsBuyerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clsPaymentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -57,9 +58,9 @@
             this.tabPageExhibitors = new System.Windows.Forms.TabPage();
             this.tabPageBuyers = new System.Windows.Forms.TabPage();
             this.rptBuyerReceipt = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.clsSettingsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.clsExhibitorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clsPurchaseBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clsSettingsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clsBuyerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clsPaymentBindingSource)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -67,7 +68,6 @@
             this.tabMain.SuspendLayout();
             this.tabPageExhibitors.SuspendLayout();
             this.tabPageBuyers.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.clsSettingsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // clsExhibitorBindingSource
@@ -77,6 +77,10 @@
             // clsPurchaseBindingSource
             // 
             this.clsPurchaseBindingSource.DataSource = typeof(Livestock_Auction.DB.clsPurchase);
+            // 
+            // clsSettingsBindingSource
+            // 
+            this.clsSettingsBindingSource.DataSource = typeof(Livestock_Auction.DB.clsSettings);
             // 
             // clsBuyerBindingSource
             // 
@@ -106,7 +110,7 @@
             // tscmdBack
             // 
             this.tscmdBack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tscmdBack.Image = ((System.Drawing.Image)(resources.GetObject("tscmdBack.Image")));
+            this.tscmdBack.Image = global::Livestock_Auction.Properties.Resources.arrow_left2;
             this.tscmdBack.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tscmdBack.Name = "tscmdBack";
             this.tscmdBack.Size = new System.Drawing.Size(23, 22);
@@ -116,7 +120,7 @@
             // tscmdNext
             // 
             this.tscmdNext.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tscmdNext.Image = ((System.Drawing.Image)(resources.GetObject("tscmdNext.Image")));
+            this.tscmdNext.Image = global::Livestock_Auction.Properties.Resources.arrow_right2;
             this.tscmdNext.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tscmdNext.Name = "tscmdNext";
             this.tscmdNext.Size = new System.Drawing.Size(23, 22);
@@ -157,7 +161,7 @@
             // 
             // tscmdSaveAll
             // 
-            this.tscmdSaveAll.Image = ((System.Drawing.Image)(resources.GetObject("tscmdSaveAll.Image")));
+            this.tscmdSaveAll.Image = global::Livestock_Auction.Properties.Resources.saveall;
             this.tscmdSaveAll.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tscmdSaveAll.Name = "tscmdSaveAll";
             this.tscmdSaveAll.Size = new System.Drawing.Size(115, 22);
@@ -171,11 +175,11 @@
             reportDataSource1.Value = this.clsExhibitorBindingSource;
             reportDataSource2.Name = "Livestock_Auction_clsPurchase";
             reportDataSource2.Value = this.clsPurchaseBindingSource;
-            reportDataSource6.Name = "Livestock_Auction_clsSettings";
-            reportDataSource6.Value = this.clsSettingsBindingSource;
+            reportDataSource3.Name = "Livestock_Auction_clsSettings";
+            reportDataSource3.Value = this.clsSettingsBindingSource;
             this.rptExhibitorReceipt.LocalReport.DataSources.Add(reportDataSource1);
             this.rptExhibitorReceipt.LocalReport.DataSources.Add(reportDataSource2);
-            this.rptExhibitorReceipt.LocalReport.DataSources.Add(reportDataSource6);
+            this.rptExhibitorReceipt.LocalReport.DataSources.Add(reportDataSource3);
             this.rptExhibitorReceipt.LocalReport.ReportEmbeddedResource = "Livestock_Auction.Reports.rptExhibitorReceipt.rdlc";
             this.rptExhibitorReceipt.Location = new System.Drawing.Point(3, 3);
             this.rptExhibitorReceipt.Name = "rptMain";
@@ -241,27 +245,21 @@
             // rptBuyerReceipt
             // 
             this.rptBuyerReceipt.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource3.Name = "Livestock_Auction_clsBuyer";
-            reportDataSource3.Value = this.clsBuyerBindingSource;
-            reportDataSource4.Name = "Livestock_Auction_clsPurchase";
-            reportDataSource4.Value = this.clsPurchaseBindingSource;
-            reportDataSource5.Name = "Livestock_Auction_clsPayment";
-            reportDataSource5.Value = this.clsPaymentBindingSource;
-            reportDataSource6.Name = "Livestock_Auction_clsSettings";
-            reportDataSource6.Value = this.clsSettingsBindingSource;
-            this.rptBuyerReceipt.LocalReport.DataSources.Add(reportDataSource3);
+            reportDataSource4.Name = "Livestock_Auction_clsBuyer";
+            reportDataSource4.Value = this.clsBuyerBindingSource;
+            reportDataSource5.Name = "Livestock_Auction_clsPurchase";
+            reportDataSource5.Value = this.clsPurchaseBindingSource;
+            reportDataSource6.Name = "Livestock_Auction_clsPayment";
+            reportDataSource6.Value = this.clsPaymentBindingSource;
             this.rptBuyerReceipt.LocalReport.DataSources.Add(reportDataSource4);
             this.rptBuyerReceipt.LocalReport.DataSources.Add(reportDataSource5);
             this.rptBuyerReceipt.LocalReport.DataSources.Add(reportDataSource6);
+            this.rptBuyerReceipt.LocalReport.DataSources.Add(reportDataSource3);
             this.rptBuyerReceipt.LocalReport.ReportEmbeddedResource = "Livestock_Auction.Reports.rptBuyerReceipt.rdlc";
             this.rptBuyerReceipt.Location = new System.Drawing.Point(3, 3);
             this.rptBuyerReceipt.Name = "rptBuyerReceipt";
             this.rptBuyerReceipt.Size = new System.Drawing.Size(994, 579);
             this.rptBuyerReceipt.TabIndex = 2;
-            // 
-            // clsSettingsBindingSource
-            // 
-            this.clsSettingsBindingSource.DataSource = typeof(Livestock_Auction.DB.clsSettings);
             // 
             // frmrptReceipts
             // 
@@ -271,11 +269,13 @@
             this.Controls.Add(this.tabMain);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmrptReceipts";
-            this.Text = "Exhibitor Receipts";
+            this.Text = "Receipts";
             this.Load += new System.EventHandler(this.frmrptExhibiorReceipts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.clsExhibitorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clsPurchaseBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clsSettingsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clsBuyerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clsPaymentBindingSource)).EndInit();
             this.toolStrip1.ResumeLayout(false);
@@ -285,7 +285,6 @@
             this.tabMain.ResumeLayout(false);
             this.tabPageExhibitors.ResumeLayout(false);
             this.tabPageBuyers.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.clsSettingsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

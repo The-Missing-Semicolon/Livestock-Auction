@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBrowseName));
             this.lsvNames = new System.Windows.Forms.ListView();
-            this.colNameFirst = new System.Windows.Forms.ColumnHeader();
-            this.colNameLast = new System.Windows.Forms.ColumnHeader();
-            this.colNameNick = new System.Windows.Forms.ColumnHeader();
+            this.colNameFirst = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colNameNick = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colNameLast = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lsvNames
@@ -42,6 +43,7 @@
             this.colNameLast});
             this.lsvNames.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lsvNames.FullRowSelect = true;
+            this.lsvNames.HideSelection = false;
             this.lsvNames.Location = new System.Drawing.Point(0, 0);
             this.lsvNames.Name = "lsvNames";
             this.lsvNames.Size = new System.Drawing.Size(429, 387);
@@ -54,15 +56,15 @@
             // 
             this.colNameFirst.Text = "First Name";
             // 
-            // colNameLast
-            // 
-            this.colNameLast.Text = "Last Name";
-            this.colNameLast.Width = 141;
-            // 
             // colNameNick
             // 
             this.colNameNick.Text = "Nick Name";
             this.colNameNick.Width = 117;
+            // 
+            // colNameLast
+            // 
+            this.colNameLast.Text = "Last Name";
+            this.colNameLast.Width = 141;
             // 
             // frmBrowseName
             // 
@@ -70,6 +72,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(429, 387);
             this.Controls.Add(this.lsvNames);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmBrowseName";
             this.Text = "Browse Names";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmBrowseName_FormClosed);

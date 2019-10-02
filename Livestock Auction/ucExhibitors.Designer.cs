@@ -438,10 +438,10 @@
             // tscmdFilterHasExhibits
             // 
             this.tscmdFilterHasExhibits.CheckOnClick = true;
-            this.tscmdFilterHasExhibits.Image = ((System.Drawing.Image)(resources.GetObject("tscmdFilterHasExhibits.Image")));
+            this.tscmdFilterHasExhibits.Image = global::Livestock_Auction.Properties.Resources.filter;
             this.tscmdFilterHasExhibits.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tscmdFilterHasExhibits.Name = "tscmdFilterHasExhibits";
-            this.tscmdFilterHasExhibits.Size = new System.Drawing.Size(90, 22);
+            this.tscmdFilterHasExhibits.Size = new System.Drawing.Size(91, 22);
             this.tscmdFilterHasExhibits.Text = "Has Exhibits";
             this.tscmdFilterHasExhibits.CheckedChanged += new System.EventHandler(this.Filter_Changed);
             // 

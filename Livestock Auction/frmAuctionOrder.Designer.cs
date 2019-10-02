@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAuctionOrder));
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.clsAuctionIndexBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabpgEdit = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -56,6 +57,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tsEdit = new System.Windows.Forms.ToolStrip();
             this.tscmdGenerateOrder = new System.Windows.Forms.ToolStripButton();
+            this.tsCmbOrderType = new System.Windows.Forms.ToolStripComboBox();
             this.tabpgReport = new System.Windows.Forms.TabPage();
             this.rptAuctionOrder = new Microsoft.Reporting.WinForms.ReportViewer();
             this.lsvHistory = new System.Windows.Forms.ListView();
@@ -68,8 +70,7 @@
             this.tscmdRevert = new System.Windows.Forms.ToolStripButton();
             this.panMain = new System.Windows.Forms.Panel();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.tsCmbOrderType = new System.Windows.Forms.ToolStripComboBox();
-            this.clsAuctionIndexBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.clsAuctionIndexBindingSource)).BeginInit();
             this.tabMain.SuspendLayout();
             this.tabpgEdit.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -82,8 +83,11 @@
             this.panHistory.SuspendLayout();
             this.tsHistory.SuspendLayout();
             this.panMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.clsAuctionIndexBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // clsAuctionIndexBindingSource
+            // 
+            this.clsAuctionIndexBindingSource.DataSource = typeof(Livestock_Auction.DB.clsAuctionIndex);
             // 
             // tabMain
             // 
@@ -308,6 +312,16 @@
             this.tscmdGenerateOrder.Text = "Regenerate Auction Order";
             this.tscmdGenerateOrder.Click += new System.EventHandler(this.tscmdGenerateOrder_Click);
             // 
+            // tsCmbOrderType
+            // 
+            this.tsCmbOrderType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tsCmbOrderType.Items.AddRange(new object[] {
+            "Cecil County Fair",
+            "Solanco Fair"});
+            this.tsCmbOrderType.MaxDropDownItems = 2;
+            this.tsCmbOrderType.Name = "tsCmbOrderType";
+            this.tsCmbOrderType.Size = new System.Drawing.Size(121, 25);
+            // 
             // tabpgReport
             // 
             this.tabpgReport.Controls.Add(this.rptAuctionOrder);
@@ -392,7 +406,7 @@
             // tscmdRevert
             // 
             this.tscmdRevert.Enabled = false;
-            this.tscmdRevert.Image = ((System.Drawing.Image)(resources.GetObject("tscmdRevert.Image")));
+            this.tscmdRevert.Image = global::Livestock_Auction.Properties.Resources.goto2;
             this.tscmdRevert.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tscmdRevert.Name = "tscmdRevert";
             this.tscmdRevert.Size = new System.Drawing.Size(170, 22);
@@ -419,29 +433,17 @@
             this.splitter1.TabIndex = 3;
             this.splitter1.TabStop = false;
             // 
-            // tsCmbOrderType
-            // 
-            this.tsCmbOrderType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.tsCmbOrderType.Items.AddRange(new object[] {
-            "Cecil County Fair",
-            "Solanco Fair"});
-            this.tsCmbOrderType.MaxDropDownItems = 2;
-            this.tsCmbOrderType.Name = "tsCmbOrderType";
-            this.tsCmbOrderType.Size = new System.Drawing.Size(121, 25);
-            // 
-            // clsAuctionIndexBindingSource
-            // 
-            this.clsAuctionIndexBindingSource.DataSource = typeof(Livestock_Auction.DB.clsAuctionIndex);
-            // 
             // frmAuctionOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 749);
             this.Controls.Add(this.panMain);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAuctionOrder";
             this.Text = "Edit Auction Order";
             this.Load += new System.EventHandler(this.frmAuctionOrder_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.clsAuctionIndexBindingSource)).EndInit();
             this.tabMain.ResumeLayout(false);
             this.tabpgEdit.ResumeLayout(false);
             this.tabpgEdit.PerformLayout();
@@ -458,7 +460,6 @@
             this.tsHistory.ResumeLayout(false);
             this.tsHistory.PerformLayout();
             this.panMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.clsAuctionIndexBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
