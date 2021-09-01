@@ -33,13 +33,13 @@ namespace Livestock_Auction
             int iDeDupExhibitorID = 0;
             foreach (Record Row in ImportFile.Rows)
             {
-                // Only take records where the MemberID starts with "P" (indicating they are 4-H), and that have
-                //  a first name, which will filter out all of the clubs
-                if (Row["MemberID"].ToString().StartsWith("P") && Row["FirstName"].ToString().Trim().Length > 0)
+                // Only take records that have a first name, which will filter out all of the clubs
+                // We can no longer filter 4-H records by 'P', because of online entries
+                if (Row["FirstName"].ToString().Trim().Length > 0)
                 {
                     int iNewExhibitorID = 0;
                     int iZipCode = 0;
-                    if (int.TryParse(Row["MemberID"].ToString().TrimStart('P'), out iNewExhibitorID) && iDeDupExhibitorID != iNewExhibitorID)
+                    if (int.TryParse(Row["MemberID"].ToString(), out iNewExhibitorID) && iDeDupExhibitorID != iNewExhibitorID)
                     {
                         iDeDupExhibitorID = iNewExhibitorID;
 
