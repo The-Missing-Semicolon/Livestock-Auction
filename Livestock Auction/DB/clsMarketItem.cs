@@ -94,13 +94,14 @@ namespace Livestock_Auction.DB
         bool m_bAllowAdvertising;
         bool m_bValidDisposition;
         bool m_bSellByPound;
+        string m_sAdvertdestination;
 
         public clsMarketItem()
         {
 
         }
 
-        public clsMarketItem(int ID, string Type, double Value, string Units, bool AllowAdvertising, bool ValidDisposition, bool SellByPound)
+        public clsMarketItem(int ID, string Type, double Value, string Units, bool AllowAdvertising, bool ValidDisposition, bool SellByPound, string AdvertDestination)
         {
             m_iMarketID = ID;
             m_sMarketType = Type;
@@ -109,6 +110,7 @@ namespace Livestock_Auction.DB
             m_bAllowAdvertising = AllowAdvertising;
             m_bValidDisposition = ValidDisposition;
             m_bSellByPound = SellByPound;
+            m_sAdvertdestination = AdvertDestination;
         }
 
         public override void Load(IDataReader dbReader)
@@ -120,6 +122,7 @@ namespace Livestock_Auction.DB
             m_bAllowAdvertising = (bool)dbReader["AllowAdvertising"];
             m_bValidDisposition = (bool)dbReader["ValidDisposition"];
             m_bSellByPound = (bool)dbReader["SellByPound"];
+            m_sAdvertdestination = (string)dbReader["AdvertDestination"];
         }
 
         protected override void DBCommit(DB.CommitAction Action, IDbConnection DatabaseConnection, IDbTransaction Transaction)
@@ -132,7 +135,7 @@ namespace Livestock_Auction.DB
                 string sTmpName = Guid.NewGuid().ToString();
 
                 //It would seem that you can't put parameters into a SELECT clause (at last in SQL CE). 
-                dbTempCommit.CommandText = "INSERT INTO Market (CommitAction, ID, MarketItem, MarketPrice, MarketUnits, AllowAdvertising, ValidDisposition) SELECT '" + ((int)CommitAction.Modify).ToString() + "' AS CommitAction, MAX(ID) + 1 AS ID, '" + sTmpName + "' AS MarketItem, 0 AS MarketValue, '' AS MarketUnits, 0 AS AllowAdvertising, 0 AS ValidDisposition FROM Market";
+                dbTempCommit.CommandText = "INSERT INTO Market (CommitAction, ID, MarketItem, MarketPrice, MarketUnits, AllowAdvertising, ValidDisposition, AdvertDestination) SELECT '" + ((int)CommitAction.Modify).ToString() + "' AS CommitAction, MAX(ID) + 1 AS ID, '" + sTmpName + "' AS MarketItem, 0 AS MarketValue, '' AS MarketUnits, 0 AS AllowAdvertising, 0 AS ValidDisposition, '' AS AdvertDestination FROM Market";
                 dbTempCommit.ExecuteNonQuery();
 
                 dbTempCommit.CommandText = "SELECT ID FROM Market WHERE MarketItem = @MarketItem ORDER BY CommitDate DESC";
@@ -150,7 +153,7 @@ namespace Livestock_Auction.DB
 
             IDbCommand dbCommit = DatabaseConnection.CreateCommand();
             dbCommit.Transaction = Transaction;
-            dbCommit.CommandText = "INSERT INTO Market (CommitAction, ID, MarketItem, MarketPrice, MarketUnits, AllowAdvertising, ValidDisposition, SellByPound) VALUES (@CommitAction, @MarketID, @MarketType, @MarketValue, @MarketUnits, @AllowAdvertising, @ValidDisposition, @SellByPound)";
+            dbCommit.CommandText = "INSERT INTO Market (CommitAction, ID, MarketItem, MarketPrice, MarketUnits, AllowAdvertising, ValidDisposition, SellByPound, AdvertDestination) VALUES (@CommitAction, @MarketID, @MarketType, @MarketValue, @MarketUnits, @AllowAdvertising, @ValidDisposition, @SellByPound, @AdvertDestination)";
             
             IDbDataParameter param = dbCommit.CreateParameter();
             param.ParameterName = "@CommitAction";
@@ -191,7 +194,12 @@ namespace Livestock_Auction.DB
             param.ParameterName = "@SellByPound";
             param.Value = this.SellByPound;
             dbCommit.Parameters.Add(param);
-            
+
+            param = dbCommit.CreateParameter();
+            param.ParameterName = "@AdvertDestination";
+            param.Value = this.AdvertDestination;
+            dbCommit.Parameters.Add(param);
+
             dbCommit.ExecuteNonQuery();
         }
 
@@ -247,6 +255,7 @@ namespace Livestock_Auction.DB
             m_sMarketUnits = (string)info.GetValue("sMarketUnits", typeof(string));
             m_bAllowAdvertising = (bool)info.GetValue("bAllowAdvertising", typeof(bool));
             m_bValidDisposition = (bool)info.GetValue("bValidDisposition", typeof(bool));
+            m_sAdvertdestination = (string)info.GetValue("sAdvertDestination", typeof(string));
         }
 
         public void GetObjectData(SerializationInfo info, StreamingContext context)
@@ -261,6 +270,7 @@ namespace Livestock_Auction.DB
             info.AddValue("sMarketUnits", m_sMarketUnits);
             info.AddValue("bAllowAdvertising", m_bAllowAdvertising);
             info.AddValue("bValidDisposition", m_bValidDisposition);
+            info.AddValue("sAdvertDestination", m_sAdvertdestination);
         }
         #endregion
 
@@ -362,6 +372,18 @@ namespace Livestock_Auction.DB
                 m_bSellByPound = value;
             }
         }
+
+        public string AdvertDestination
+        {
+            get
+            {
+                return m_sAdvertdestination;
+            }
+            set
+            {
+                m_sAdvertdestination = value;
+            }
+        }
     }
 
     namespace Setup
@@ -380,13 +402,14 @@ namespace Livestock_Auction.DB
                     new SQLColumn("AllowAdvertising", "bit", "0", false),
                     new SQLColumn("ValidDisposition", "bit", "0", false),
                     new SQLColumn("SellByPound", "bit", "0", false),
+                    new SQLColumn("AdvertDestination", "nvarchar(50)", "", false),
                 };
             }
 
             //Use the post setup steps to insert the additional payment record
             public override void SQLPostSetupSteps(IDbConnection DatabaseConnection)
             {
-                clsMarketItem AddPayment = new clsMarketItem(0, "Additional Payment", 0, "", false, false, false);
+                clsMarketItem AddPayment = new clsMarketItem(0, "Additional Payment", 0, "", false, false, false, "");
                 AddPayment.Commit(DatabaseConnection);
             }
         }

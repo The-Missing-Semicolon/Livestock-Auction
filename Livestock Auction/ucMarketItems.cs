@@ -26,7 +26,7 @@ namespace Livestock_Auction
 
             if ((txtID.Text.Trim().Length == 0 || int.TryParse(txtID.Text, out iMarketID)) && double.TryParse(txtItemValue.Text, out fItemValue))
             {
-                DB.clsMarketItem MarketItem = new DB.clsMarketItem(iMarketID, txtItemName.Text.Trim(), fItemValue, txtItemUnits.Text.Trim(), chkAllowAdvertising.Checked, chkValidDisposition.Checked, chkSellByPound.Checked);
+                DB.clsMarketItem MarketItem = new DB.clsMarketItem(iMarketID, txtItemName.Text.Trim(), fItemValue, txtItemUnits.Text.Trim(), chkAllowAdvertising.Checked, chkValidDisposition.Checked, chkSellByPound.Checked, txtAdvertDestination.Text.Trim());
                 clsDB.Market.Commit(DB.CommitAction.Modify, MarketItem);
 
                 LoadRecord(null);
@@ -86,6 +86,7 @@ namespace Livestock_Auction
                 lviNewItem.SubItems.Add(MarketItem.AllowAdvertising ? "Allowed" : "");
                 lviNewItem.SubItems.Add(MarketItem.ValidDisposition ? "Required" : "");
                 lviNewItem.SubItems.Add(MarketItem.SellByPound ? "Pound" : "Item");
+                lviNewItem.SubItems.Add(MarketItem.AdvertDestination);
                 lviNewItem.Tag = MarketItem;
             }
         }
@@ -107,6 +108,7 @@ namespace Livestock_Auction
                             lsvMarket.Items[i].SubItems[4].Text = clsDB.Market[Item].AllowAdvertising ? "Allowed" : "";
                             lsvMarket.Items[i].SubItems[5].Text = clsDB.Market[Item].ValidDisposition ? "Required" : "";
                             lsvMarket.Items[i].SubItems[6].Text = clsDB.Market[Item].SellByPound ? "Pound" : "Item";
+                            lsvMarket.Items[i].SubItems[7].Text = clsDB.Market[Item].AdvertDestination;
                         }
                         else
                         {
@@ -126,6 +128,7 @@ namespace Livestock_Auction
                     lviEx.SubItems.Add(clsDB.Market[Item].AllowAdvertising ? "Allowed" : "");
                     lviEx.SubItems.Add(clsDB.Market[Item].ValidDisposition ? "Required" : "");
                     lviEx.SubItems.Add(clsDB.Market[Item].SellByPound ? "Pound" : "Item");
+                    lviEx.SubItems.Add(clsDB.Market[Item].AdvertDestination);
                 }
             }
         }
@@ -166,6 +169,7 @@ namespace Livestock_Auction
                 chkAllowAdvertising.Checked = Item.AllowAdvertising;
                 chkValidDisposition.Checked = Item.ValidDisposition;
                 chkSellByPound.Checked = Item.SellByPound;
+                txtAdvertDestination.Text = Item.AdvertDestination;
             }
             else
             {
@@ -176,6 +180,7 @@ namespace Livestock_Auction
                 chkAllowAdvertising.Checked = false;
                 chkValidDisposition.Checked = false;
                 chkSellByPound.Checked = false;
+                txtAdvertDestination.Text = "";
                 txtID.Focus();
             }
         }
@@ -183,6 +188,11 @@ namespace Livestock_Auction
         private void cmdClear_Click(object sender, EventArgs e)
         {
             LoadRecord(null);
+        }
+
+        private void chkAllowAdvertising_CheckedChanged(object sender, EventArgs e)
+        {
+            txtAdvertDestination.Enabled = chkAllowAdvertising.Checked;
         }
     }
 }

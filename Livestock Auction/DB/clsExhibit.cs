@@ -1342,6 +1342,24 @@ namespace Livestock_Auction.DB
             }
         }
 
+        public string AdvertDestination
+        {
+            get
+            {
+                string sAdvertDestination = "";
+
+                if (Destination == AnimalDestination.New_Holland)
+                {
+                    sAdvertDestination = clsDB.Market[MarketID].AdvertDestination;
+                } else
+                {
+                    sAdvertDestination = Destination_String;
+                }
+
+                return sAdvertDestination;
+            }
+        }
+
         public bool AnimalSold
         {
             get

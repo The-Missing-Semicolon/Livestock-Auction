@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAuctionOrder));
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.clsAuctionIndexBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabpgEdit = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -70,7 +69,7 @@
             this.tscmdRevert = new System.Windows.Forms.ToolStripButton();
             this.panMain = new System.Windows.Forms.Panel();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            ((System.ComponentModel.ISupportInitialize)(this.clsAuctionIndexBindingSource)).BeginInit();
+            this.clsAuctionIndexBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabMain.SuspendLayout();
             this.tabpgEdit.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -83,11 +82,8 @@
             this.panHistory.SuspendLayout();
             this.tsHistory.SuspendLayout();
             this.panMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.clsAuctionIndexBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // clsAuctionIndexBindingSource
-            // 
-            this.clsAuctionIndexBindingSource.DataSource = typeof(Livestock_Auction.DB.clsAuctionIndex);
             // 
             // tabMain
             // 
@@ -95,9 +91,10 @@
             this.tabMain.Controls.Add(this.tabpgReport);
             this.tabMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabMain.Location = new System.Drawing.Point(0, 0);
+            this.tabMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabMain.Name = "tabMain";
             this.tabMain.SelectedIndex = 0;
-            this.tabMain.Size = new System.Drawing.Size(594, 749);
+            this.tabMain.Size = new System.Drawing.Size(792, 922);
             this.tabMain.TabIndex = 0;
             this.tabMain.SelectedIndexChanged += new System.EventHandler(this.tabMain_SelectedIndexChanged);
             // 
@@ -105,10 +102,11 @@
             // 
             this.tabpgEdit.Controls.Add(this.splitContainer1);
             this.tabpgEdit.Controls.Add(this.tsEdit);
-            this.tabpgEdit.Location = new System.Drawing.Point(4, 22);
+            this.tabpgEdit.Location = new System.Drawing.Point(4, 25);
+            this.tabpgEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabpgEdit.Name = "tabpgEdit";
-            this.tabpgEdit.Padding = new System.Windows.Forms.Padding(3);
-            this.tabpgEdit.Size = new System.Drawing.Size(586, 723);
+            this.tabpgEdit.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabpgEdit.Size = new System.Drawing.Size(784, 893);
             this.tabpgEdit.TabIndex = 0;
             this.tabpgEdit.Text = "Edit";
             this.tabpgEdit.UseVisualStyleBackColor = true;
@@ -116,7 +114,8 @@
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(3, 28);
+            this.splitContainer1.Location = new System.Drawing.Point(4, 35);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -127,8 +126,9 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox2);
-            this.splitContainer1.Size = new System.Drawing.Size(580, 692);
-            this.splitContainer1.SplitterDistance = 346;
+            this.splitContainer1.Size = new System.Drawing.Size(776, 854);
+            this.splitContainer1.SplitterDistance = 427;
+            this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 2;
             // 
             // groupBox1
@@ -136,8 +136,10 @@
             this.groupBox1.Controls.Add(this.lsvOrder);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(580, 346);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(776, 427);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Current Auction Order";
@@ -157,9 +159,10 @@
             this.lsvOrder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lsvOrder.FullRowSelect = true;
             this.lsvOrder.HideSelection = false;
-            this.lsvOrder.Location = new System.Drawing.Point(3, 16);
+            this.lsvOrder.Location = new System.Drawing.Point(4, 19);
+            this.lsvOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lsvOrder.Name = "lsvOrder";
-            this.lsvOrder.Size = new System.Drawing.Size(574, 327);
+            this.lsvOrder.Size = new System.Drawing.Size(768, 404);
             this.lsvOrder.TabIndex = 0;
             this.lsvOrder.UseCompatibleStateImageBehavior = false;
             this.lsvOrder.View = System.Windows.Forms.View.Details;
@@ -214,8 +217,10 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(580, 342);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Size = new System.Drawing.Size(776, 422);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Unsorted Exhibits";
@@ -234,10 +239,11 @@
             this.lsvUnsorted.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lsvUnsorted.FullRowSelect = true;
             this.lsvUnsorted.HideSelection = false;
-            this.lsvUnsorted.Location = new System.Drawing.Point(3, 16);
+            this.lsvUnsorted.Location = new System.Drawing.Point(4, 19);
+            this.lsvUnsorted.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lsvUnsorted.MultiSelect = false;
             this.lsvUnsorted.Name = "lsvUnsorted";
-            this.lsvUnsorted.Size = new System.Drawing.Size(574, 295);
+            this.lsvUnsorted.Size = new System.Drawing.Size(768, 365);
             this.lsvUnsorted.TabIndex = 1;
             this.lsvUnsorted.UseCompatibleStateImageBehavior = false;
             this.lsvUnsorted.View = System.Windows.Forms.View.Details;
@@ -284,9 +290,10 @@
             // label1
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Location = new System.Drawing.Point(3, 311);
+            this.label1.Location = new System.Drawing.Point(4, 384);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(574, 28);
+            this.label1.Size = new System.Drawing.Size(768, 34);
             this.label1.TabIndex = 2;
             this.label1.Text = "Add items to the auction order by draging them from the unsorted exhibits to the " +
     "auction order. Remove them by dragging them from the auction order to the unsort" +
@@ -294,12 +301,13 @@
             // 
             // tsEdit
             // 
+            this.tsEdit.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.tsEdit.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tscmdGenerateOrder,
             this.tsCmbOrderType});
-            this.tsEdit.Location = new System.Drawing.Point(3, 3);
+            this.tsEdit.Location = new System.Drawing.Point(4, 4);
             this.tsEdit.Name = "tsEdit";
-            this.tsEdit.Size = new System.Drawing.Size(580, 25);
+            this.tsEdit.Size = new System.Drawing.Size(776, 31);
             this.tsEdit.TabIndex = 1;
             this.tsEdit.Text = "toolStrip1";
             // 
@@ -308,7 +316,7 @@
             this.tscmdGenerateOrder.Image = ((System.Drawing.Image)(resources.GetObject("tscmdGenerateOrder.Image")));
             this.tscmdGenerateOrder.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tscmdGenerateOrder.Name = "tscmdGenerateOrder";
-            this.tscmdGenerateOrder.Size = new System.Drawing.Size(164, 22);
+            this.tscmdGenerateOrder.Size = new System.Drawing.Size(206, 28);
             this.tscmdGenerateOrder.Text = "Regenerate Auction Order";
             this.tscmdGenerateOrder.Click += new System.EventHandler(this.tscmdGenerateOrder_Click);
             // 
@@ -320,15 +328,16 @@
             "Solanco Fair"});
             this.tsCmbOrderType.MaxDropDownItems = 2;
             this.tsCmbOrderType.Name = "tsCmbOrderType";
-            this.tsCmbOrderType.Size = new System.Drawing.Size(121, 25);
+            this.tsCmbOrderType.Size = new System.Drawing.Size(160, 31);
             // 
             // tabpgReport
             // 
             this.tabpgReport.Controls.Add(this.rptAuctionOrder);
-            this.tabpgReport.Location = new System.Drawing.Point(4, 22);
+            this.tabpgReport.Location = new System.Drawing.Point(4, 25);
+            this.tabpgReport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabpgReport.Name = "tabpgReport";
-            this.tabpgReport.Padding = new System.Windows.Forms.Padding(3);
-            this.tabpgReport.Size = new System.Drawing.Size(586, 723);
+            this.tabpgReport.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabpgReport.Size = new System.Drawing.Size(784, 893);
             this.tabpgReport.TabIndex = 1;
             this.tabpgReport.Text = "Report";
             this.tabpgReport.UseVisualStyleBackColor = true;
@@ -340,9 +349,10 @@
             reportDataSource1.Value = this.clsAuctionIndexBindingSource;
             this.rptAuctionOrder.LocalReport.DataSources.Add(reportDataSource1);
             this.rptAuctionOrder.LocalReport.ReportEmbeddedResource = "Livestock_Auction.Reports.rptAuctionOrder.rdlc";
-            this.rptAuctionOrder.Location = new System.Drawing.Point(3, 3);
+            this.rptAuctionOrder.Location = new System.Drawing.Point(4, 4);
+            this.rptAuctionOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rptAuctionOrder.Name = "rptAuctionOrder";
-            this.rptAuctionOrder.Size = new System.Drawing.Size(580, 717);
+            this.rptAuctionOrder.Size = new System.Drawing.Size(776, 885);
             this.rptAuctionOrder.TabIndex = 0;
             // 
             // lsvHistory
@@ -355,10 +365,11 @@
             this.lsvHistory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lsvHistory.FullRowSelect = true;
             this.lsvHistory.HideSelection = false;
-            this.lsvHistory.Location = new System.Drawing.Point(0, 25);
+            this.lsvHistory.Location = new System.Drawing.Point(0, 31);
+            this.lsvHistory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lsvHistory.MultiSelect = false;
             this.lsvHistory.Name = "lsvHistory";
-            this.lsvHistory.Size = new System.Drawing.Size(387, 724);
+            this.lsvHistory.Size = new System.Drawing.Size(516, 891);
             this.lsvHistory.TabIndex = 1;
             this.lsvHistory.UseCompatibleStateImageBehavior = false;
             this.lsvHistory.View = System.Windows.Forms.View.Details;
@@ -388,18 +399,20 @@
             this.panHistory.Controls.Add(this.lsvHistory);
             this.panHistory.Controls.Add(this.tsHistory);
             this.panHistory.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panHistory.Location = new System.Drawing.Point(597, 0);
+            this.panHistory.Location = new System.Drawing.Point(796, 0);
+            this.panHistory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panHistory.Name = "panHistory";
-            this.panHistory.Size = new System.Drawing.Size(387, 749);
+            this.panHistory.Size = new System.Drawing.Size(516, 922);
             this.panHistory.TabIndex = 2;
             // 
             // tsHistory
             // 
+            this.tsHistory.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.tsHistory.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tscmdRevert});
             this.tsHistory.Location = new System.Drawing.Point(0, 0);
             this.tsHistory.Name = "tsHistory";
-            this.tsHistory.Size = new System.Drawing.Size(387, 25);
+            this.tsHistory.Size = new System.Drawing.Size(516, 31);
             this.tsHistory.TabIndex = 2;
             this.tsHistory.Text = "toolStrip1";
             // 
@@ -409,7 +422,7 @@
             this.tscmdRevert.Image = global::Livestock_Auction.Properties.Resources.goto2;
             this.tscmdRevert.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tscmdRevert.Name = "tscmdRevert";
-            this.tscmdRevert.Size = new System.Drawing.Size(170, 22);
+            this.tscmdRevert.Size = new System.Drawing.Size(214, 28);
             this.tscmdRevert.Text = "Switch to Selected Revision";
             this.tscmdRevert.Click += new System.EventHandler(this.tscmdRevert_Click);
             // 
@@ -420,30 +433,36 @@
             this.panMain.Controls.Add(this.panHistory);
             this.panMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panMain.Location = new System.Drawing.Point(0, 0);
+            this.panMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panMain.Name = "panMain";
-            this.panMain.Size = new System.Drawing.Size(984, 749);
+            this.panMain.Size = new System.Drawing.Size(1312, 922);
             this.panMain.TabIndex = 3;
             // 
             // splitter1
             // 
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter1.Location = new System.Drawing.Point(594, 0);
+            this.splitter1.Location = new System.Drawing.Point(792, 0);
+            this.splitter1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 749);
+            this.splitter1.Size = new System.Drawing.Size(4, 922);
             this.splitter1.TabIndex = 3;
             this.splitter1.TabStop = false;
             // 
+            // clsAuctionIndexBindingSource
+            // 
+            this.clsAuctionIndexBindingSource.DataSource = typeof(Livestock_Auction.DB.clsAuctionIndex);
+            // 
             // frmAuctionOrder
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 749);
+            this.ClientSize = new System.Drawing.Size(1312, 922);
             this.Controls.Add(this.panMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmAuctionOrder";
             this.Text = "Edit Auction Order";
             this.Load += new System.EventHandler(this.frmAuctionOrder_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.clsAuctionIndexBindingSource)).EndInit();
             this.tabMain.ResumeLayout(false);
             this.tabpgEdit.ResumeLayout(false);
             this.tabpgEdit.PerformLayout();
@@ -460,6 +479,7 @@
             this.tsHistory.ResumeLayout(false);
             this.tsHistory.PerformLayout();
             this.panMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.clsAuctionIndexBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -99,6 +99,7 @@ namespace Livestock_Auction.DataEntry
             chkAllowAdvertising.Checked = false;
             chkValidDisposition.Checked = false;
             chkSellByPound.Checked = false;
+            txtAdvertDestination.Text = "";
             lblMarketWarning.Visible = false;
         }
 
@@ -138,7 +139,7 @@ namespace Livestock_Auction.DataEntry
                 double dMarketValue = 0;
                 if ((txtMarketID.Text.Trim().Length == 0 || int.TryParse(txtMarketID.Text, out iMarketID)) && double.TryParse(txtMarketValue.Text, out dMarketValue) && txtMarketItem.Text.Trim().Length > 0)
                 {
-                    return new DB.clsMarketItem(iMarketID, txtMarketItem.Text.Trim(), dMarketValue, txtMarketUnits.Text.Trim(), chkAllowAdvertising.Checked, chkValidDisposition.Checked, chkSellByPound.Checked);
+                    return new DB.clsMarketItem(iMarketID, txtMarketItem.Text.Trim(), dMarketValue, txtMarketUnits.Text.Trim(), chkAllowAdvertising.Checked, chkValidDisposition.Checked, chkSellByPound.Checked, txtAdvertDestination.Text.Trim());
                 }
                 else
                 {
@@ -156,12 +157,18 @@ namespace Livestock_Auction.DataEntry
                     chkAllowAdvertising.Checked = value.AllowAdvertising;
                     chkValidDisposition.Checked = value.ValidDisposition;
                     chkSellByPound.Checked = value.SellByPound;
+                    txtAdvertDestination.Text = value.AdvertDestination;
                 }
                 else
                 {
                     Clear();
                 }
             }
+        }
+
+        private void chkAllowAdvertising_CheckedChanged(object sender, EventArgs e)
+        {
+            txtAdvertDestination.Enabled = chkAllowAdvertising.Checked;
         }
     }
 }

@@ -21,14 +21,14 @@ namespace Livestock_Auction_Tests
             new SqlCommand("ALTER TABLE Market ADD CONSTRAINT commitdate_unique UNIQUE ([CommitDate]);", m_dbConn).ExecuteNonQuery();
 
             //Generate the typical array of market items
-            Livestock_Auction.clsDB.Market.Commit(Livestock_Auction.DB.CommitAction.Modify, new Livestock_Auction.DB.clsMarketItem(1, "Hog", 0.65, "lb", true, true, true));
-            Livestock_Auction.clsDB.Market.Commit(Livestock_Auction.DB.CommitAction.Modify, new Livestock_Auction.DB.clsMarketItem(2, "Dairy Steer", 0.95, "lb", true, true, true));
-            Livestock_Auction.clsDB.Market.Commit(Livestock_Auction.DB.CommitAction.Modify, new Livestock_Auction.DB.clsMarketItem(3, "Beef Steer", 1.05, "lb", true, true, true));
-            Livestock_Auction.clsDB.Market.Commit(Livestock_Auction.DB.CommitAction.Modify, new Livestock_Auction.DB.clsMarketItem(4, "Lamb", 1.20, "lb", true, true, true));
-            Livestock_Auction.clsDB.Market.Commit(Livestock_Auction.DB.CommitAction.Modify, new Livestock_Auction.DB.clsMarketItem(5, "Goat", 1.40, "lb", true, true, true));
-            Livestock_Auction.clsDB.Market.Commit(Livestock_Auction.DB.CommitAction.Modify, new Livestock_Auction.DB.clsMarketItem(6, "Broilers", 0, "Pair", true, true, false));
-            Livestock_Auction.clsDB.Market.Commit(Livestock_Auction.DB.CommitAction.Modify, new Livestock_Auction.DB.clsMarketItem(7, "Ducks", 0, "Pair", true, true, false));
-            Livestock_Auction.clsDB.Market.Commit(Livestock_Auction.DB.CommitAction.Modify, new Livestock_Auction.DB.clsMarketItem(8, "Welded Items", 0, "Item", false, false, false));
+            Livestock_Auction.clsDB.Market.Commit(Livestock_Auction.DB.CommitAction.Modify, new Livestock_Auction.DB.clsMarketItem(1, "Hog", 0.65, "lb", true, true, true, "New Holland"));
+            Livestock_Auction.clsDB.Market.Commit(Livestock_Auction.DB.CommitAction.Modify, new Livestock_Auction.DB.clsMarketItem(2, "Dairy Steer", 0.95, "lb", true, true, true, "New Holland"));
+            Livestock_Auction.clsDB.Market.Commit(Livestock_Auction.DB.CommitAction.Modify, new Livestock_Auction.DB.clsMarketItem(3, "Beef Steer", 1.05, "lb", true, true, true, "New Holland"));
+            Livestock_Auction.clsDB.Market.Commit(Livestock_Auction.DB.CommitAction.Modify, new Livestock_Auction.DB.clsMarketItem(4, "Lamb", 1.20, "lb", true, true, true, "Somewhere Else 1"));
+            Livestock_Auction.clsDB.Market.Commit(Livestock_Auction.DB.CommitAction.Modify, new Livestock_Auction.DB.clsMarketItem(5, "Goat", 1.40, "lb", true, true, true, "Somewhere Else 2"));
+            Livestock_Auction.clsDB.Market.Commit(Livestock_Auction.DB.CommitAction.Modify, new Livestock_Auction.DB.clsMarketItem(6, "Broilers", 0, "Pair", true, true, false, "New Holland"));
+            Livestock_Auction.clsDB.Market.Commit(Livestock_Auction.DB.CommitAction.Modify, new Livestock_Auction.DB.clsMarketItem(7, "Ducks", 0, "Pair", true, true, false, "New Holland"));
+            Livestock_Auction.clsDB.Market.Commit(Livestock_Auction.DB.CommitAction.Modify, new Livestock_Auction.DB.clsMarketItem(8, "Welded Items", 0, "Item", false, false, false, "New Holland"));
 
             Assert.AreEqual(9, Livestock_Auction.clsDB.Market.Count, "Failed to generate the expected number of market items in the database");
         }

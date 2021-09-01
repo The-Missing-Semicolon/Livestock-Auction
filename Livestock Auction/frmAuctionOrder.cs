@@ -32,6 +32,7 @@ namespace Livestock_Auction
             ReloadAuctionGrid();
             ReloadUnsortedGrid();
             ReloadRevisions();
+            
             this.rptAuctionOrder.RefreshReport();
         }
 

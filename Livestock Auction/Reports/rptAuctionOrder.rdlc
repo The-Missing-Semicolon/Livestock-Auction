@@ -6,13 +6,13 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>0.375in</Width>
+              <Width>0.26667in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.375in</Width>
+              <Width>1.21667in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>0.625in</Width>
@@ -21,10 +21,10 @@
               <Width>0.875in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.52083in</Width>
+              <Width>1.05416in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.875in</Width>
+              <Width>0.625in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.375in</Width>
@@ -217,7 +217,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Market/Buyback Price</Value>
+                              <Value>Market Price</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
                                 <FontWeight>Bold</FontWeight>
@@ -515,7 +515,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -615,14 +614,14 @@
         </TablixRowHierarchy>
         <DataSetName>Livestock_Auction_clsAuctionIndex</DataSetName>
         <Height>0.5in</Height>
-        <Width>9.02083in</Width>
+        <Width>8.0375in</Width>
         <Style />
       </Tablix>
     </ReportItems>
     <Height>0.5in</Height>
     <Style />
   </Body>
-  <Width>9.02083in</Width>
+  <Width>8.0625in</Width>
   <Page>
     <LeftMargin>0.5in</LeftMargin>
     <RightMargin>0.5in</RightMargin>
