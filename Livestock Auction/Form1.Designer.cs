@@ -102,6 +102,7 @@
             this.dlgExport = new System.Windows.Forms.SaveFileDialog();
             this.dlgExportExcel = new System.Windows.Forms.SaveFileDialog();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.exportTurnbackListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.tabIntroduction.SuspendLayout();
@@ -623,6 +624,7 @@
             this.mnucmdImportDatabase,
             this.mnucmdExportDatabase,
             this.mnucmdExportToExcel,
+            this.exportTurnbackListToolStripMenuItem,
             this.toolStripSeparator1,
             this.exitToolStripMenuItem});
             this.tsmnuFileMenu.Name = "tsmnuFileMenu";
@@ -708,7 +710,7 @@
             this.tsmnuNameOrderFirstLast,
             this.tsmnuNameOrderLastFirst});
             this.nameOrderToolStripMenuItem.Name = "nameOrderToolStripMenuItem";
-            this.nameOrderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nameOrderToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.nameOrderToolStripMenuItem.Text = "Name Order";
             // 
             // tsmnuNameOrderFirstLast
@@ -732,7 +734,7 @@
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.SettingsToolStripMenuItem_Click);
             // 
@@ -868,6 +870,13 @@
             this.toolStripButton1.Text = "Move >>";
             this.toolStripButton1.ToolTipText = "Move to next tab group";
             // 
+            // exportTurnbackListToolStripMenuItem
+            // 
+            this.exportTurnbackListToolStripMenuItem.Name = "exportTurnbackListToolStripMenuItem";
+            this.exportTurnbackListToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.exportTurnbackListToolStripMenuItem.Text = "Export Turnback List";
+            this.exportTurnbackListToolStripMenuItem.Click += new System.EventHandler(this.exportTurnbackListToolStripMenuItem_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -996,6 +1005,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnucmdExportToExcel;
         private System.Windows.Forms.SaveFileDialog dlgExportExcel;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportTurnbackListToolStripMenuItem;
     }
 }
 

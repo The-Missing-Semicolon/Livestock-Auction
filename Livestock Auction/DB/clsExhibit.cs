@@ -244,7 +244,7 @@ namespace Livestock_Auction.DB
                     sheetFair.SetValue(iCurRow, 1, Exhibit.TagNumber);
                     sheetFair.SetValue(iCurRow, 2, Exhibit.MarketItem.MarketType);
                     sheetFair.SetValue(iCurRow, 3, Exhibit.Weight);
-                    sheetFair.Cells[string.Format("C{0}", iCurRow)].Style.Numberformat.Format = "#### " + Exhibit.MarketItem.MarketUnits;
+                    sheetFair.Cells[string.Format("C{0}", iCurRow)].Style.Numberformat.Format = "#### \"" + Exhibit.MarketItem.MarketUnits + "\"";
 
                     if (Exhibit.Purchases != null && Exhibit.Purchases.Count > 0)
                     {
@@ -295,7 +295,7 @@ namespace Livestock_Auction.DB
                     sheetNewHolland.SetValue(iCurRow, 1, Exhibit.TagNumber);
                     sheetNewHolland.SetValue(iCurRow, 2, Exhibit.MarketItem.MarketType);
                     sheetNewHolland.SetValue(iCurRow, 3, Exhibit.Weight);
-                    sheetNewHolland.Cells[string.Format("C{0}", iCurRow)].Style.Numberformat.Format = "#### " + Exhibit.MarketItem.MarketUnits;
+                    sheetNewHolland.Cells[string.Format("C{0}", iCurRow)].Style.Numberformat.Format = "#### \"" + Exhibit.MarketItem.MarketUnits + "\"";
                     sheetNewHolland.SetValue(iCurRow, 4, Exhibit.MarketItem.MarketValue);
                     sheetNewHolland.SetValue(iCurRow, 5, (Exhibit.MarketItem.MarketValue * Exhibit.Weight));
                     iCurRow++;

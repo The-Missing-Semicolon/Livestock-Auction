@@ -625,6 +625,28 @@ namespace Livestock_Auction
             System.Windows.Forms.MessageBox.Show("Export Complete", "Export");
         }
 
+        static public void ExportTurnBackListToExcel(string sFileName)
+        {
+            OfficeOpenXml.ExcelPackage outfile = new OfficeOpenXml.ExcelPackage();
+
+            foreach (DB.clsMarketItem mItem in clsDB.Market)
+            {
+                if ((mItem.MarketID > 0) && (mItem.MarketValue > 0))
+                {
+                    outfile.Workbook.Worksheets.Add(mItem.MarketType);
+                    clsDB.Purchases.ExportTurnBackList(outfile, mItem.MarketType);
+                }
+            }
+
+
+            FileStream outstream = new FileStream(sFileName, FileMode.Create);
+            outfile.SaveAs(outstream);
+            outstream.Close();
+
+            System.Windows.Forms.MessageBox.Show("Export Complete", "Export");
+
+        }
+
 
         //Helper function to query for a list of all last names from the buyer history.
         static public string[] BuyerHistory_LastNames()

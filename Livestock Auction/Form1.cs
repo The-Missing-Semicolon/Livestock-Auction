@@ -596,6 +596,14 @@ namespace Livestock_Auction
             }
         }
 
+        private void exportTurnbackListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dlgExportExcel.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                clsDB.ExportTurnBackListToExcel(dlgExportExcel.FileName);
+            }
+        }
+
         private void SettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmSettings settings = new frmSettings();
@@ -620,5 +628,7 @@ namespace Livestock_Auction
         {
             this.Close();
         }
+
+       
     }
 }

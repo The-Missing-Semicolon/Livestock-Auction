@@ -337,8 +337,8 @@ namespace Livestock_Auction.DB
                 sheetPurchases.SetValue(iCurRow, 7, Purchase.Exhibit.TagNumber);
                 sheetPurchases.SetValue(iCurRow, 8, Purchase.Exhibit.MarketItem.MarketType.ToString());
 
-                sheetPurchases.Cells[string.Format("I{0}", iCurRow)].Style.Numberformat.Format = "#### " + Purchase.Exhibit.MarketItem.MarketUnits;
                 sheetPurchases.SetValue(iCurRow, 9, Purchase.Exhibit.Weight);
+                sheetPurchases.Cells[string.Format("I{0}", iCurRow)].Style.Numberformat.Format = "#### \"" + Purchase.Exhibit.MarketItem.MarketUnits + "\"";
 
                 if (Purchase.ConditionOfSale == clsPurchase.enSaleCondition.PayAdvertising)
                 {
@@ -410,6 +410,50 @@ namespace Livestock_Auction.DB
             sheetPurchases.Column(12).AutoFit();
             sheetPurchases.Column(13).AutoFit();
         }
+        public void ExportTurnBackList(OfficeOpenXml.ExcelPackage outputPackage, string marketType)
+        {
+            OfficeOpenXml.ExcelWorksheet currentSheet = outputPackage.Workbook.Worksheets[marketType];
+
+            //Setup the headers
+            currentSheet.Row(1).Style.Font.Bold = true;
+
+            currentSheet.Cells["A1"].Value = "Tag Number";
+            currentSheet.Cells["B1"].Value = "Market Item";
+            currentSheet.Cells["C1"].Value = "Weight (lbs)";
+            currentSheet.Cells["D1"].Value = "Market Price";
+            currentSheet.Cells["E1"].Value = "Total";
+            
+            int iCurRow = 2;
+            foreach (clsPurchase Purchase in this)
+            {
+                if ((Purchase.Exhibit.MarketItem.MarketType == marketType) && (Purchase.ConditionOfSale == clsPurchase.enSaleCondition.PayAdvertising))
+                {
+                    currentSheet.SetValue(iCurRow, 1, Purchase.Exhibit.TagNumber);
+                    currentSheet.SetValue(iCurRow, 2, marketType);
+                    currentSheet.SetValue(iCurRow, 3, Purchase.Exhibit.Weight);
+                    currentSheet.SetValue(iCurRow, 4, Purchase.Exhibit.MarketItem.MarketValue);
+                    currentSheet.SetValue(iCurRow, 5, Purchase.Exhibit.Weight * Purchase.Exhibit.MarketItem.MarketValue);
+
+                    iCurRow++;
+                }
+            }
+
+            iCurRow--;
+            if (iCurRow > 1)
+            {
+                currentSheet.Cells[string.Format("D2:D{0}", iCurRow)].Style.Numberformat.Format = "$#,##0.00";
+                currentSheet.Cells[string.Format("E2:E{0}", iCurRow)].Style.Numberformat.Format = "$#,##0.00";
+            }
+
+            currentSheet.Cells[string.Format("A2:E{0}", iCurRow)].Sort();
+
+            //Auto fit columns
+            currentSheet.Column(1).AutoFit();
+            currentSheet.Column(2).AutoFit();
+            currentSheet.Column(3).AutoFit();
+            currentSheet.Column(4).AutoFit();
+            currentSheet.Column(5).AutoFit();            
+        }
 
         #region IEnumerable<clsPurchase> Members
 
@@ -425,6 +469,9 @@ namespace Livestock_Auction.DB
 
         #endregion
     }
+
+   
+
 
     public class clsPurchaseEnumerator : IEnumerator<clsPurchase>
     {
