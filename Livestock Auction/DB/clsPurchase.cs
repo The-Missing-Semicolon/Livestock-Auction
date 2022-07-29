@@ -443,9 +443,8 @@ namespace Livestock_Auction.DB
             {
                 currentSheet.Cells[string.Format("D2:D{0}", iCurRow)].Style.Numberformat.Format = "$#,##0.00";
                 currentSheet.Cells[string.Format("E2:E{0}", iCurRow)].Style.Numberformat.Format = "$#,##0.00";
+                currentSheet.Cells[string.Format("A2:E{0}", iCurRow)].Sort();
             }
-
-            currentSheet.Cells[string.Format("A2:E{0}", iCurRow)].Sort();
 
             //Auto fit columns
             currentSheet.Column(1).AutoFit();
