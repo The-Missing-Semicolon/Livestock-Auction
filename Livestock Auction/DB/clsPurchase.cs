@@ -318,11 +318,14 @@ namespace Livestock_Auction.DB
             sheetPurchases.Cells["F1"].Value = "Exhibitor Name";
             sheetPurchases.Cells["G1"].Value = "Tag Number";
             sheetPurchases.Cells["H1"].Value = "MarketItem";
-            sheetPurchases.Cells["I1"].Value = "Weight / Qty";
-            sheetPurchases.Cells["J1"].Value = "TurnedBack";
-            sheetPurchases.Cells["K1"].Value = "AmountCharged";
-            sheetPurchases.Cells["L1"].Value = "Destination";
-            sheetPurchases.Cells["M1"].Value = "Destination Notes";
+            sheetPurchases.Cells["I1"].Value = "Champion/ROG";
+
+            sheetPurchases.Cells["J1"].Value = "Weight / Qty";
+            sheetPurchases.Cells["K1"].Value = "TurnedBack";
+            sheetPurchases.Cells["L1"].Value = "AmountCharged";
+            sheetPurchases.Cells["M1"].Value = "Destination";
+            sheetPurchases.Cells["N1"].Value = "Destination Notes";
+            
 
             //Enter Data
             int iCurRow = 2;
@@ -336,51 +339,52 @@ namespace Livestock_Auction.DB
                 sheetPurchases.SetValue(iCurRow, 6, Purchase.Exhibit.Exhibitor.Name.ToString());
                 sheetPurchases.SetValue(iCurRow, 7, Purchase.Exhibit.TagNumber);
                 sheetPurchases.SetValue(iCurRow, 8, Purchase.Exhibit.MarketItem.MarketType.ToString());
+                sheetPurchases.SetValue(iCurRow, 9, Purchase.Exhibit.ChampionStatusText);
 
-                sheetPurchases.SetValue(iCurRow, 9, Purchase.Exhibit.Weight);
+                sheetPurchases.SetValue(iCurRow, 10, Purchase.Exhibit.Weight);
                 sheetPurchases.Cells[string.Format("I{0}", iCurRow)].Style.Numberformat.Format = "#### \"" + Purchase.Exhibit.MarketItem.MarketUnits + "\"";
 
                 if (Purchase.ConditionOfSale == clsPurchase.enSaleCondition.PayAdvertising)
                 {
-                    sheetPurchases.SetValue(iCurRow, 10, "Turned Back");
+                    sheetPurchases.SetValue(iCurRow, 11, "Turned Back");
                 }
                 else if (Purchase.ConditionOfSale == clsPurchase.enSaleCondition.PayFullPrice)
                 {
-                    sheetPurchases.SetValue(iCurRow, 10, "Kept by Buyer");
+                    sheetPurchases.SetValue(iCurRow, 11, "Kept by Buyer");
                 }
 
-                sheetPurchases.SetValue(iCurRow, 11, Purchase.TotalCharged);
+                sheetPurchases.SetValue(iCurRow, 12, Purchase.TotalCharged);
 
                 if (Purchase.ConditionOfSale == clsPurchase.enSaleCondition.PayFullPrice)
                 {
                     if (Purchase.DestinationOfAnimal == clsPurchase.enAnimalDestination.Fair)
                     {
-                        sheetPurchases.SetValue(iCurRow, 12, "Fair");
+                        sheetPurchases.SetValue(iCurRow, 13, "Fair");
                     }
                     else if (Purchase.DestinationOfAnimal == clsPurchase.enAnimalDestination.Seller)
                     {
-                        sheetPurchases.SetValue(iCurRow, 12, "Hauled By Seller");
-                        sheetPurchases.SetValue(iCurRow, 13, Purchase.HauledBy);
+                        sheetPurchases.SetValue(iCurRow, 13, "Hauled By Seller");
+                        sheetPurchases.SetValue(iCurRow, 14, Purchase.HauledBy);
                     }
                     else if (Purchase.DestinationOfAnimal == clsPurchase.enAnimalDestination.Buyer)
                     {
-                        sheetPurchases.SetValue(iCurRow, 12, "Hauled By Buyer");
+                        sheetPurchases.SetValue(iCurRow, 13, "Hauled By Buyer");
                     }
                     else if (Purchase.DestinationOfAnimal == clsPurchase.enAnimalDestination.SpecialInstructions)
                     {
-                        sheetPurchases.SetValue(iCurRow, 12, "Special Instructions");
-                        sheetPurchases.SetValue(iCurRow, 13, Purchase.HaulSpecialInstructions);
+                        sheetPurchases.SetValue(iCurRow, 13, "Special Instructions");
+                        sheetPurchases.SetValue(iCurRow, 14, Purchase.HaulSpecialInstructions);
                     }
                 }
                 else if (Purchase.ConditionOfSale == clsPurchase.enSaleCondition.PayAdvertising)
                 {
                     if (Purchase.Exhibit.TakeBack == DB.NoYes.Yes)
                     {
-                        sheetPurchases.SetValue(iCurRow, 12, "Hauled by Seller");
+                        sheetPurchases.SetValue(iCurRow, 13, "Hauled by Seller");
                     }
                     else if (Purchase.Exhibit.TakeBack == DB.NoYes.No)
                     {
-                        sheetPurchases.SetValue(iCurRow, 12, "New Holland");
+                        sheetPurchases.SetValue(iCurRow, 13, "New Holland");
                     }
                     
                 }
@@ -391,8 +395,8 @@ namespace Livestock_Auction.DB
             iCurRow--;
             if (iCurRow > 1)
             {
-                sheetPurchases.Cells[string.Format("K2:K{0}", iCurRow)].Style.Numberformat.Format = "$#,##0.00";
-                sheetPurchases.Cells[string.Format("K2:K{0}", iCurRow)].Style.Numberformat.Format = "$#,##0.00";
+                sheetPurchases.Cells[string.Format("L2:L{0}", iCurRow)].Style.Numberformat.Format = "$#,##0.00";
+                //sheetPurchases.Cells[string.Format("K2:K{0}", iCurRow)].Style.Numberformat.Format = "$#,##0.00";
             }
 
             //Auto fit columns
@@ -409,6 +413,7 @@ namespace Livestock_Auction.DB
             sheetPurchases.Column(11).AutoFit();
             sheetPurchases.Column(12).AutoFit();
             sheetPurchases.Column(13).AutoFit();
+            sheetPurchases.Column(14).AutoFit();
         }
         public void ExportTurnBackList(OfficeOpenXml.ExcelPackage outputPackage, string marketType)
         {
